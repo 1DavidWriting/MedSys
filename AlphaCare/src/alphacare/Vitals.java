@@ -1,6 +1,8 @@
 
 package alphacare;
 
+import java.util.ArrayList;
+
 
 public class Vitals {
     
@@ -21,10 +23,14 @@ public class Vitals {
     
     /**
      * It combines all vitals.
+     * @return 
      */
-    public void GetAllVitals() {
-        
-        
+    public ArrayList<Integer> GetAllVitals() {        
+        ArrayList<Integer> vitalStats = new ArrayList<>();        
+        vitalStats.add(bloodPressure);
+        vitalStats.add(weight);
+        vitalStats.add(bloodSugar);
+        return vitalStats;
     }
 
     /**

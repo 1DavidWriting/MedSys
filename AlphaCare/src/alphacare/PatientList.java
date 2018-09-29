@@ -27,6 +27,7 @@ public class PatientList {
     
     /**
      * It allows to add a patient.
+     * @param newID
      */
     public void addPatient(int newID) {
         this.idList.add(newID);        
