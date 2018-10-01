@@ -19,10 +19,12 @@ import javax.swing.JTextField;
  */
 public class PatientPanel extends JPanel{
     
+    private JLabel aLabel;
     private JLabel bLabel;
-    private JLabel mLabel;
+    private JLabel cLabel;
+    private JTextField aText;
     private JTextField bText;
-    private JTextField mText;
+    private JTextField cText;
     private JButton btnOkay;
     private JButton btnCancel;
     private JButton btnEHR;
@@ -34,32 +36,40 @@ public class PatientPanel extends JPanel{
         setLayout(null);
         setBackground(Color.white);
         
-        bLabel = new JLabel("Date of Birth:");
+        aLabel = new JLabel("Patient ID: ");
+        aLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        bLabel = new JLabel("Date of Birth: ");
         bLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-        mLabel = new JLabel("Primary Care Doctor: ");
-        mLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        cLabel = new JLabel("Primary Care Doctor: ");
+        cLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        aText = new JTextField(50);
         bText = new JTextField(50);
-        mText = new JTextField(50);
+        cText = new JTextField(50);
+        
         btnOkay = new JButton("Okay");
         btnCancel = new JButton("Cancel");   
         btnEHR = new JButton("EHR");
 
 
+        add(aLabel);
         add(bLabel);
-        add(mLabel);
+        add(cLabel);
+        add(aText);
         add(bText);
-        add(mText);
+        add(cText);
         add(btnOkay);
         add(btnCancel);
         add(btnEHR);
         
-        bLabel.setBounds(new Rectangle(5, 0, 150, 50));
-        mLabel.setBounds(new Rectangle(5, 50, 150, 50));
-        bText.setBounds(new Rectangle(150, 0, 300, 50));
-        mText.setBounds(new Rectangle(150, 50, 300, 50));
-        btnOkay.setBounds(new Rectangle(150, 100, 100, 100));
-        btnCancel.setBounds(new Rectangle(250, 100, 100, 100));
-        btnEHR.setBounds(new Rectangle(350, 100, 100, 100));
+        aLabel.setBounds(new Rectangle(5, 0 , 150, 50));
+        bLabel.setBounds(new Rectangle(5, 50, 150, 50));
+        cLabel.setBounds(new Rectangle(5, 100, 150, 50));
+        aText.setBounds(new Rectangle(150, 0, 300, 50));
+        bText.setBounds(new Rectangle(150, 50, 300, 50));
+        cText.setBounds(new Rectangle(150, 100, 300, 50));
+        btnOkay.setBounds(new Rectangle(150, 150, 100, 100));
+        btnCancel.setBounds(new Rectangle(250, 150, 100, 100));
+        btnEHR.setBounds(new Rectangle(350, 150, 100, 100));
 
     }
 
@@ -95,12 +105,28 @@ public class PatientPanel extends JPanel{
         this.bLabel = bLabel;
     }
 
-    public JLabel getmLabel() {
-        return mLabel;
+    public JLabel getaLabel() {
+        return aLabel;
     }
 
-    public void setmLabel(JLabel mLabel) {
-        this.mLabel = mLabel;
+    public void setaLabel(JLabel aLabel) {
+        this.aLabel = aLabel;
+    }
+
+    public JLabel getcLabel() {
+        return cLabel;
+    }
+
+    public void setcLabel(JLabel cLabel) {
+        this.cLabel = cLabel;
+    }
+
+    public JTextField getaText() {
+        return aText;
+    }
+
+    public void setaText(JTextField aText) {
+        this.aText = aText;
     }
 
     public JTextField getbText() {
@@ -111,12 +137,12 @@ public class PatientPanel extends JPanel{
         this.bText = bText;
     }
 
-    public JTextField getmText() {
-        return mText;
+    public JTextField getcText() {
+        return cText;
     }
 
-    public void setmText(JTextField mText) {
-        this.mText = mText;
+    public void setcText(JTextField cText) {
+        this.cText = cText;
     }
 
     public int getIndex() {
@@ -126,6 +152,6 @@ public class PatientPanel extends JPanel{
     public void setIndex(int index) {
         this.index = index;
     }
-    
+
 }
 
