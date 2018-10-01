@@ -18,10 +18,13 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        System.out.println("Testing PatientList");
         PatientList patientList = new PatientList();
         patientList.getList();
         patientList.addPatient(23);
+        System.out.println("");
         
+        System.out.println("Testing PatientController");
         PatientController patientController = new PatientController();
         
     }

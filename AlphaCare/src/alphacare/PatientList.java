@@ -45,7 +45,7 @@ public class PatientList {
         stubList.add(newID);
         System.out.println("Added patientId to list:" + newID);
         System.out.println("Updated list:");
-        System.out.println(stubList);        
+        System.out.println(stubList);   
     }
 
     /**

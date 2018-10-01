@@ -16,6 +16,7 @@ public class PatientController {
     
     public void createNewVitals(){
         //Stub;
+        System.out.println("Testing createNewVitals...");
         System.out.println("Created new Vitals object containing parameters: 1, 2, 3, 4, 5");
         Vitals vitalOne = new Vitals(1, 2, 3, 4, 5);
         
@@ -24,12 +25,14 @@ public class PatientController {
         
         System.out.println("Actual output: " + vitalOne.outputAllVitals());
         
+        //Test
         if(expectedOutput.equals(vitalOne.outputAllVitals())){
-            System.out.println("Test successful!");
+            System.out.println("Test successful");
         }
         else{
             System.out.println("Test failed");
         }
+        System.out.println("");
         
     }
 
