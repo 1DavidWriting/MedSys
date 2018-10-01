@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package alphacare;
 
-/**
- *
- * @author Ryan Feng
- */
 public class PatientController {
     private int patientID;
     
     public PatientController(){
+        createNewVitals();
+        
         
     }
     
@@ -21,8 +15,37 @@ public class PatientController {
     }
     
     public void createNewVitals(){
+        //Stub;
+        System.out.println("Created new Vitals object containing parameters: 1, 2, 3, 4, 5");
+        Vitals vitalOne = new Vitals(1, 2, 3, 4, 5);
         
+        String expectedOutput = "Vitals ID: 1, Patient ID: 2, Blood Pressure: 3, Weight: 4, Blood Sugar: 5";    
+        System.out.println("Expected output: " + expectedOutput);
         
+        System.out.println("Actual output: " + vitalOne.outputAllVitals());
+        
+        if(expectedOutput.equals(vitalOne.outputAllVitals())){
+            System.out.println("Test successful!");
+        }
+        else{
+            System.out.println("Test failed");
+        }
+        
+    }
+
+    /**
+     * @return the patientID
+     */
+    public int getPatientID() {
+        
+        return patientID;
+    }
+
+    /**
+     * @param patientID the patientID to set
+     */
+    public void setPatientID(int patientID) {
+        this.patientID = patientID;
     }
     
     

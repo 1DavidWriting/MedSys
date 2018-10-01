@@ -5,9 +5,12 @@
  */
 package TestHarness;
 
+import alphacare.PatientController;
+import alphacare.PatientList;
+
 /**
  *
- * @author Swaggy Daggy Gaming
+ * @author Ryan Feng
  */
 public class App {
 
@@ -15,7 +18,12 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        PatientList patientList = new PatientList();
+        patientList.getList();
+        patientList.addPatient(23);
+        
+        PatientController patientController = new PatientController();
+        
     }
     
 }

@@ -1,15 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package alphacare;
 
-/**
- *
- * @author Ryan Feng
- */
 public class DatabaseController {
+
     private String storedProcedures;
     
     public void Record(){
@@ -26,6 +19,20 @@ public class DatabaseController {
     
     public void newRecord(){
         
+    }
+    
+    /**
+     * @return the storedProcedures
+     */
+    public String getStoredProcedures() {
+        return storedProcedures;
+    }
+
+    /**
+     * @param storedProcedures the storedProcedures to set
+     */
+    public void setStoredProcedures(String storedProcedures) {
+        this.storedProcedures = storedProcedures;
     }
     
 }

@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package alphacare;
 
-/**
- *
- * @author Ryan Feng
- */
+
 public class AdminController {
     private int administratorID;
     
@@ -27,6 +20,20 @@ public class AdminController {
     
     public void selectUser(){
         
+    }
+
+    /**
+     * @return the administratorID
+     */
+    public int getAdministratorID() {
+        return administratorID;
+    }
+
+    /**
+     * @param administratorID the administratorID to set
+     */
+    public void setAdministratorID(int administratorID) {
+        this.administratorID = administratorID;
     }
     
     

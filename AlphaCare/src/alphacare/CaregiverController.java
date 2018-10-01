@@ -1,14 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package alphacare;
 
-/**
- *
- * @author Ryan Feng
- */
 public class CaregiverController {
     private int caregiverID;
     
@@ -23,6 +15,20 @@ public class CaregiverController {
     public void addPatientToList(){
         
         
+    }
+
+    /**
+     * @return the caregiverID
+     */
+    public int getCaregiverID() {
+        return caregiverID;
+    }
+
+    /**
+     * @param caregiverID the caregiverID to set
+     */
+    public void setCaregiverID(int caregiverID) {
+        this.caregiverID = caregiverID;
     }
     
     

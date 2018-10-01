@@ -16,8 +16,12 @@ public class Vitals {
     /**
      * This is the default constructor for the Vitals class.
      */
-    public Vitals() {
-        
+    public Vitals(int newVitalsID, int newPatientID, int newBloodPressure, int newWeight, int newBloodSugar) {
+        vitalsID = newVitalsID;
+        patientID = newPatientID;
+        bloodPressure = newBloodPressure;
+        weight = newWeight;
+        bloodSugar = newBloodSugar;
         
     }
     
@@ -111,6 +115,17 @@ public class Vitals {
      */
     public void setBloodSugar(int bloodSugar) {
         this.bloodSugar = bloodSugar;
+    }
+    
+    public String outputAllVitals(){
+        String output = (
+        "Vitals ID: " + this.vitalsID + ", " +
+        "Patient ID: " + this.patientID + ", " +
+        "Blood Pressure: " + this.bloodPressure + ", " +
+        "Weight: " + this.weight + ", " +
+        "Blood Sugar: " + this.bloodSugar      
+        );
+        return output;
     }
     
 }
