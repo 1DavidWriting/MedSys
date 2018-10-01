@@ -3,10 +3,17 @@ package alphacare;
 
 public class PatientController {
     private int patientID;
+    private PatientView view;
+    
     
     public PatientController(){
         createNewVitals();
         
+        view = new PatientView();
+        
+        view.getFrame().getPanel().getBtnOkay().addActionListener(event -> System.exit(0));
+        view.getFrame().getPanel().getBtnCancel().addActionListener(event -> System.exit(0));
+        view.getFrame().getPanel().getBtnEHR().addActionListener(event -> System.exit(0));
         
     }
     
