@@ -23,105 +23,70 @@ public class PatientPanel extends JPanel{
     private JLabel mLabel;
     private JTextField bText;
     private JTextField mText;
-    private JButton btnNext;
-    private JButton btnPrevious;
-    private JButton btnStore;
-    private JButton btnNew;
-    private JButton btnDelete;
-    private JButton btnEdit;
+    private JButton btnOkay;
+    private JButton btnCancel;
+    private JButton btnEHR;
 
     private int index;
 
     public PatientPanel() {
 
         setLayout(null);
-        setBackground(Color.blue);
+        setBackground(Color.white);
         
-        bLabel = new JLabel("Building: ");
+        bLabel = new JLabel("Date of Birth:");
         bLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
-        mLabel = new JLabel("Major: ");
+        mLabel = new JLabel("Primary Care Doctor: ");
         mLabel.setFont(new Font("Times New Roman", Font.BOLD, 15));
         bText = new JTextField(50);
         mText = new JTextField(50);
-        btnNext = new JButton("Next");
-        btnPrevious = new JButton("Previous");   
-        btnStore = new JButton("Store");
-        btnNew = new JButton("New");
-        btnDelete = new JButton("Delete");
-        btnEdit = new JButton("Edit");
+        btnOkay = new JButton("Okay");
+        btnCancel = new JButton("Cancel");   
+        btnEHR = new JButton("EHR");
+
 
         add(bLabel);
         add(mLabel);
         add(bText);
         add(mText);
-        add(btnNext);
-        add(btnPrevious);
-        add(btnStore);
-        add(btnNew);
-        add(btnDelete);
-        add(btnEdit);
+        add(btnOkay);
+        add(btnCancel);
+        add(btnEHR);
         
-        bLabel.setBounds(new Rectangle(25, 0, 100, 50));
-        mLabel.setBounds(new Rectangle(25, 50, 100, 50));
-        bText.setBounds(new Rectangle(100, 0, 300, 50));
-        mText.setBounds(new Rectangle(100, 50, 300, 50));
-        btnNext.setBounds(new Rectangle(200, 100, 100, 100));
-        btnPrevious.setBounds(new Rectangle(100, 100, 100, 100));
-        btnStore.setBounds(new Rectangle(300, 200, 100, 100));
-        btnNew.setBounds(new Rectangle(300, 100, 100, 100));
-        btnDelete.setBounds(new Rectangle(100, 200, 100, 100));
-        btnEdit.setBounds(new Rectangle(200, 200, 100, 100));
+        bLabel.setBounds(new Rectangle(5, 0, 150, 50));
+        mLabel.setBounds(new Rectangle(5, 50, 150, 50));
+        bText.setBounds(new Rectangle(150, 0, 300, 50));
+        mText.setBounds(new Rectangle(150, 50, 300, 50));
+        btnOkay.setBounds(new Rectangle(150, 100, 100, 100));
+        btnCancel.setBounds(new Rectangle(250, 100, 100, 100));
+        btnEHR.setBounds(new Rectangle(350, 100, 100, 100));
 
     }
 
-    public JButton getBtnNext() {
-        return btnNext;
+    public JButton getBtnOkay() {
+        return btnOkay;
     }
 
-    public void setBtnNext(JButton btnNext) {
-        this.btnNext = btnNext;
+    public void setBtnOkay(JButton btnOkay) {
+        this.btnOkay = btnOkay;
     }
 
-    public JButton getBtnNew() {
-        return btnNew;
+    public JButton getBtnCancel() {
+        return btnCancel;
     }
 
-    public void setBtnNew(JButton btnNew) {
-        this.btnNew = btnNew;
+    public void setBtnCancel(JButton btnCancel) {
+        this.btnCancel = btnCancel;
     }
 
-    public JButton getBtnPrevious() {
-        return btnPrevious;
+    public JButton getBtnEHR() {
+        return btnEHR;
     }
 
-    public void setBtnPrevious(JButton btnPrevious) {
-        this.btnPrevious = btnPrevious;
+    public void setBtnEHR(JButton btnEHR) {
+        this.btnEHR = btnEHR;
     }
-
-    public JButton getBtnDelete() {
-        return btnDelete;
-    }
-
-    public void setBtnDelete(JButton btnDelete) {
-        this.btnDelete = btnDelete;
-    }
-
-    public JButton getBtnStore() {
-        return btnStore;
-    }
-
-    public void setBtnStore(JButton btnStore) {
-        this.btnStore = btnStore;
-    }
-
-    public JButton getBtnEdit() {
-        return btnEdit;
-    }
-
-    public void setBtnEdit(JButton btnEdit) {
-        this.btnEdit = btnEdit;
-    }
-
+    
     public JLabel getbLabel() {
         return bLabel;
     }
