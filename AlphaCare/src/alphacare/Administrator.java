@@ -19,7 +19,10 @@ public class Administrator {
      * @return the adminID
      */
     public int getAdminID() {
-        return adminID;
+        //return adminID;
+        //stub:        
+        System.out.println("AdminID = 11");
+        return 11;
     }
 
     /**
@@ -27,7 +30,9 @@ public class Administrator {
      * @param adminID the adminID to set
      */
     public void setAdminID(int adminID) {
-        this.adminID = adminID;
+        //this.adminID = adminID;
+        //stub:
+        System.out.println("Admin ID set to: " + adminID);        
     }
     
 }
