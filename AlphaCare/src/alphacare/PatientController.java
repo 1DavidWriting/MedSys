@@ -3,15 +3,38 @@ package alphacare;
 
 public class PatientController {
     private int patientID;
+    private Boolean access = false;
+    private PatientView pv;
     
     public PatientController(){
         createNewVitals();
+        grantAccess();
         
+    }
+    
+    public void createPatientView(){
+        pv = new PatientView();
         
     }
     
     public void grantAccess(){
+        //Stub;
+        System.out.println("Testing grantAccess...");
+        this.access = true;
         
+        Boolean expectedOutput = true;    
+        System.out.println("Expected output: " + expectedOutput);
+        
+        System.out.println("Actual output: " + this.access);
+        
+        //Test
+        if(expectedOutput.equals(this.access)){
+            System.out.println("Test successful");
+        }
+        else{
+            System.out.println("Test failed");
+        }
+        System.out.println("");
     }
     
     public void createNewVitals(){
@@ -40,8 +63,7 @@ public class PatientController {
      * @return the patientID
      */
     public int getPatientID() {
-        
-        return patientID;
+        return this.patientID; 
     }
 
     /**
