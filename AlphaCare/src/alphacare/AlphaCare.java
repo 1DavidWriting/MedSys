@@ -11,6 +11,7 @@ public class AlphaCare {
         patientList.getList();
         patientList.addPatient(23);
         
+        View view = new View();
     }
     
 }
