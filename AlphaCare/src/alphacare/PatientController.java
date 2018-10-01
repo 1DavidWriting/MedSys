@@ -4,7 +4,6 @@ package alphacare;
 public class PatientController {
     private int patientID;
     private Boolean access = false;
-    private PatientView pv;
     private PatientView view;
     
     public PatientController(){
@@ -14,7 +13,6 @@ public class PatientController {
     }
     
     public void createPatientView(){
-        pv = new PatientView();
         view = new PatientView();
         
         view.getFrame().getPanel().getBtnOkay().addActionListener(event -> System.exit(0));

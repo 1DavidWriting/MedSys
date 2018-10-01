@@ -33,6 +33,10 @@ public class PatientPanel extends JPanel{
 
     public PatientPanel() {
 
+        System.out.println("Testing buttons...");
+       //Testing labels, buttons, and text fields for exhibiting "realistic" behaviors
+       //with respect to their responsibilities.
+        
         setLayout(null);
         setBackground(Color.white);
         
