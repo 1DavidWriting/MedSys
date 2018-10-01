@@ -5,6 +5,7 @@ public class PatientController {
     private int patientID;
     private Boolean access = false;
     private PatientView pv;
+    private PatientView view;
     
     public PatientController(){
         createNewVitals();
@@ -14,6 +15,11 @@ public class PatientController {
     
     public void createPatientView(){
         pv = new PatientView();
+        view = new PatientView();
+        
+        view.getFrame().getPanel().getBtnOkay().addActionListener(event -> System.exit(0));
+        view.getFrame().getPanel().getBtnCancel().addActionListener(event -> System.exit(0));
+        view.getFrame().getPanel().getBtnEHR().addActionListener(event -> System.exit(0));
         
     }
     

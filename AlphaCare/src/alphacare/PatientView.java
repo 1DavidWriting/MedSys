@@ -5,18 +5,22 @@
  */
 package alphacare;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author kken1
  */
-public class PatientView {
+public class PatientView extends JFrame{
     
     private PatientFrame frame;
 
     public PatientView() {
+        
         frame = new PatientFrame();
+        
     }
-
+    
     public PatientFrame getFrame() {
         return frame;
     }
