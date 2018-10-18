@@ -2,6 +2,8 @@ package TestHarness;
 import alphacare.PatientController;
 import alphacare.PatientList;
 import alphacare.PatientView;
+import alphacare.Patient;
+import java.time.LocalDate;
 
 public class App {
 
@@ -24,6 +26,12 @@ public class App {
         //Testing PatientView
         PatientView pv = new PatientView();
         
+        //Testing Patient
+        System.out.println("Testing Patient");
+        Patient patient1 = new Patient();
+        LocalDate happyBirthday = LocalDate.of(2016, 3, 12);
+        patient1.setBirthDate(happyBirthday);        
+        System.out.println("Patient1 is " + patient1.getCurrentAge() +" years old.");
     }
     
 }

@@ -1,12 +1,14 @@
 
 package alphacare;
 
+import java.time.Period;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Patient {
     
     private int patientID;
-    private Date birthDate;
+    private LocalDate birthDate;
     private String primCareDoc;
     private EHR healthRecord;
     
@@ -39,7 +41,7 @@ public class Patient {
      * Returns the birth date for the patient.
      * @return the birthDate
      */
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -47,7 +49,7 @@ public class Patient {
      * Sets the birth date for the patient.
      * @param birthDate the birthDate to set
      */
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -81,6 +83,14 @@ public class Patient {
      */
     public void setHealthRecord(EHR healthRecord) {
         this.healthRecord = healthRecord;
+    }
+    
+    public int getCurrentAge(){
+        LocalDate today;
+        today = LocalDate.now();
+        int age;
+        age = Period.between(this.birthDate, today).getYears();        
+        return age;
     }
 
 }
