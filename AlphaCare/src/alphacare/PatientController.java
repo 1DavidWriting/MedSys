@@ -16,14 +16,15 @@ public class PatientController implements ActionListener {
     public PatientController(){
         createNewVitals();
         grantAccess();
-        createPatientView(); 
         createPatient();
+        createPatientView(); 
+        
     }
     
     public void createPatient(){
         //Testing Patient
         System.out.println("Testing Patient");
-        LocalDate happyBirthday = LocalDate.of(2016, 3, 12);
+        LocalDate happyBirthday = LocalDate.of(1995, 3, 12);
         EHR ehr1 = createEHR();
         /*     
       User: int ID, String name, String pass, String userType(automatic)
@@ -42,16 +43,12 @@ public class PatientController implements ActionListener {
     }
     
     public void createPatientView(){
-        view = new PatientView();
-        addActionListeners();
-        
-        
-        
-        
+        view = new PatientView(patient1);
+        addActionListeners();      
     }
         
         private void addActionListeners(){
-            //start button
+            //the start button is currently set to disabled and invisible.  We may not need it.
             view.getFrame().getPanel().getStartButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
@@ -70,6 +67,7 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getExerciseButton()){
                          view.getFrame().getPanel().getPatientInfoTextArea().setText("Exercise info:");
+                         showEditSaveControlButtons();
                     }
                 };
             });
@@ -133,7 +131,14 @@ public class PatientController implements ActionListener {
         }
         
         
-     
+     private void showEditSaveControlButtons(){
+         //if (patient1.getPermissions().canUpdateData){
+            view.getFrame().getPanel().getSaveButton().setVisible(true);
+            view.getFrame().getPanel().getCancelButton().setVisible(true);
+            view.getFrame().getPanel().getEditButton().setVisible(true);
+            view.getFrame().getPanel().getEditButton().setEnabled(true);
+         //}
+     }
         
     
     

@@ -17,9 +17,17 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
     /**
      * Creates new form PatientPanelNew
      */
-    public PatientPanel() {
+    private Patient patient;
+    public PatientPanel(Patient thePatient) {
         initComponents();
+        patient = thePatient;
+        setNameText();
+        
     }
+    private void setNameText(){        
+        this.getNameLabel().setText("Welcome, " + getPatient().getFullName());
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,6 +55,9 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         displayPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         patientInfoTextArea = new javax.swing.JTextArea();
+        editButton = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         nameLabel.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
         nameLabel.setText("Patient's Name");
@@ -58,24 +69,29 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
                 startButtonActionPerformed(evt);
             }
         });
+        startButton.setVisible(false);
+        startButton.setEnabled(false);
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(33, 33, 33)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(startButton)
                 .addContainerGap())
         );
@@ -83,9 +99,11 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         optionsLabel.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
         optionsLabel.setText("Choose one:");
 
+        exerciseButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         exerciseButton.setText("Exercise");
         buttonGroup1.add(exerciseButton);
 
+        soapButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         soapButton.setText("Medical Record");
         soapButton.setBorderPainted(false);
         buttonGroup1.add(soapButton);
@@ -95,8 +113,10 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             }
         });
 
+        bloodSugarButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bloodSugarButton.setText("Blood Sugar");
 
+        bloodPressureButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         bloodPressureButton.setText("Blood Pressure");
         bloodPressureButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,10 +124,13 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             }
         });
 
+        diagnosesButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         diagnosesButton.setText("Diagnoses");
 
+        prescriptionsButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         prescriptionsButton.setText("Prescriptions");
 
+        weightButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         weightButton.setText("Weight");
 
         javax.swing.GroupLayout selectionPanelLayout = new javax.swing.GroupLayout(selectionPanel);
@@ -116,18 +139,17 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(selectionPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(optionsLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                    .addGroup(selectionPanelLayout.createSequentialGroup()
-                        .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(bloodPressureButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(diagnosesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(weightButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(prescriptionsButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bloodSugarButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(soapButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(exerciseButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(optionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(exerciseButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(soapButton, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                        .addComponent(bloodSugarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(prescriptionsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(weightButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(diagnosesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bloodPressureButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 77, Short.MAX_VALUE))
         );
         selectionPanelLayout.setVerticalGroup(
             selectionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,13 +170,25 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
                 .addComponent(diagnosesButton)
                 .addGap(18, 18, 18)
                 .addComponent(bloodPressureButton)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         patientInfoTextArea.setColumns(20);
+        patientInfoTextArea.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
         patientInfoTextArea.setRows(5);
         jScrollPane1.setViewportView(patientInfoTextArea);
-        patientInfoTextArea.setVisible(false);
+        //patientInfoTextArea.setVisible(false);
+
+        editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+
+        saveButton.setText("Save");
+
+        cancelButton.setText("Cancel");
 
         javax.swing.GroupLayout displayPanelLayout = new javax.swing.GroupLayout(displayPanel);
         displayPanel.setLayout(displayPanelLayout);
@@ -162,13 +196,34 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(displayPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 744, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(displayPanelLayout.createSequentialGroup()
+                        .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(103, 103, 103)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(584, Short.MAX_VALUE))
         );
         displayPanelLayout.setVerticalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(displayPanelLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editButton)
+                    .addComponent(saveButton)
+                    .addComponent(cancelButton))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
+
+        editButton.setEnabled(false);
+        editButton.setVisible(false);
+        saveButton.setVisible(false);
+        saveButton.setEnabled(false);
+        cancelButton.setEnabled(false);
+        cancelButton.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -186,13 +241,13 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(topPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(selectionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(displayPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        selectionPanel.setVisible(false);
+        //selectionPanel.setVisible(false);
     }// </editor-fold>//GEN-END:initComponents
 
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
@@ -207,20 +262,27 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
     }//GEN-LAST:event_bloodPressureButtonActionPerformed
 
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bloodPressureButton;
     private javax.swing.JButton bloodSugarButton;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JButton diagnosesButton;
     private javax.swing.JPanel displayPanel;
+    private javax.swing.JButton editButton;
     private javax.swing.JButton exerciseButton;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel optionsLabel;
     private javax.swing.JTextArea patientInfoTextArea;
     private javax.swing.JButton prescriptionsButton;
+    private javax.swing.JButton saveButton;
     private javax.swing.JPanel selectionPanel;
     private javax.swing.JButton soapButton;
     private javax.swing.JButton startButton;
@@ -468,5 +530,75 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
      */
     public void setPatientInfoTextArea(javax.swing.JTextArea patientInfoTextArea) {
         this.patientInfoTextArea = patientInfoTextArea;
+    }
+
+    /**
+     * @return the patient
+     */
+    public Patient getPatient() {
+        return patient;
+    }
+
+    /**
+     * @param patient the patient to set
+     */
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    /**
+     * @return the cancelButton
+     */
+    public javax.swing.JButton getCancelButton() {
+        return cancelButton;
+    }
+
+    /**
+     * @param cancelButton the cancelButton to set
+     */
+    public void setCancelButton(javax.swing.JButton cancelButton) {
+        this.cancelButton = cancelButton;
+    }
+
+    /**
+     * @return the editButton
+     */
+    public javax.swing.JButton getEditButton() {
+        return editButton;
+    }
+
+    /**
+     * @param editButton the editButton to set
+     */
+    public void setEditButton(javax.swing.JButton editButton) {
+        this.editButton = editButton;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the saveButton
+     */
+    public javax.swing.JButton getSaveButton() {
+        return saveButton;
+    }
+
+    /**
+     * @param saveButton the saveButton to set
+     */
+    public void setSaveButton(javax.swing.JButton saveButton) {
+        this.saveButton = saveButton;
     }
 }
