@@ -3,9 +3,8 @@ package alphacare;
 
 import java.time.Period;
 import java.time.LocalDate;
-import java.util.Date;
 
-public class Patient {
+public class Patient extends User{
     
     private int patientID;
     private LocalDate birthDate;
@@ -16,9 +15,15 @@ public class Patient {
     /**
      * This is the default constructor for the Patient class.
      */
-    public Patient() {
-        
-        
+    
+    
+   
+    
+    Patient (int ID, LocalDate birthday, String primaryCareDoc, EHR ehr) {
+         patientID = ID;
+         birthDate = birthday;
+         primCareDoc = primaryCareDoc;
+         healthRecord = ehr;
     }
 
     /**

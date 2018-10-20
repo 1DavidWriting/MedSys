@@ -10,6 +10,13 @@ public class User {
     private Permissions permissions;
     private String role;
 
+    User(int ID, String name, String pass, String userType){
+        userID = ID;
+        userName = name;
+        password = pass;
+        role = userType;
+    }
+    
     /**
      * Returns the user id for the user.
      * @return the userID
