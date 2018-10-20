@@ -1,45 +1,46 @@
 
 package alphacare;
 
-import java.util.Date;
+import java.time.Period;
+import java.time.LocalDate;
 
-public class Patient {
+public class Patient extends User{
     
-    private int patientID;
-    private Date birthDate;
+    
+    private LocalDate birthDate;
     private String primCareDoc;
-    private EHR healthRecord;
+    private EHR healthRecord;    
     
     
-    /**
-     * This is the default constructor for the Patient class.
+    /*     
+      User: int ID, , String fullName, String userName, String pass, String userType
+      Patient: all of above plus birthday
      */
-    public Patient() {
-        
-        
+    
+    public Patient (int ID, String fullName, String userName, String pass, LocalDate birthday) {         
+         super(ID, fullName, userName, pass, "Patient");
+         birthDate = birthday;         
+    }
+   
+    /*     
+      User: int ID, String name, String pass, String userType
+      Patient: all of above plus birthday primary care doc and EHR
+     */
+    public Patient (int ID, String fullName, String userName, String pass, LocalDate birthday, String primaryCareDoc, EHR ehr) {
+         
+         super(ID, fullName, userName, pass, "Patient");
+         birthDate = birthday;
+         primCareDoc = primaryCareDoc;
+         healthRecord = ehr;
     }
 
-    /**
-     * Returns the patient id for the patient.
-     * @return the patientID
-     */
-    public int getPatientID() {
-        return patientID;
-    }
-
-    /**
-     * Sets the patient id for the patient.
-     * @param patientID the patientID to set
-     */
-    public void setPatientID(int patientID) {
-        this.patientID = patientID;
-    }
+   
 
     /**
      * Returns the birth date for the patient.
      * @return the birthDate
      */
-    public Date getBirthDate() {
+    public LocalDate getBirthDate() {
         return birthDate;
     }
 
@@ -47,7 +48,7 @@ public class Patient {
      * Sets the birth date for the patient.
      * @param birthDate the birthDate to set
      */
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -81,6 +82,22 @@ public class Patient {
      */
     public void setHealthRecord(EHR healthRecord) {
         this.healthRecord = healthRecord;
+    }
+    
+    public int getCurrentAge(){
+        LocalDate today;
+        today = LocalDate.now();
+        int age;
+        age = Period.between(this.birthDate, today).getYears();        
+        return age;
+    }
+    
+    //calculate age of patient and set the permissions of canUpdateData to false
+    public void checkIsMinor(){
+         int age = getCurrentAge();
+         if (age < 18) {
+            this.getPermissions().canUpdateData = false;
+         }
     }
 
 }

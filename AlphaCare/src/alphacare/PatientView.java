@@ -15,9 +15,9 @@ public class PatientView extends JFrame{
     
     private PatientFrame frame;
 
-    public PatientView() {
+    public PatientView(Patient patient) {
         
-        frame = new PatientFrame();
+        frame = new PatientFrame(patient);
         
     }
     
