@@ -178,6 +178,7 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         patientInfoTextArea.setRows(5);
         jScrollPane1.setViewportView(patientInfoTextArea);
         //patientInfoTextArea.setVisible(false);
+        patientInfoTextArea.setEditable(false);
 
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {

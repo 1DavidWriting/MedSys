@@ -93,7 +93,7 @@ public class Patient extends User{
     }
     
     //calculate age of patient and set the permissions of canUpdateData to false
-    private void checkIsMinor(){
+    public void checkIsMinor(){
          int age = getCurrentAge();
          if (age < 18) {
             this.getPermissions().canUpdateData = false;

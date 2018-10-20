@@ -17,6 +17,7 @@ public class User {
         userName = user_Name;
         password = pass;
         role = userType;
+        this.setPermissions(new Permissions(role));
     }
     
     /**
