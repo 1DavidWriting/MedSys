@@ -5,14 +5,16 @@ package alphacare;
 public class User {
     
     private int userID;
+    private String fullName;
     private String userName;
     private String password;
     private Permissions permissions;
     private String role;
 
-    User(int ID, String name, String pass, String userType){
+    User(int ID, String full_Name, String user_Name, String pass, String userType){
         userID = ID;
-        userName = name;
+        fullName = full_Name;
+        userName = user_Name;
         password = pass;
         role = userType;
     }
@@ -95,6 +97,20 @@ public class User {
      */
     public void setRole(String role) {
         this.role = role;
+    }
+
+    /**
+     * @return the fullName
+     */
+    public String getFullName() {
+        return fullName;
+    }
+
+    /**
+     * @param fullName the fullName to set
+     */
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     

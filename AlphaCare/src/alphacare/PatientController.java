@@ -1,24 +1,149 @@
 
 package alphacare;
 
-public class PatientController {
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.time.LocalDate;
+
+
+public class PatientController implements ActionListener {
     private int patientID;
     private Boolean access = false;
     private PatientView view;
+    Patient patient1;
     
     public PatientController(){
         createNewVitals();
         grantAccess();
-        
+        createPatientView(); 
+        createPatient();
+    }
+    
+    public void createPatient(){
+        //Testing Patient
+        System.out.println("Testing Patient");
+        LocalDate happyBirthday = LocalDate.of(2016, 3, 12);
+        EHR ehr1 = createEHR();
+        /*     
+      User: int ID, String name, String pass, String userType(automatic)
+      Patient: all of above plus birthday
+     */
+        patient1 = new Patient(1, "Joe Snow", "js1", "easy1", happyBirthday, "Doctor DoMore", ehr1); 
+        System.out.println("Patient1 is " + patient1.getCurrentAge() +" years old."); 
+        patient1.setHealthRecord(ehr1);
+        System.out.println(patient1.getHealthRecord().getPrescriptions());
+    }
+    
+    public EHR createEHR(){
+        EHR ehr1 = new EHR();
+        ehr1.setPrescriptions("Prescriptions: \n\n *Albuterol \n\n *Depakote \n\n *Synthroid \n\n *Crestor");
+        return ehr1;
     }
     
     public void createPatientView(){
         view = new PatientView();
+        addActionListeners();
         
-        view.getFrame().getPanel().getBtnOkay().addActionListener(event -> System.exit(0));
-        view.getFrame().getPanel().getBtnCancel().addActionListener(event -> System.exit(0));
-        view.getFrame().getPanel().getBtnEHR().addActionListener(event -> System.exit(0));
         
+        
+        
+    }
+        
+        private void addActionListeners(){
+            //start button
+            view.getFrame().getPanel().getStartButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getStartButton()){
+                         //System.out.println("Start button clicked");
+                         view.getFrame().getPanel().getNameLabel().setText("Welcome, " + patient1.getFullName());
+                         view.getFrame().getPanel().getSelectionPanel().setVisible(true);
+                         view.getFrame().getPanel().getStartButton().setVisible(false);
+                         view.getFrame().getPanel().getPatientInfoTextArea().setVisible(true);
+                    }
+                };
+            });
+            //exercise
+            view.getFrame().getPanel().getExerciseButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getExerciseButton()){
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Exercise info:");
+                    }
+                };
+            });
+            //medical record
+            view.getFrame().getPanel().getSoapButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getSoapButton()){
+                          view.getFrame().getPanel().getPatientInfoTextArea().setText("Subjective: \n\n Objective: \n\n  Assessment: \n\n  Plan: \n\n");                                      
+                    }
+                };
+            });
+            //blood sugar
+            view.getFrame().getPanel().getBloodSugarButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getBloodSugarButton()){
+                        view.getFrame().getPanel().getPatientInfoTextArea().setText("Blood sugar:");                                                 
+                    }
+                };
+            });
+            //prescriptions
+            view.getFrame().getPanel().getPrescriptionsButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getPrescriptionsButton()){
+                        String prescriptions = patient1.getHealthRecord().getPrescriptions();
+                        System.out.println("clicked prescriptions");
+                        //prescriptions = ehr1
+                        view.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);                                      
+                    }
+                };
+            });
+            //weight
+            view.getFrame().getPanel().getWeightButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getWeightButton()){
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Weight:");                                       
+                    }
+                };
+            });
+            //diagnoses
+            view.getFrame().getPanel().getDiagnosesButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getDiagnosesButton()){
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Diagnoses:");                                      
+                    }
+                };
+            });
+            //blood pressure
+            view.getFrame().getPanel().getBloodSugarButton().addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent ae){
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getBloodSugarButton()){
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Blood Sugar:");                                      
+                    }
+                };
+            });
+        }
+        
+        
+     
+        
+    
+    
+    public void actionPerformed(ActionEvent event) 
+    {
+       	 Object obj = event.getSource();
+     	 if (event.getSource() == view.getFrame().getPanel().getStartButton() )
+         {
+             
+         }
     }
     
     public void grantAccess(){

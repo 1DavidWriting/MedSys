@@ -15,6 +15,7 @@ public class Permissions {
     
     /**
      * This constructor requires a role of patient, administrator, physician, or care giver
+     * @param role
      */
     public Permissions(String role) {
         if (role.equalsIgnoreCase("Patient")){canViewEHR = true; canUpdateData = true; canCreateSOAP = false; canRunReport = false;} //patient
@@ -24,7 +25,7 @@ public class Permissions {
         else {
             System.out.println ("Role not found for creating permissions, all permissions set to false");
             canViewEHR = false; canUpdateData = false; canCreateSOAP = false; canRunReport = false;        
-        }
+        }        
     }
     
 }

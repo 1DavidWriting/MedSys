@@ -22,7 +22,7 @@ public class PatientFrame extends JFrame{
         panel = new PatientPanel();
         
         add(panel);
-        setSize(465,290);
+        setSize(1200,800);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         

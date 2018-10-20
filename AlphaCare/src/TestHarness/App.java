@@ -1,4 +1,5 @@
 package TestHarness;
+import alphacare.EHR;
 import alphacare.PatientController;
 import alphacare.PatientList;
 import alphacare.PatientView;
@@ -28,9 +29,13 @@ public class App {
         
         //Testing Patient
         System.out.println("Testing Patient");
-        Patient patient1 = new Patient();
         LocalDate happyBirthday = LocalDate.of(2016, 3, 12);
-        patient1.setBirthDate(happyBirthday);        
+        EHR ehr1 = new EHR();
+        /*     
+      User: int ID, String name, String pass, String userType(automatic)
+      Patient: all of above plus birthday
+     */
+        Patient patient1 = new Patient(1, "Joe Snow", "js1","easy1", happyBirthday, "Doctor DoMore", ehr1); 
         System.out.println("Patient1 is " + patient1.getCurrentAge() +" years old.");
     }
     
