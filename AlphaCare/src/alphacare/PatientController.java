@@ -17,7 +17,8 @@ public class PatientController implements ActionListener {
         createNewVitals();
         grantAccess();
         createPatient();
-        createPatientView(); 
+        //createPatientView(); 
+        createLoginView();
         
     }
     
@@ -40,6 +41,26 @@ public class PatientController implements ActionListener {
         EHR ehr1 = new EHR();
         ehr1.setPrescriptions("Prescriptions: \n\n *Albuterol \n\n *Depakote \n\n *Synthroid \n\n *Crestor");
         return ehr1;
+    }
+    
+    public void createLoginView(){
+        Login login = new Login();
+        login.getLoginButton().addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent e) { 
+            createPatientView();
+                    
+//                    String userID = userIDField.getText();
+//                    String password = passwordField.getText();
+//                    
+//                    if(userID.equals(p1.getID()) && password.equals(p1.getPassword())){
+//                        createProfileView();
+//                    }
+//                    
+//                    else {
+//                    JOptionPane.showMessageDialog(frame, "Incorrect username/password");
+//                    }
+                } 
+            });
     }
     
     public void createPatientView(){
