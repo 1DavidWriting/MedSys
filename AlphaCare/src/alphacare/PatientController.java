@@ -78,7 +78,8 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getSoapButton()){
                           view.getFrame().getPanel().getPatientInfoTextArea().setText("Subjective: \n\n Objective: \n\n  Assessment: \n\n  Plan: \n\n");
-                          //Patients can't edit medical records                          
+                          //Patients can't edit medical records
+                          hideEditSaveControlButtons();
                     }
                 };
             });
@@ -99,7 +100,8 @@ public class PatientController implements ActionListener {
                     if (obj == view.getFrame().getPanel().getPrescriptionsButton()){
                         String prescriptions = patient1.getHealthRecord().getPrescriptions();
                         view.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);
-                        //Patients can't edit prescriptions 
+                        //Patients can't edit prescriptions
+                        hideEditSaveControlButtons();
                     }
                 };
             });
@@ -120,6 +122,7 @@ public class PatientController implements ActionListener {
                     if (obj == view.getFrame().getPanel().getDiagnosesButton()){
                          view.getFrame().getPanel().getPatientInfoTextArea().setText("Diagnoses:");
                          //Patients can't edit diagnoses
+                         hideEditSaveControlButtons();
                     }
                 };
             });
@@ -153,6 +156,18 @@ public class PatientController implements ActionListener {
             view.getFrame().getPanel().getCancelButton().setVisible(true);
             view.getFrame().getPanel().getEditButton().setVisible(true);
             view.getFrame().getPanel().getEditButton().setEnabled(true);
+            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
+         }
+     }
+     
+     private void hideEditSaveControlButtons(){
+         patient1.checkIsMinor();
+         if (patient1.getPermissions().canUpdateData){
+            view.getFrame().getPanel().getSaveButton().setVisible(false);
+            view.getFrame().getPanel().getCancelButton().setVisible(false);
+            view.getFrame().getPanel().getEditButton().setVisible(false);
+            view.getFrame().getPanel().getEditButton().setEnabled(false);
+            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
          }
      }
         
