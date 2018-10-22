@@ -6,12 +6,11 @@ public class AlphaCare {
 
 
     public static void main(String[] args) {
-        //System.out.println("Run App.java file in TestHarness module");
+        //username: js1
+        //password: easy1
         
         LoginController loginController = new LoginController();
-        //PatientController controller = new PatientController();
-        
-        
+
     }
     
 }
