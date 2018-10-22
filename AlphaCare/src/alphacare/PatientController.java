@@ -150,6 +150,20 @@ public class PatientController implements ActionListener {
                     }
                 };
             });
+            
+            view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getCancelButton()){
+                        
+                        view.getFrame().getPanel().getPatientInfoTextArea().setText(" ");
+                        
+                    }
+                    
+                }
+            
+            });
+            
         }
      
      private void addActionListenerForPatientTextArea(){
@@ -183,14 +197,20 @@ public class PatientController implements ActionListener {
          if (patient1.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(true);
             view.getFrame().getPanel().getCancelButton().setVisible(true);
+<<<<<<< HEAD
+=======
+            //view.getFrame().getPanel().getEditButton().setVisible(true);
+
+>>>>>>> 18069c43f6289c9ab0f36debd0385be5dfcb23b8
             view.getFrame().getPanel().getEditButton().setVisible(false);
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
             view.getFrame().getPanel().getSaveButton().setEnabled(false);
             view.getFrame().getPanel().getCancelButton().setEnabled(false);
-
-            
-           
-          
+            view.getFrame().getPanel().getEditButton().setVisible(true);
+            view.getFrame().getPanel().getEditButton().setEnabled(true);
+            view.getFrame().getPanel().getSaveButton().setEnabled(true);
+            view.getFrame().getPanel().getCancelButton().setEnabled(true);
+            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
          }
      }
      
@@ -206,14 +226,8 @@ public class PatientController implements ActionListener {
             view.getFrame().getPanel().getCancelButton().setEnabled(false);
          }
      }
-
         
-    
     //start button is now hidden
-
-     
-    
-
     public void actionPerformed(ActionEvent event) 
     {
        	 Object obj = event.getSource();
