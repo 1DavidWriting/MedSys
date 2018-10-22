@@ -197,11 +197,11 @@ public class PatientController implements ActionListener {
          if (patient1.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(true);
             view.getFrame().getPanel().getCancelButton().setVisible(true);
-<<<<<<< HEAD
-=======
+
+
             //view.getFrame().getPanel().getEditButton().setVisible(true);
 
->>>>>>> 18069c43f6289c9ab0f36debd0385be5dfcb23b8
+
             view.getFrame().getPanel().getEditButton().setVisible(false);
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
             view.getFrame().getPanel().getSaveButton().setEnabled(false);
