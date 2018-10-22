@@ -167,13 +167,9 @@ public class PatientController implements ActionListener {
          if (patient1.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(true);
             view.getFrame().getPanel().getCancelButton().setVisible(true);
-<<<<<<< HEAD
-//<<<<<<< HEAD
             //view.getFrame().getPanel().getEditButton().setVisible(true);
-=======
 
             view.getFrame().getPanel().getEditButton().setVisible(false);
->>>>>>> 0e951a820f80f8082f33b8d7818a43d66a28447d
             //view.getFrame().getPanel().getEditButton().setEnabled(true);
             
             
@@ -181,18 +177,11 @@ public class PatientController implements ActionListener {
             //view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
             view.getFrame().getPanel().getSaveButton().setEnabled(false);
             view.getFrame().getPanel().getCancelButton().setEnabled(false);
-<<<<<<< HEAD
             view.getFrame().getPanel().getEditButton().setVisible(true);
             view.getFrame().getPanel().getEditButton().setEnabled(true);
             view.getFrame().getPanel().getSaveButton().setEnabled(true);
             view.getFrame().getPanel().getCancelButton().setEnabled(true);
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
-=======
-
-            
-           
-          
->>>>>>> 0e951a820f80f8082f33b8d7818a43d66a28447d
          }
      }
      
@@ -208,20 +197,8 @@ public class PatientController implements ActionListener {
             view.getFrame().getPanel().getCancelButton().setEnabled(false);
          }
      }
-<<<<<<< HEAD
-=======
-
->>>>>>> 0e951a820f80f8082f33b8d7818a43d66a28447d
         
     //start button is now hidden
-<<<<<<< HEAD
-     
-=======
-
-     
-    
-
->>>>>>> 0e951a820f80f8082f33b8d7818a43d66a28447d
     public void actionPerformed(ActionEvent event) 
     {
        	 Object obj = event.getSource();
