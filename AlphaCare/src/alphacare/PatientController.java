@@ -18,7 +18,6 @@ public class PatientController implements ActionListener {
         //createNewVitals();
         //grantAccess();
         createPatient();
-        //createPatientView(); 
         createLoginView();
         
     }
