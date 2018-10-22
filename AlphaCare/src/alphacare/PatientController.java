@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 
 public class PatientController implements ActionListener {
@@ -14,32 +15,45 @@ public class PatientController implements ActionListener {
     Patient patient1;
     
     public PatientController(){
-        createNewVitals();
-        grantAccess();
+        //createNewVitals();
+        //grantAccess();
         createPatient();
-        createPatientView(); 
+        //createPatientView(); 
+        createLoginView();
         
     }
     
     public void createPatient(){
-        //Testing Patient
-        System.out.println("Testing Patient");
         LocalDate happyBirthday = LocalDate.of(1995, 3, 12);
         EHR ehr1 = createEHR();
-        /*     
-      User: int ID, String name, String pass, String userType(automatic)
-      Patient: all of above plus birthday
-     */
-        patient1 = new Patient(1, "Joe Snow", "js1", "easy1", happyBirthday, "Doctor DoMore", ehr1); 
-        System.out.println("Patient1 is " + patient1.getCurrentAge() +" years old."); 
+        patient1 = new Patient(1, "Joe Snow", "js1", "easy1", happyBirthday, "Doctor DoMore", ehr1);
         patient1.setHealthRecord(ehr1);
-        System.out.println(patient1.getHealthRecord().getPrescriptions());
     }
     
     public EHR createEHR(){
         EHR ehr1 = new EHR();
         ehr1.setPrescriptions("Prescriptions: \n\n *Albuterol \n\n *Depakote \n\n *Synthroid \n\n *Crestor");
         return ehr1;
+    }
+    
+    public void createLoginView(){
+        Login login = new Login();
+        login.getLoginButton().addActionListener(new ActionListener() { 
+        public void actionPerformed(ActionEvent e) { 
+            //createPatientView();
+                    
+            String userName = login.getUserIDField().getText();
+            String password = login.getPasswordField().getText();
+                    
+            if(userName.equals(patient1.getUserName()) && password.equals(patient1.getPassword())){
+                createPatientView();
+                }
+                    
+            else {
+                JOptionPane.showMessageDialog(login, "Incorrect username/password");
+                }
+            } 
+        });
     }
     
     public void createPatientView(){
