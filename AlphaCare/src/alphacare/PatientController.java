@@ -4,6 +4,8 @@ package alphacare;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 
@@ -76,6 +78,8 @@ public class PatientController implements ActionListener {
                     }
                 };
             });
+            
+           
             //exercise
             view.getFrame().getPanel().getExerciseButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
@@ -151,13 +155,28 @@ public class PatientController implements ActionListener {
                 };
             });
         }
+     
+     private void addActionListenerForPatientTextArea(){
+         view.getFrame().getPanel().getPatientInfoTextArea().addPropertyChangeListener(new PropertyChangeListener(){
+             @Override
+             public void propertyChange(PropertyChangeEvent pce) {
+                 Object change = pce.getSource();
+                 if (change ==  view.getFrame().getPanel().getPatientInfoTextArea()){
+                     System.out.println("Editing PatientInfoTextArea");
+                     view.getFrame().getPanel().getCancelButton().setEnabled(true);
+                     view.getFrame().getPanel().getSaveButton().setEnabled(true);
+                 }
+             }
+         });
+     }
+        
      private void addActionListenersForEditSaveCancelButtons(){
          view.getFrame().getPanel().getEditButton().addActionListener(new ActionListener(){
              public void actionPerformed(ActionEvent ae){
                  Object obj = ae.getSource();
                  if (obj == view.getFrame().getPanel().getEditButton()){
                      System.out.println("edit");
-                     view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
+                     //view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
                  }
              }
          });
@@ -168,9 +187,14 @@ public class PatientController implements ActionListener {
          if (patient1.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(true);
             view.getFrame().getPanel().getCancelButton().setVisible(true);
-            view.getFrame().getPanel().getEditButton().setVisible(true);
-            view.getFrame().getPanel().getEditButton().setEnabled(true);
-            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
+            //view.getFrame().getPanel().getEditButton().setVisible(true);
+            //view.getFrame().getPanel().getEditButton().setEnabled(true);
+            
+            
+            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
+            //view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
+            view.getFrame().getPanel().getSaveButton().setEnabled(false);
+            view.getFrame().getPanel().getCancelButton().setEnabled(false);
          }
      }
      
@@ -182,11 +206,13 @@ public class PatientController implements ActionListener {
             view.getFrame().getPanel().getEditButton().setVisible(false);
             view.getFrame().getPanel().getEditButton().setEnabled(false);
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
+            view.getFrame().getPanel().getSaveButton().setEnabled(false);
+            view.getFrame().getPanel().getCancelButton().setEnabled(false);
          }
      }
         
     
-    
+    //start button is now hidden
     public void actionPerformed(ActionEvent event) 
     {
        	 Object obj = event.getSource();
@@ -223,16 +249,16 @@ public class PatientController implements ActionListener {
         Vitals vitalOne = new Vitals(1, 2, 3, 4, 5);
         
         String expectedOutput = "Vitals ID: 1, Patient ID: 2, Blood Pressure: 3, Weight: 4, Blood Sugar: 5";    
-        System.out.println("Expected output: " + expectedOutput);
+        //System.out.println("Expected output: " + expectedOutput);
         
         System.out.println("Actual output: " + vitalOne.outputAllVitals());
         
         //Test
         if(expectedOutput.equals(vitalOne.outputAllVitals())){
-            System.out.println("Test successful");
+            System.out.println("Vitals Test successful");
         }
         else{
-            System.out.println("Test failed");
+            //System.out.println("Vitals Test failed");
         }
         System.out.println("");
         
