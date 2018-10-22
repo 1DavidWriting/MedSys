@@ -13,6 +13,7 @@ public class PatientController implements ActionListener {
     private Boolean access = false;
     private PatientView view;
     Patient patient1;
+
     
     public PatientController(){
         //createNewVitals();
@@ -20,6 +21,7 @@ public class PatientController implements ActionListener {
         createPatient();
         //createPatientView(); 
         createLoginView();
+        
         
     }
     
@@ -43,7 +45,7 @@ public class PatientController implements ActionListener {
             //createPatientView();
                     
             String userName = login.getUserIDField().getText();
-            String password = login.getPasswordField().getText();
+            String password = String.valueOf(login.getPasswordField().getPassword());
                     
             if(userName.equals(patient1.getUserName()) && password.equals(patient1.getPassword())){
                 createPatientView();
@@ -170,6 +172,8 @@ public class PatientController implements ActionListener {
             view.getFrame().getPanel().getCancelButton().setVisible(true);
             view.getFrame().getPanel().getEditButton().setVisible(true);
             view.getFrame().getPanel().getEditButton().setEnabled(true);
+            view.getFrame().getPanel().getSaveButton().setEnabled(true);
+            view.getFrame().getPanel().getCancelButton().setEnabled(true);
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
          }
      }
@@ -184,8 +188,7 @@ public class PatientController implements ActionListener {
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
          }
      }
-        
-    
+     
     
     public void actionPerformed(ActionEvent event) 
     {
