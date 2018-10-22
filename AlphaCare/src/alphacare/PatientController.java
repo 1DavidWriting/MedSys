@@ -134,6 +134,20 @@ public class PatientController implements ActionListener {
                     }
                 };
             });
+            
+            view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getCancelButton()){
+                        
+                        view.getFrame().getPanel().getPatientInfoTextArea().setText(" ");
+                        
+                    }
+                    
+                }
+            
+            });
+            
         }
      
      private void addActionListenerForPatientTextArea(){
