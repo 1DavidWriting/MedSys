@@ -206,11 +206,10 @@ public class PatientController implements ActionListener {
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
             view.getFrame().getPanel().getSaveButton().setEnabled(false);
             view.getFrame().getPanel().getCancelButton().setEnabled(false);
-            view.getFrame().getPanel().getEditButton().setVisible(true);
-            view.getFrame().getPanel().getEditButton().setEnabled(true);
-            view.getFrame().getPanel().getSaveButton().setEnabled(true);
-            view.getFrame().getPanel().getCancelButton().setEnabled(true);
-            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
+            view.getFrame().getPanel().getEditButton().setVisible(false);
+            view.getFrame().getPanel().getEditButton().setEnabled(false);
+           
+            
          }
      }
      
