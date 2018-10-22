@@ -80,6 +80,7 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getExerciseButton()){
+                        view.getFrame().getPanel().getCategoryLabel().setText("Exercise Info: ");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText("Exercise info:");
                          showEditSaveControlButtons();
                     }
@@ -90,6 +91,7 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getSoapButton()){
+                        view.getFrame().getPanel().getCategoryLabel().setText("Medical Record: ");
                           view.getFrame().getPanel().getPatientInfoTextArea().setText("Subjective: \n\n Objective: \n\n  Assessment: \n\n  Plan: \n\n");
                           view.getFrame().getPanel().getPatientInfoTextArea().setText(patient1.getHealthRecord().getSoaps().getSOAPtext());
                           //Patients can't edit medical records
@@ -102,6 +104,7 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getBloodSugarButton()){
+                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Sugar: ");
                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Blood sugar:");
                         showEditSaveControlButtons();
                     }
@@ -112,6 +115,7 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getPrescriptionsButton()){
+                        view.getFrame().getPanel().getCategoryLabel().setText("Prescriptions: ");
                         String prescriptions = patient1.getHealthRecord().getPrescriptions();
                         view.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);
                         //Patients can't edit prescriptions
@@ -124,6 +128,7 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getWeightButton()){
+                        view.getFrame().getPanel().getCategoryLabel().setText("Weight: ");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText("Weight:");
                          showEditSaveControlButtons();
                     }
@@ -134,6 +139,7 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getDiagnosesButton()){
+                        view.getFrame().getPanel().getCategoryLabel().setText("Diagnoses: ");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText("Diagnoses:");
                          //Patients can't edit diagnoses
                          hideEditSaveControlButtons();
@@ -145,7 +151,8 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getBloodSugarButton()){
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Blood Sugar:");
+                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Pressure: ");
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Blood Pressure:");
                          showEditSaveControlButtons();
                     }
                 };
