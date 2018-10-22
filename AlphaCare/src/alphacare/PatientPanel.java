@@ -176,6 +176,11 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         patientInfoTextArea.setColumns(20);
         patientInfoTextArea.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
         patientInfoTextArea.setRows(5);
+        patientInfoTextArea.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                patientInfoTextAreaMouseMoved(evt);
+            }
+        });
         jScrollPane1.setViewportView(patientInfoTextArea);
         //patientInfoTextArea.setVisible(false);
         patientInfoTextArea.setEditable(false);
@@ -187,6 +192,7 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             }
         });
 
+        saveButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         saveButton.setText("Save");
 
         cancelButton.setText("Cancel");
@@ -202,26 +208,27 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(displayPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(displayPanelLayout.createSequentialGroup()
                         .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(103, 103, 103)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106)
-                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(509, 509, 509)
+                        .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(584, Short.MAX_VALUE))
         );
         displayPanelLayout.setVerticalGroup(
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(displayPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editButton)
                     .addComponent(saveButton)
                     .addComponent(cancelButton))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(editButton)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         editButton.setEnabled(false);
@@ -272,9 +279,17 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed
 
+<<<<<<< HEAD
+    private void patientInfoTextAreaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientInfoTextAreaMouseMoved
+        cancelButton.setEnabled(true);
+        saveButton.setEnabled(true);
+        System.out.println("Editing patienInfoTestArea now");
+    }//GEN-LAST:event_patientInfoTextAreaMouseMoved
+=======
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
             patientInfoTextArea.setText(" ");
     }//GEN-LAST:event_cancelButtonActionPerformed
+>>>>>>> 031e15239fc61ba486b143cbaed4d37fa7304ea4
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
