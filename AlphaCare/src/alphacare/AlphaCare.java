@@ -10,8 +10,7 @@ public class AlphaCare {
         //password: easy1
         
         LoginController loginController = new LoginController();
-        
-        
+
     }
     
 }

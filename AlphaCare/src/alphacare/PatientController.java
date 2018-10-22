@@ -92,7 +92,7 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getSoapButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Medical Record: ");
-                          view.getFrame().getPanel().getPatientInfoTextArea().setText("Subjective: \n\n Objective: \n\n  Assessment: \n\n  Plan: \n\n");
+                          
                           view.getFrame().getPanel().getPatientInfoTextArea().setText(patient1.getHealthRecord().getSoaps().getSOAPtext());
                           //Patients can't edit medical records
                           hideEditSaveControlButtons();
@@ -147,12 +147,12 @@ public class PatientController implements ActionListener {
                 };
             });
             //blood pressure
-            view.getFrame().getPanel().getBloodSugarButton().addActionListener(new ActionListener(){
+            view.getFrame().getPanel().getBloodPressureButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getBloodSugarButton()){
+                    if (obj == view.getFrame().getPanel().getBloodPressureButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Blood Pressure: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText("Blood Pressure:");
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText("130 / 85:");
                          showEditSaveControlButtons();
                     }
                 };
