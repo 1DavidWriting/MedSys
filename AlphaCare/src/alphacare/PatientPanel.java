@@ -279,17 +279,17 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         // TODO add your handling code here:
     }//GEN-LAST:event_editButtonActionPerformed
 
-<<<<<<< HEAD
+
     private void patientInfoTextAreaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientInfoTextAreaMouseMoved
         cancelButton.setEnabled(true);
         saveButton.setEnabled(true);
         System.out.println("Editing patienInfoTestArea now");
     }//GEN-LAST:event_patientInfoTextAreaMouseMoved
-=======
+
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
             patientInfoTextArea.setText(" ");
     }//GEN-LAST:event_cancelButtonActionPerformed
->>>>>>> 031e15239fc61ba486b143cbaed4d37fa7304ea4
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
