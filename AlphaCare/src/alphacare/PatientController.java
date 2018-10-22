@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 
@@ -32,9 +33,23 @@ public class PatientController implements ActionListener {
         patient1.setHealthRecord(ehr1);
     }
     
+    public SOAP createSoap(){
+        SOAP soap1 = new SOAP();
+        soap1.setDate(new Date());
+        soap1.setPhysicianName("Dr. Burnside");
+        soap1.setSubject("Patient looks ok but lungs sound awful.");
+        soap1.setObjective("Heatrate is elevated.  Lung capcity is diminished.  Respiration is fast and noisy.");
+        soap1.setPlan("Use inhaler as needed.");
+        soap1.setAssessment("Patient has asthma.");
+        return soap1;
+    }
+    
     public EHR createEHR(){
         EHR ehr1 = new EHR();
         ehr1.setPrescriptions("Prescriptions: \n\n *Albuterol \n\n *Depakote \n\n *Synthroid \n\n *Crestor");
+        ehr1.setDiagnoses("Diagnoses: \n \n Asthma \n \n Diabetes \n \n Restless Leg Syndrome \n \n Hypertension");
+        SOAP soap1 = createSoap();
+        ehr1.setSoaps(soap1);
         return ehr1;
     }
     
@@ -70,12 +85,13 @@ public class PatientController implements ActionListener {
                     }
                 };
             });
-            //medical record
+            //medical record SOAP
             view.getFrame().getPanel().getSoapButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getSoapButton()){
                           view.getFrame().getPanel().getPatientInfoTextArea().setText("Subjective: \n\n Objective: \n\n  Assessment: \n\n  Plan: \n\n");
+                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient1.getHealthRecord().getSoaps().getSOAPtext());
                           //Patients can't edit medical records
                           hideEditSaveControlButtons();
                     }
@@ -167,13 +183,8 @@ public class PatientController implements ActionListener {
          if (patient1.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(true);
             view.getFrame().getPanel().getCancelButton().setVisible(true);
-
             view.getFrame().getPanel().getEditButton().setVisible(false);
-            //view.getFrame().getPanel().getEditButton().setEnabled(true);
-            
-            
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
-            //view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
             view.getFrame().getPanel().getSaveButton().setEnabled(false);
             view.getFrame().getPanel().getCancelButton().setEnabled(false);
 

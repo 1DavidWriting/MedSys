@@ -7,11 +7,12 @@ import java.util.Date;
 public class SOAP {
     
     private int patientID;
-    private int physicianID;
+    private String physicianName;
     private Date date;
     private String subject;
     private String objective;
     private String assessment;
+    private String plan;
     
     /**
      * This is the default constructor for the SOAP class.
@@ -19,6 +20,18 @@ public class SOAP {
     public SOAP() {
         
         
+    }
+    
+    public String getSOAPtext(){
+        String soapText = "MEDICAL NOTES: \n\n";
+        soapText = soapText.concat("Physician: " + physicianName + "\n");
+        soapText = soapText.concat("Examination On: " + date + "\n\n");
+        soapText = soapText.concat("Subjective: " + subject + "\n\n");
+        soapText = soapText.concat("Objective: " + objective + "\n\n");
+        soapText = soapText.concat("Assesment: " + assessment + "\n\n");
+        soapText = soapText.concat("Plan: " + plan);
+        System.out.println(soapText);
+        return soapText;
     }
 
     /**
@@ -37,21 +50,7 @@ public class SOAP {
         this.patientID = patientID;
     }
 
-    /**
-     * Returns the physician id for the SOAP;
-     * @return the physicianID
-     */
-    public int getPhysicianID() {
-        return physicianID;
-    }
-
-    /**
-     * Sets the physician id for the SOAP;
-     * @param physicianID the physicianID to set
-     */
-    public void setPhysicianID(int physicianID) {
-        this.physicianID = physicianID;
-    }
+    
 
     /**
      * Returns the date for the SOAP;
@@ -115,6 +114,34 @@ public class SOAP {
      */
     public void setAssessment(String assessment) {
         this.assessment = assessment;
+    }
+
+    /**
+     * @return the plan
+     */
+    public String getPlan() {
+        return plan;
+    }
+
+    /**
+     * @param plan the plan to set
+     */
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    /**
+     * @return the physicianName
+     */
+    public String getPhysicianName() {
+        return physicianName;
+    }
+
+    /**
+     * @param physicianName the physicianName to set
+     */
+    public void setPhysicianName(String physicianName) {
+        this.physicianName = physicianName;
     }
     
 }
