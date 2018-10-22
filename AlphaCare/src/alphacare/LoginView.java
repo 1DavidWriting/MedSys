@@ -5,8 +5,6 @@
  */
 package alphacare;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,13 +15,14 @@ import javax.swing.JTextField;
  *
  * @author Swaggy Daggy Gaming
  */
-public class Login extends JFrame {
+public class LoginView extends JFrame {
     private JButton loginButton;
     private JTextField userIDField;
     private JPasswordField passwordField;
+    private JFrame frame;
     
-    public Login(){
-        JFrame frame = new JFrame("AlphaCare");
+    public LoginView(){
+        frame = new JFrame("AlphaCare");
             
         JLabel pageTitle = new JLabel("Patient Login");
         pageTitle.setBounds(150, 10, 200, 30);
@@ -98,6 +97,20 @@ public class Login extends JFrame {
      */
     public void setPasswordField(JPasswordField passwordField) {
         this.passwordField = passwordField;
+    }
+
+    /**
+     * @return the frame
+     */
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    /**
+     * @param frame the frame to set
+     */
+    public void setFrame(JFrame frame) {
+        this.frame = frame;
     }
     
 }
