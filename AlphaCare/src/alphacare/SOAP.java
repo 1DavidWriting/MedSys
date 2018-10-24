@@ -4,7 +4,7 @@ package alphacare;
 import java.util.Date;
 
 
-public class SOAP {
+public class SOAP implements java.io.Serializable {
     
     private int patientID;
     private String physicianName;

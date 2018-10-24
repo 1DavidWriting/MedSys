@@ -2,7 +2,7 @@
 package alphacare;
 
 
-public class Physician {
+public class Physician implements java.io.Serializable{
     
     private int physicianID;
     private PatientList patientList;

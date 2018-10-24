@@ -2,7 +2,7 @@
 package alphacare;
 
 
-public class SoftwareReport {
+public class SoftwareReport implements java.io.Serializable {
     
     int totalUsers;
     String throughput;

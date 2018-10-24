@@ -1,7 +1,7 @@
 package alphacare;
 import java.util.ArrayList;
 
-public class PatientList {
+public class PatientList implements java.io.Serializable{
     
     private int listID;
     ArrayList<Integer> idList = new ArrayList<>();

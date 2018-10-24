@@ -19,6 +19,7 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
      * Creates new form PatientPanelNew
      */
     private Patient patient;
+    
     public PatientPanel(Patient thePatient) {
         initComponents();
         patient = thePatient;

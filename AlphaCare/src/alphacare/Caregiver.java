@@ -2,7 +2,7 @@
 package alphacare;
 
 
-public class Caregiver {
+public class Caregiver implements java.io.Serializable {
 
     private int caregiverID;
     private PatientList patientList;

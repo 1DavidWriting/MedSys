@@ -2,7 +2,7 @@
 package alphacare;
 
 
-public class Administrator {
+public class Administrator implements java.io.Serializable {
     
     private int adminID;
     

@@ -4,12 +4,12 @@ package alphacare;
 import java.time.Period;
 import java.time.LocalDate;
 
-public class Patient extends User{
+public class Patient extends User implements java.io.Serializable{
     
     
     private LocalDate birthDate;
     private String primCareDoc;
-    private EHR healthRecord;    
+    private EHR healthRecord;
     
     
     /*     

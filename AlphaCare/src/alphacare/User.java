@@ -2,7 +2,7 @@
 package alphacare;
 
 
-public class User {
+public class User implements java.io.Serializable {
     
     private int userID;
     private String fullName;

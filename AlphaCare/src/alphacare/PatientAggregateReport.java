@@ -2,7 +2,7 @@
 package alphacare;
 
 
-public class PatientAggregateReport {
+public class PatientAggregateReport implements java.io.Serializable{
     
     int numberOfPatients;
     int PatientsPerDiagnosis;

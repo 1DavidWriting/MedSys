@@ -4,11 +4,11 @@ package alphacare;
 import java.util.ArrayList;
 
 
-public class Vitals {
+public class Vitals implements java.io.Serializable{
     
     private int vitalsID;
     private int patientID;
-    private int bloodPressure;
+    private String bloodPressure;
     private int weight;
     private int bloodSugar;
     
@@ -16,7 +16,7 @@ public class Vitals {
     /**
      * This is the default constructor for the Vitals class.
      */
-    public Vitals(int newVitalsID, int newPatientID, int newBloodPressure, int newWeight, int newBloodSugar) {
+    public Vitals(int newVitalsID, int newPatientID, String newBloodPressure, int newWeight, int newBloodSugar) {
         vitalsID = newVitalsID;
         patientID = newPatientID;
         bloodPressure = newBloodPressure;
@@ -29,8 +29,8 @@ public class Vitals {
      * It combines all vitals.
      * @return 
      */
-    public ArrayList<Integer> GetAllVitals() {        
-        ArrayList<Integer> vitalStats = new ArrayList<>();        
+    public ArrayList GetAllVitals() {        
+        ArrayList vitalStats = new ArrayList<>();        
         vitalStats.add(bloodPressure);
         vitalStats.add(weight);
         vitalStats.add(bloodSugar);
@@ -73,7 +73,7 @@ public class Vitals {
      * Returns the blood pressure for the vitals.
      * @return the bloodPressure
      */
-    public int getBloodPressure() {
+    public String getBloodPressure() {
         return bloodPressure;
     }
 
@@ -81,7 +81,7 @@ public class Vitals {
      * Sets the blood pressure for the vitals.
      * @param bloodPressure the bloodPressure to set
      */
-    public void setBloodPressure(int bloodPressure) {
+    public void setBloodPressure(String bloodPressure) {
         this.bloodPressure = bloodPressure;
     }
 

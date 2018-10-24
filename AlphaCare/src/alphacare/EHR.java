@@ -2,7 +2,7 @@
 package alphacare;
 
 
-public class EHR {
+public class EHR implements java.io.Serializable {
     
     private int ehrID;
     private String diagnoses;
@@ -12,6 +12,7 @@ public class EHR {
     private String test;
     private SOAP soaps;
     private String alerts;
+    private String exercise;
     
     /**
      * This is the default constructor for the EHR class.
@@ -133,6 +134,20 @@ public class EHR {
      */
     public void setAlerts(String alerts) {
         this.alerts = alerts;
+    }
+
+    /**
+     * @return the exercise
+     */
+    public String getExercise() {
+        return exercise;
+    }
+
+    /**
+     * @param exercise the exercise to set
+     */
+    public void setExercise(String exercise) {
+        this.exercise = exercise;
     }
     
     
