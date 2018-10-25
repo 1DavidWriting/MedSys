@@ -1,6 +1,9 @@
 
 package alphacare;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.Period;
 import java.time.LocalDate;
 
@@ -32,6 +35,27 @@ public class Patient extends User implements java.io.Serializable{
          birthDate = birthday;
          primCareDoc = primaryCareDoc;
          healthRecord = ehr;
+    }
+    
+    public void savePatient(){
+        String filename = (this.getUserName() + ".ser");
+        // Serialization 
+		try
+		{ 
+			//Saving of object in a file 
+			FileOutputStream file = new FileOutputStream(filename);                        
+			ObjectOutputStream out = new ObjectOutputStream(file);
+                        out.writeObject(this);
+                        out.close();
+			file.close(); 
+			System.out.println("Object has been serialized"); 
+
+		} 
+		
+		catch(IOException ex) 
+		{ 
+			System.out.println("IOException is caught"); 
+		}
     }
 
    

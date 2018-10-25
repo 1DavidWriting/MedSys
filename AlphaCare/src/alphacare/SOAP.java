@@ -30,7 +30,7 @@ public class SOAP implements java.io.Serializable {
         soapText = soapText.concat("Objective: " + objective + "\n\n");
         soapText = soapText.concat("Assesment: " + assessment + "\n\n");
         soapText = soapText.concat("Plan: " + plan);
-        System.out.println(soapText);
+        //System.out.println(soapText);
         return soapText;
     }
 

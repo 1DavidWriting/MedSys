@@ -15,27 +15,14 @@ import javax.swing.JOptionPane;
  * @author Ryan
  */
 public class LoginController {
-    private Patient patient1;
+    private Patient patient;
     private PatientController patientController;
     
-    public LoginController(){
-        createPatient();
-        createLoginView();
-        
-    }
+    public LoginController(Patient thePatient){  
+        patient = thePatient;
+        createLoginView();        
+    }   
     
-    public void createPatient(){
-        LocalDate happyBirthday = LocalDate.of(1995, 3, 12);
-        EHR ehr1 = createEHR();
-        patient1 = new Patient(1, "Joe Snow", "js1", "easy1", happyBirthday, "Doctor DoMore", ehr1);
-        patient1.setHealthRecord(ehr1);
-    }
-    
-    public EHR createEHR(){
-        EHR ehr1 = new EHR();
-        ehr1.setPrescriptions("Prescriptions: \n\n *Albuterol \n\n *Depakote \n\n *Synthroid \n\n *Crestor");
-        return ehr1;
-    }
     
     public void createLoginView(){
         LoginView login = new LoginView();
@@ -45,8 +32,8 @@ public class LoginController {
             String userName = login.getUserIDField().getText();
             String password = String.valueOf(login.getPasswordField().getPassword());
                     
-            if(userName.equals(patient1.getUserName()) && password.equals(patient1.getPassword())){
-                patientController = new PatientController();
+            if(userName.equals(patient.getUserName()) && password.equals(patient.getPassword())){
+                patientController = new PatientController(patient);
                 login.getFrame().setVisible(false);
                 }
                     

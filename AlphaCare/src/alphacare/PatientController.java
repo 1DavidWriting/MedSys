@@ -6,6 +6,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -15,60 +20,23 @@ public class PatientController implements ActionListener {
     private int patientID;
     private Boolean access = false;
     private PatientView view;
-    Patient patient1;
+    Patient patient;
     private String resetText;
+    String currentSelection;
 
     
-    public PatientController(){
+    public PatientController(Patient thePatient){
         //createNewVitals();
         //grantAccess();
-        createPatient();
+        patient = thePatient;
+        //createPatient();
         createPatientView();
-        
+        //testSerializable();
     }
-    
-    public void createPatient(){
-        LocalDate happyBirthday = LocalDate.of(1995, 3, 12);
-        EHR ehr1 = createEHR();
-        patient1 = new Patient(1, "Joe Snow", "js1", "easy1", happyBirthday, "Doctor DoMore", ehr1);
-        patient1.setHealthRecord(ehr1);
-    }
-    
-    public SOAP createSoap(){
-        SOAP soap1 = new SOAP();
-        soap1.setDate(new Date());
-        soap1.setPhysicianName("Dr. Burnside");
-        soap1.setSubject("Patient looks ok but lungs sound awful.");
-        soap1.setObjective("Heatrate is elevated.  Lung capcity is diminished.  Respiration is fast and noisy.");
-        soap1.setPlan("Use inhaler as needed.");
-        soap1.setAssessment("Patient has asthma.");
-        return soap1;
-    }
-    
-    public Vitals createVitals(){
-        int vitID = 5;
-        int PatientID = 55;
-        String BP = "130 / 85";
-        int weight = 150;
-        int sugar = 95;
-        Vitals vitals = new Vitals(vitID, patientID, BP, weight, sugar);
-        return vitals;
-    }
-    
-    public EHR createEHR(){
-        EHR ehr1 = new EHR();
-        ehr1.setPrescriptions("Prescriptions: \n\n *Albuterol \n\n *Depakote \n\n *Synthroid \n\n *Crestor");
-        ehr1.setDiagnoses("Diagnoses: \n \n Asthma \n \n Diabetes \n \n Restless Leg Syndrome \n \n Hypertension");
-        SOAP soap1 = createSoap();
-        ehr1.setSoaps(soap1);
-        ehr1.setExercise("10 minutes of running today.");
-        Vitals vitals1 = createVitals();
-        ehr1.setVitals(vitals1);
-        return ehr1;
-    }
+   
     
     public void createPatientView(){
-        view = new PatientView(patient1);
+        view = new PatientView(patient);
         addActionListenersforSelectionPanelButtons();
         addActionListenersForEditSaveCancelButtons();
     }
@@ -80,7 +48,7 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getStartButton()){
                          //System.out.println("Start button clicked");
-                         view.getFrame().getPanel().getNameLabel().setText("Welcome, " + patient1.getFullName());
+                         view.getFrame().getPanel().getNameLabel().setText("Welcome, " + patient.getFullName());
                          view.getFrame().getPanel().getSelectionPanel().setVisible(true);
                          view.getFrame().getPanel().getStartButton().setVisible(false);
                          view.getFrame().getPanel().getPatientInfoTextArea().setVisible(true);
@@ -95,8 +63,9 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getExerciseButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Exercise Info: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient1.getHealthRecord().getExercise());
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getExercise());
                          resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                         currentSelection = "exercise";
                          showEditSaveControlButtons();
                     }
                 };
@@ -106,9 +75,8 @@ public class PatientController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getSoapButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Medical Record: ");
-                          
-                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient1.getHealthRecord().getSoaps().getSOAPtext());
+                        view.getFrame().getPanel().getCategoryLabel().setText("Medical Record: ");                          
+                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getSoaps().getSOAPtext());
                           //Patients can't edit medical records
                           hideEditSaveControlButtons();
                     }
@@ -120,8 +88,9 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getBloodSugarButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Blood Sugar: ");
-                        view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient1.getHealthRecord().getVitals().getBloodSugar()));
+                        view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getBloodSugar()));
                         resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                        currentSelection = "blood sugar";
                         showEditSaveControlButtons();
                     }
                 };
@@ -132,7 +101,7 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getPrescriptionsButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Prescriptions: ");
-                        String prescriptions = patient1.getHealthRecord().getPrescriptions();
+                        String prescriptions = patient.getHealthRecord().getPrescriptions();
                         view.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);
                         //Patients can't edit prescriptions
                         hideEditSaveControlButtons();
@@ -145,8 +114,9 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getWeightButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Weight: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient1.getHealthRecord().getVitals().getWeight()));
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getWeight()));
                          resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                         currentSelection = "weight";
                          showEditSaveControlButtons();
                     }
                 };
@@ -157,7 +127,7 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getDiagnosesButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Diagnoses: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient1.getHealthRecord().getDiagnoses());
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getDiagnoses());
                          //Patients can't edit diagnoses
                          hideEditSaveControlButtons();
                     }
@@ -169,25 +139,15 @@ public class PatientController implements ActionListener {
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getBloodPressureButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Blood Pressure: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient1.getHealthRecord().getVitals().getBloodPressure());
+                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getVitals().getBloodPressure());
                          resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                         currentSelection = "blood pressure";
                          showEditSaveControlButtons();
                     }
                 };
             });
             
-            view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent ae) {
-                    Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getCancelButton()){
-                        
-                        view.getFrame().getPanel().getPatientInfoTextArea().setText(resetText);
-                        
-                    }
-                    
-                }
             
-            });
             
         }
      
@@ -215,11 +175,47 @@ public class PatientController implements ActionListener {
                  }
              }
          });
+         
+         view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getCancelButton()){                        
+                        view.getFrame().getPanel().getPatientInfoTextArea().setText(resetText);                        
+                    }                    
+                }            
+            });
+         
+         view.getFrame().getPanel().getSaveButton().addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    Object obj = ae.getSource();
+                    if (obj == view.getFrame().getPanel().getSaveButton()){
+                        String textToSave = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                        System.out.println("Saving " + currentSelection + " as " + textToSave);
+                        switch(currentSelection){
+                            case "exercise": patient.getHealthRecord().setExercise(textToSave);
+                                break;
+                            case "blood sugar": int bloodSugar = Integer.parseInt(textToSave);
+                                patient.getHealthRecord().getVitals().setBloodSugar(bloodSugar);
+                                break;
+                            case "weight": int weight = Integer.parseInt(textToSave);
+                                patient.getHealthRecord().getVitals().setWeight(weight);
+                                break;
+                            case "blood pressure": patient.getHealthRecord().getVitals().setBloodPressure(textToSave);
+                                break;
+                            default: System.out.println("Error: text not be saved");
+                                break;
+                        }
+                        patient.savePatient();                        
+                    }                    
+                }            
+            });
+         
+         
      }   
         
      private void showEditSaveControlButtons(){
-         patient1.checkIsMinor();
-         if (patient1.getPermissions().canUpdateData){
+         patient.checkIsMinor();
+         if (patient.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(true);
             view.getFrame().getPanel().getCancelButton().setVisible(true);
 
@@ -239,8 +235,8 @@ public class PatientController implements ActionListener {
      }
      
      private void hideEditSaveControlButtons(){
-         patient1.checkIsMinor();
-         if (patient1.getPermissions().canUpdateData){
+         patient.checkIsMinor();
+         if (patient.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(false);
             view.getFrame().getPanel().getCancelButton().setVisible(false);
             view.getFrame().getPanel().getEditButton().setVisible(false);
@@ -316,6 +312,10 @@ public class PatientController implements ActionListener {
     public void setPatientID(int patientID) {
         this.patientID = patientID;
     }
+    
+    
+    
+    
     
     
     
