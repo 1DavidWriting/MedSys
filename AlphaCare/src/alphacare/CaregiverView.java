@@ -13,8 +13,8 @@ public class CaregiverView {
     
     private CaregiverFrame frame;
 
-    public CaregiverView() {
-        frame = new CaregiverFrame();
+    public CaregiverView(Caregiver newCaregiver) {
+        frame = new CaregiverFrame(newCaregiver);
     }
 
     public CaregiverFrame getFrame() {

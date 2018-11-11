@@ -17,12 +17,16 @@ import javax.swing.JOptionPane;
 public class LoginController {
     private Patient patient;
     private Physician physician;
+    private Caregiver caregiver;
     private PatientController patientController;
     private PhysicianController physicianController;
+    private CaregiverController caregiverController;
     
-    public LoginController(Patient thePatient, Physician thePhysician){  
+    public LoginController(Patient thePatient, Physician thePhysician, Caregiver theCaregiver){  
         this.patient = thePatient;
         this.physician = thePhysician;
+        this.caregiver = theCaregiver;
+        
         createLoginView();        
     }   
     
@@ -43,6 +47,11 @@ public class LoginController {
             
             else if (userName.equals(physician.getPhysicianUsername()) && password.equals(physician.getPhysicianPassword())){
                 physicianController = new PhysicianController(physician);
+                login.getFrame().setVisible(false);
+            }
+            
+            else if (userName.equals(caregiver.getCaregiverUsername()) && password.equals(caregiver.getCaregiverPassword())){
+                caregiverController = new CaregiverController(caregiver);
                 login.getFrame().setVisible(false);
             }
                     

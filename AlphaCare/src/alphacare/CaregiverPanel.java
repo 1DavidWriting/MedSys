@@ -14,9 +14,25 @@ import javax.swing.JPanel;
  * @author kken1
  */
 public class CaregiverPanel extends JPanel{
+    private Caregiver caregiver;
     
-    public CaregiverPanel() {
+    public CaregiverPanel(Caregiver newCaregiver) {
+        this.caregiver = newCaregiver;
+        
+    }
 
+    /**
+     * @return the caregiver
+     */
+    public Caregiver getCaregiver() {
+        return caregiver;
+    }
+
+    /**
+     * @param caregiver the caregiver to set
+     */
+    public void setCaregiver(Caregiver caregiver) {
+        this.caregiver = caregiver;
     }
 
 }

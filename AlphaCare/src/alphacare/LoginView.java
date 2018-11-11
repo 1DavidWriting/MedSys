@@ -24,8 +24,8 @@ public class LoginView extends JFrame {
     public LoginView(){
         frame = new JFrame("AlphaCare");
             
-        JLabel pageTitle = new JLabel("Patient Login");
-        pageTitle.setBounds(150, 10, 200, 30);
+        JLabel pageTitle = new JLabel("Login");
+        pageTitle.setBounds(120, 10, 200, 30);
             
         JLabel userIDTitle = new JLabel("UserID");
         userIDTitle.setBounds(50, 50, 200, 30);
