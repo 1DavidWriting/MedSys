@@ -3,9 +3,17 @@ package alphacare;
 
 public class CaregiverController {
     private int caregiverID;
+    private Caregiver caregiver;
+    private CaregiverView caregiverView;
     
-    public CaregiverController(){
+    public CaregiverController(Caregiver newCaregiver){
+        this.caregiver = newCaregiver;
         
+        createCaregiverView();
+    }
+    
+    public void createCaregiverView(){
+        this.caregiverView = new CaregiverView(caregiver);
     }
     
     public void grantAccess(){

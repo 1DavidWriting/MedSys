@@ -17,12 +17,28 @@ import java.util.Date;
  */
 public class DataCreation {
     private Patient patient1;
+    private Physician physician1;
+    private Caregiver caregiver1;
+    
     public DataCreation(){
         patient1 = getPatientFromFile("js1");
+        
         if (patient1 == null){            
             System.out.println("No patient file found.  Creating patient now...");
             createPatient();
         }        
+        
+        createPhysician();
+        createCaregiver();
+        
+    }
+    
+    public void createPhysician(){
+        this.physician1 = new Physician("benCarson", "hud1");
+    }
+    
+    public void createCaregiver(){
+        this.caregiver1 = new Caregiver(1, "dfire", "rwilliams1");
     }
      
     public void createPatient(){
@@ -110,5 +126,33 @@ public class DataCreation {
 		}
                 return patientFromFile;
         }
+
+    /**
+     * @return the physician1
+     */
+    public Physician getPhysician1() {
+        return physician1;
+    }
+
+    /**
+     * @param physician1 the physician1 to set
+     */
+    public void setPhysician1(Physician physician1) {
+        this.physician1 = physician1;
+    }
+
+    /**
+     * @return the caregiver1
+     */
+    public Caregiver getCaregiver() {
+        return caregiver1;
+    }
+
+    /**
+     * @param caregiver the caregiver1 to set
+     */
+    public void setCaregiver(Caregiver caregiver) {
+        this.caregiver1 = caregiver;
+    }
     
 }

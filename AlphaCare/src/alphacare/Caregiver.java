@@ -6,13 +6,17 @@ public class Caregiver implements java.io.Serializable {
 
     private int caregiverID;
     private PatientList patientList;
+    private String caregiverUsername;
+    private String caregiverPassword;
     
     
     /**
      * This is the default constructor for the Caregiver class.
      */
-    public Caregiver() {
-        
+    public Caregiver(int newID, String newUsername, String newPassword) {
+        this.caregiverID = newID;
+        this.caregiverUsername = newUsername;
+        this.caregiverPassword = newPassword;
         
     }
 
@@ -21,9 +25,7 @@ public class Caregiver implements java.io.Serializable {
      * @return the caregiverID
      */
     public int getCaregiverID() {
-        //return caregiverID;
-        //stub:        
-        return 12;
+        return this.caregiverID;
     }
 
     /**
@@ -32,8 +34,7 @@ public class Caregiver implements java.io.Serializable {
      */
     public void setCaregiverID(int caregiverID) {
         this.caregiverID = caregiverID;
-        //stub:
-        System.out.println("Caregive id set to: " + caregiverID);
+        
     }
     
     /**
@@ -55,6 +56,34 @@ public class Caregiver implements java.io.Serializable {
      */
     public void setPatientList(PatientList patientList) {
         this.patientList = patientList;
+    }
+
+    /**
+     * @return the caregiverUsername
+     */
+    public String getCaregiverUsername() {
+        return caregiverUsername;
+    }
+
+    /**
+     * @param caregiverUsername the caregiverUsername to set
+     */
+    public void setCaregiverUsername(String caregiverUsername) {
+        this.caregiverUsername = caregiverUsername;
+    }
+
+    /**
+     * @return the caregiverPassword
+     */
+    public String getCaregiverPassword() {
+        return caregiverPassword;
+    }
+
+    /**
+     * @param caregiverPassword the caregiverPassword to set
+     */
+    public void setCaregiverPassword(String caregiverPassword) {
+        this.caregiverPassword = caregiverPassword;
     }
     
 }

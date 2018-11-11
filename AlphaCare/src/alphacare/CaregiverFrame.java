@@ -13,14 +13,12 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  * @author kken1
  */
 public class CaregiverFrame extends JFrame{
-    
-    
     private CaregiverPanel panel;
     
-    CaregiverFrame() {
-        
+    CaregiverFrame(Caregiver newCaregiver) {
         super ("");
-        panel = new CaregiverPanel();
+        
+        panel = new CaregiverPanel(newCaregiver);
         
         add(panel);
         setSize(800,600);
