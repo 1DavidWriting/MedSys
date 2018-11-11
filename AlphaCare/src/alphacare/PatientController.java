@@ -164,7 +164,7 @@ public class PatientController implements ActionListener {
              }
          });
      }
-     //disabled   
+     //disabled edit button not in use  
      private void addActionListenersForEditSaveCancelButtons(){
          view.getFrame().getPanel().getEditButton().addActionListener(new ActionListener(){
              public void actionPerformed(ActionEvent ae){
@@ -175,7 +175,7 @@ public class PatientController implements ActionListener {
                  }
              }
          });
-         
+        //cancel button 
          view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     Object obj = ae.getSource();
@@ -184,7 +184,7 @@ public class PatientController implements ActionListener {
                     }                    
                 }            
             });
-         
+         //save button
          view.getFrame().getPanel().getSaveButton().addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     Object obj = ae.getSource();

@@ -17,28 +17,57 @@ import java.util.Date;
  */
 public class DataCreation {
     private Patient patient1;
+    private Patient patient2;
     private Physician physician1;
     private Caregiver caregiver1;
+    private PatientList patientList1;
     
     public DataCreation(){
         patient1 = getPatientFromFile("js1");
+        patient2 = getPatientFromFile("ag2");
         
         if (patient1 == null){            
-            System.out.println("No patient file found.  Creating patient now...");
+            System.out.println("No patient file found.  Creating patient 1 now...");
             createPatient();
+        }
+
+        if (patient2 == null){            
+            System.out.println("No patient file found.  Creating patient 2 now...");
+            createPatient2();
         }        
-        
         createPhysician();
         createCaregiver();
-        
+        createPatientList();           
+    }
+    
+    private void createPatient2(){
+        LocalDate happyBirthday = LocalDate.of(1987, 10, 24);
+        EHR ehr1 = createEHR();
+        setPatient2(new Patient(2, "Andrew Gordan", "ag2", "easy2", happyBirthday, "Doctor DoMore", ehr1));
+        getPatient2().setHealthRecord(ehr1);
+    } 
+    
+    private void createPatientList(){
+        setPatientList1(new PatientList());
+        patient1.savePatient();
+        patient2.savePatient();
+        getPatientList1().addPatient(getPatient1());
+        getPatientList1().addPatient(getPatient2());
+        System.out.println("Patient list has " + getPatientList1().getPatientObjectList().size() + " patients");
+        for (int i = 0; i < getPatientList1().getPatientObjectList().size(); i++){
+            System.out.println("Name: " + getPatientList1().getPatientObjectList().get(i).getFullName());
+            System.out.println("User name: " + getPatientList1().getPatientObjectList().get(i).getUserName());
+            System.out.println("Password: " + getPatientList1().getPatientObjectList().get(i).getPassword());
+            System.out.println();
+        }
     }
     
     public void createPhysician(){
-        this.physician1 = new Physician("benCarson", "hud1");
+        this.setPhysician1(new Physician("benCarson", "hud1"));
     }
     
     public void createCaregiver(){
-        this.caregiver1 = new Caregiver(1, "dfire", "rwilliams1");
+        this.setCaregiver1(new Caregiver(1, "dfire", "rwilliams1"));
     }
      
     public void createPatient(){
@@ -50,11 +79,11 @@ public class DataCreation {
     public SOAP createSoap(){
         SOAP soap1 = new SOAP();
         soap1.setDate(new Date());
-        soap1.setPhysicianName("Dr. Burnside");
-        soap1.setSubject("Patient looks ok but lungs sound awful.");
-        soap1.setObjective("Heatrate is elevated.  Lung capcity is diminished.  Respiration is fast and noisy.");
-        soap1.setPlan("Use inhaler as needed.");
-        soap1.setAssessment("Patient has asthma.");
+        soap1.setPhysicianName("Dr. Fillmore");
+        soap1.setSubject("Patient feels fine but eyes are weak.");
+        soap1.setObjective("Vision is poor.");
+        soap1.setPlan("It's time to get a pair of spectacles.");
+        soap1.setAssessment("Patient has myopia.");
         return soap1;
     }    
     public Vitals createVitals(){
@@ -109,10 +138,9 @@ public class DataCreation {
 			in.close(); 
 			file.close(); 
 			
-			System.out.println("Object has been deserialized ");
-                        setPatient1(patientFromFile);
-			System.out.println("name = " + patientFromFile.getFullName()); 
-			System.out.println("password = " + patientFromFile.getPassword()); 
+			//System.out.println("Object has been deserialized ");                        
+			//System.out.println("name = " + patientFromFile.getFullName()); 
+			//System.out.println("password = " + patientFromFile.getPassword()); 
 		} 
 		
 		catch(IOException ex) 
@@ -145,14 +173,56 @@ public class DataCreation {
      * @return the caregiver1
      */
     public Caregiver getCaregiver() {
-        return caregiver1;
+        return getCaregiver1();
     }
 
     /**
      * @param caregiver the caregiver1 to set
      */
     public void setCaregiver(Caregiver caregiver) {
-        this.caregiver1 = caregiver;
+        this.setCaregiver1(caregiver);
+    }
+
+    /**
+     * @return the patient2
+     */
+    public Patient getPatient2() {
+        return patient2;
+    }
+
+    /**
+     * @param patient2 the patient2 to set
+     */
+    public void setPatient2(Patient patient2) {
+        this.patient2 = patient2;
+    }
+
+    /**
+     * @return the caregiver1
+     */
+    public Caregiver getCaregiver1() {
+        return caregiver1;
+    }
+
+    /**
+     * @param caregiver1 the caregiver1 to set
+     */
+    public void setCaregiver1(Caregiver caregiver1) {
+        this.caregiver1 = caregiver1;
+    }
+
+    /**
+     * @return the patientList1
+     */
+    public PatientList getPatientList1() {
+        return patientList1;
+    }
+
+    /**
+     * @param patientList1 the patientList1 to set
+     */
+    public void setPatientList1(PatientList patientList1) {
+        this.patientList1 = patientList1;
     }
     
 }

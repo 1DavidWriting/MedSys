@@ -15,18 +15,19 @@ import javax.swing.JOptionPane;
  * @author Ryan
  */
 public class LoginController {
-    private Patient patient;
+    //private Patient patient;
+    private PatientList list;
     private Physician physician;
     private Caregiver caregiver;
     private PatientController patientController;
     private PhysicianController physicianController;
     private CaregiverController caregiverController;
+    private boolean accessGranted = false;
     
-    public LoginController(Patient thePatient, Physician thePhysician, Caregiver theCaregiver){  
-        this.patient = thePatient;
+    public LoginController(PatientList theList, Physician thePhysician, Caregiver theCaregiver){  
+        this.list = theList;
         this.physician = thePhysician;
-        this.caregiver = theCaregiver;
-        
+        this.caregiver = theCaregiver;        
         createLoginView();        
     }   
     
@@ -40,25 +41,34 @@ public class LoginController {
             String userName = login.getUserIDField().getText();
             String password = String.valueOf(login.getPasswordField().getPassword());
                     
-            if(userName.equals(patient.getUserName()) && password.equals(patient.getPassword())){
-                patientController = new PatientController(patient);
-                login.getFrame().setVisible(false);
+            for (int i = 0; i < list.getPatientObjectList().size(); i++){
+                if(userName.equals(list.getPatientObjectList().get(i).getUserName()) && password.equals(list.getPatientObjectList().get(i).getPassword())){
+                patientController = new PatientController(list.getPatientObjectList().get(i));
+                accessGranted = true;
+                //login.getFrame().setVisible(false);
                 }
-            
-            else if (userName.equals(physician.getPhysicianUsername()) && password.equals(physician.getPhysicianPassword())){
-                physicianController = new PhysicianController(physician);
-                login.getFrame().setVisible(false);
             }
             
-            else if (userName.equals(caregiver.getCaregiverUsername()) && password.equals(caregiver.getCaregiverPassword())){
+            
+            if (userName.equals(physician.getPhysicianUsername()) && password.equals(physician.getPhysicianPassword())){
+                physicianController = new PhysicianController(physician);
+                accessGranted = true;
+                //login.getFrame().setVisible(false);
+            }
+            
+            if (userName.equals(caregiver.getCaregiverUsername()) && password.equals(caregiver.getCaregiverPassword())){
                 caregiverController = new CaregiverController(caregiver);
-                login.getFrame().setVisible(false);
+                accessGranted = true;
+                //login.getFrame().setVisible(false);
             }
                     
+            if (accessGranted){
+                login.getFrame().setVisible(false);
+            }
             else {
                 JOptionPane.showMessageDialog(login, "Incorrect username/password");
                 }
-            } 
+            }
         });
     }
     

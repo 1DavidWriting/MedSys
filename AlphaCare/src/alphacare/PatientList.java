@@ -5,6 +5,7 @@ public class PatientList implements java.io.Serializable{
     
     private int listID;
     ArrayList<Integer> idList = new ArrayList<>();
+    private ArrayList<Patient> patientObjectList = new ArrayList<>(); 
     
     /**
      * This is the default constructor for the PatientList class.
@@ -58,6 +59,24 @@ public class PatientList implements java.io.Serializable{
     public void setListID(int listID) {
         this.listID = listID;
         System.out.println("List ID set to: " + listID);
+    }
+
+    /**
+     * @return the patientObjectList
+     */
+    public ArrayList<Patient> getPatientObjectList() {
+        return patientObjectList;
+    }
+    
+    public void addPatient(Patient thePatient){
+        this.patientObjectList.add(thePatient);
+    }
+
+    /**
+     * @param patientObjectList the patientObjectList to set
+     */
+    public void setPatientObjectList(ArrayList<Patient> patientObjectList) {
+        this.patientObjectList = patientObjectList;
     }
     
 }
