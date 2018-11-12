@@ -21,22 +21,23 @@ public class LoginView extends JFrame {
         frame = new JFrame("AlphaCare");
             
         JLabel pageTitle = new JLabel("Login");
-        pageTitle.setBounds(120, 10, 200, 30);
+        pageTitle.setFont(pageTitle.getFont().deriveFont(24.0f));
+        pageTitle.setBounds(90, 10, 200, 30);
             
         JLabel userIDTitle = new JLabel("UserID");
-        userIDTitle.setBounds(50, 50, 200, 30);
+        userIDTitle.setBounds(20, 50, 200, 30);
             
         JLabel passwordTitle = new JLabel("Password");
-        passwordTitle.setBounds(50, 80, 200, 30);
+        passwordTitle.setBounds(20, 80, 200, 30);
             
         userIDField = new JTextField();
-        userIDField.setBounds(120, 50, 200, 30);
+        userIDField.setBounds(90, 50, 200, 30);
             
         passwordField = new JPasswordField();
-        passwordField.setBounds(120, 80, 200, 30);
+        passwordField.setBounds(90, 80, 200, 30);
             
         loginButton = new JButton("login");
-        loginButton.setBounds(150, 160, 100, 30);
+        loginButton.setBounds(190, 120, 100, 30);
             
         frame.add(pageTitle);
         frame.add(userIDTitle);
@@ -45,7 +46,7 @@ public class LoginView extends JFrame {
         frame.add(passwordField);
         frame.add(loginButton);
               
-        frame.setSize(400, 400);
+        frame.setSize(320, 200);
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

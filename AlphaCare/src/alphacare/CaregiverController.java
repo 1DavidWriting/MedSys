@@ -14,6 +14,15 @@ public class CaregiverController {
     
     public void createCaregiverView(){
         this.caregiverView = new CaregiverView(caregiver);
+        addActionListenersforSelectionPanelButtons();
+        
+    }
+    
+    private void addActionListenersforSelectionPanelButtons(){
+        
+        caregiverView.getFrame().getPanel().getNameLabel().setText("Welcome, " + caregiver.getFname() + " " + caregiver.getLname());
+
+    
     }
     
     public void grantAccess(){
