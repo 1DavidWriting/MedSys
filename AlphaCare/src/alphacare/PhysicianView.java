@@ -10,7 +10,7 @@ package alphacare;
  * @author kken1
  */
 public class PhysicianView {
-    
+
     private PhysicianFrame frame;
 
     public PhysicianView() {
