@@ -13,26 +13,35 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  * @author kken1
  */
 public class CaregiverFrame extends JFrame{
+    
     private CaregiverPanel panel;
     
     CaregiverFrame(Caregiver newCaregiver) {
-        super ("");
         
+        super ("");
         panel = new CaregiverPanel(newCaregiver);
         
-        add(panel);
-        setSize(800,600);
+        setSize(1400,900);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        //To set frame maximized by default:
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //To open the frame a bit further down and to the left of where it would normally open:  
+        this.setLocation(300, 100);
+        add(panel);
         
     }
 
     public CaregiverPanel getPanel() {
+        
         return panel;
+        
     }
 
     public void setPanel(CaregiverPanel panel) {
+        
         this.panel = panel;
+        
     }
     
 }

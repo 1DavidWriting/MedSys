@@ -14,15 +14,21 @@ public class CaregiverView {
     private CaregiverFrame frame;
 
     public CaregiverView(Caregiver newCaregiver) {
+        
         frame = new CaregiverFrame(newCaregiver);
+        
     }
 
     public CaregiverFrame getFrame() {
+        
         return frame;
+        
     }
 
     public void setFrame(CaregiverFrame frame) {
+        
         this.frame = frame;
+        
     }
 
 }
