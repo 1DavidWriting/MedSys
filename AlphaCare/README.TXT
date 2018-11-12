@@ -1,17 +1,46 @@
-M03-A05 One Implemented Use Case
-Group 7
-Oct 20,2018
+M04-A03: Two Implemented Use Cases with Clean, Refactored Code
+Group 7: David Giordano, Ryan Feng, Ken Kim
+November 11,2018
+
+Refactoring:
+
+    1. PatientList has 2 Patients.  LoginController allows access to PatientView or CaregiverView according to user's role.
+    2. PatientController has been refactored and is less bloated.  
+    3. DatabaseController has been removed.  DataCreation class handles creation of all sample data.
+    4. Patient objects and the objects within them have been made serializable.  
+    5. Save function is now part of Patient class.  This method is called by DataCreation and by PatientController.
+    6. Blood Pressure button now works correctly.
+    7. Dead code has been removed, with the exception of Physician and Administrator and associated classes for later implementation.
+
+Use Case 2:
+
+    1. Caregiver use case has been implemented.
+
+
 
 Login credentials:
 
-Username: js1
-Password: easy1
+    Patient1 login info:
+        Username: js1
+        Password: easy1
 
-Username: ag2
-Password: easy2
 
-Note: DataCreation creates new patient if not already created.  To create again, delete the files js1.ser and ag2.ser, and run again.
-Note: Save button works.  To test, run application and edit some data.  Click Save, close app, and run again.
-Note: Cancel and Save button functionality only works for patients over 18.  You may create a younger patient to test that this is true.
+    Patient2 login info:
+        Username: ag2
+        Password: easy2
+
+    Physician login info:
+        username: benCarson
+        password: hud1
+
+    Caregiver login info:
+        username: dfire
+        password: rwilliams1
+
+Notes:
+
+    1. DataCreation creates new patient if not already created.  To create again, delete the files js1.ser and ag2.ser, and run again.
+    2. Save button works.  To test, run application and edit some data.  Click Save, close app, and run again.
+    3. Cancel and Save button functionality only works for patients over 18.  You may create a younger patient to test that this is true.
 
 
