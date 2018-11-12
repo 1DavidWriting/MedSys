@@ -25,20 +25,16 @@ public class PatientController implements ActionListener {
     String currentSelection;
 
     
-    public PatientController(Patient thePatient){
-        //createNewVitals();
-        //grantAccess();
-        patient = thePatient;
-        //createPatient();
-        createPatientView();
-        //testSerializable();
+    public PatientController(Patient thePatient){        
+        patient = thePatient;        
+        createPatientView();        
     }
    
     
     public void createPatientView(){
         view = new PatientView(patient);
         addActionListenersforSelectionPanelButtons();
-        addActionListenersForEditSaveCancelButtons();
+        addActionListenersForSaveCancelButtons();
     }
         
         private void addActionListenersforSelectionPanelButtons(){
@@ -164,17 +160,8 @@ public class PatientController implements ActionListener {
              }
          });
      }
-     //disabled edit button not in use  
-     private void addActionListenersForEditSaveCancelButtons(){
-         view.getFrame().getPanel().getEditButton().addActionListener(new ActionListener(){
-             public void actionPerformed(ActionEvent ae){
-                 Object obj = ae.getSource();
-                 if (obj == view.getFrame().getPanel().getEditButton()){
-                     System.out.println("edit");
-                     //view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
-                 }
-             }
-         });
+    
+     private void addActionListenersForSaveCancelButtons(){        
         //cancel button 
          view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
@@ -218,19 +205,12 @@ public class PatientController implements ActionListener {
          if (patient.getPermissions().canUpdateData){
             view.getFrame().getPanel().getSaveButton().setVisible(true);
             view.getFrame().getPanel().getCancelButton().setVisible(true);
-
-
-            //view.getFrame().getPanel().getEditButton().setVisible(true);
-
-
             view.getFrame().getPanel().getEditButton().setVisible(false);
             view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
             view.getFrame().getPanel().getSaveButton().setEnabled(false);
             view.getFrame().getPanel().getCancelButton().setEnabled(false);
             view.getFrame().getPanel().getEditButton().setVisible(false);
             view.getFrame().getPanel().getEditButton().setEnabled(false);
-           
-            
          }
      }
      
@@ -247,58 +227,12 @@ public class PatientController implements ActionListener {
          }
      }
         
-    //start button is now hidden
+    //action performed necessary for implementing action listener interface
+    @Override
     public void actionPerformed(ActionEvent event) 
-    {
-       	 Object obj = event.getSource();
-     	 if (event.getSource() == view.getFrame().getPanel().getStartButton() )
-         {
-             
-         }
+    {       	
     }
-    
-    public void grantAccess(){
-        //Stub;
-        System.out.println("Testing grantAccess...");
-        this.access = true;
-        
-        Boolean expectedOutput = true;    
-        System.out.println("Expected output: " + expectedOutput);
-        
-        System.out.println("Actual output: " + this.access);
-        
-        //Test
-        if(expectedOutput.equals(this.access)){
-            System.out.println("Test successful");
-        }
-        else{
-            System.out.println("Test failed");
-        }
-        System.out.println("");
-    }
-    
-    public void createNewVitals(){
-        //Stub;
-        System.out.println("Testing createNewVitals...");
-        System.out.println("Created new Vitals object containing parameters: 1, 2, 3, 4, 5");
-        Vitals vitalOne = new Vitals(1, 2, "3/4", 4, 5);
-        
-        String expectedOutput = "Vitals ID: 1, Patient ID: 2, Blood Pressure: 3, Weight: 4, Blood Sugar: 5";    
-        //System.out.println("Expected output: " + expectedOutput);
-        
-        System.out.println("Actual output: " + vitalOne.outputAllVitals());
-        
-        //Test
-        if(expectedOutput.equals(vitalOne.outputAllVitals())){
-            System.out.println("Vitals Test successful");
-        }
-        else{
-            //System.out.println("Vitals Test failed");
-        }
-        System.out.println("");
-        
-    }
-
+   
     /**
      * @return the patientID
      */

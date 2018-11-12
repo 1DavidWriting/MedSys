@@ -138,9 +138,6 @@ public class DataCreation {
 			in.close(); 
 			file.close(); 
 			
-			//System.out.println("Object has been deserialized ");                        
-			//System.out.println("name = " + patientFromFile.getFullName()); 
-			//System.out.println("password = " + patientFromFile.getPassword()); 
 		} 
 		
 		catch(IOException ex) 

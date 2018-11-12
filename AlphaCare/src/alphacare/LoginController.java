@@ -14,8 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Ryan
  */
-public class LoginController {
-    //private Patient patient;
+public class LoginController {    
     private PatientList list;
     private Physician physician;
     private Caregiver caregiver;
@@ -45,7 +44,6 @@ public class LoginController {
                 if(userName.equals(list.getPatientObjectList().get(i).getUserName()) && password.equals(list.getPatientObjectList().get(i).getPassword())){
                 patientController = new PatientController(list.getPatientObjectList().get(i));
                 accessGranted = true;
-                //login.getFrame().setVisible(false);
                 }
             }
             
@@ -53,13 +51,11 @@ public class LoginController {
             if (userName.equals(physician.getPhysicianUsername()) && password.equals(physician.getPhysicianPassword())){
                 physicianController = new PhysicianController(physician);
                 accessGranted = true;
-                //login.getFrame().setVisible(false);
             }
             
             if (userName.equals(caregiver.getCaregiverUsername()) && password.equals(caregiver.getCaregiverPassword())){
                 caregiverController = new CaregiverController(caregiver);
                 accessGranted = true;
-                //login.getFrame().setVisible(false);
             }
                     
             if (accessGranted){
