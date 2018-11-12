@@ -20,7 +20,6 @@ public class PatientFrame extends JFrame{
         super ("");
         panel = new PatientPanel(patient);
         
-        
         setSize(1400,900);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
@@ -32,11 +31,15 @@ public class PatientFrame extends JFrame{
     }
 
     public PatientPanel getPanel() {
+        
         return panel;
+        
     }
 
     public void setPanel(PatientPanel panel) {
+        
         this.panel = panel;
+        
     }
 
 }

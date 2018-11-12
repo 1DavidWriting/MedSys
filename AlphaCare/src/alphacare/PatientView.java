@@ -22,11 +22,15 @@ public class PatientView extends JFrame{
     }
     
     public PatientFrame getFrame() {
+        
         return frame;
+        
     }
 
     public void setFrame(PatientFrame frame) {
+        
         this.frame = frame;
+        
     }
 
 }
