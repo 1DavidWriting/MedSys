@@ -15,8 +15,8 @@ Refactoring:
 Use Case 2:
 
     1. Caregiver use case has been implemented.
-
-
+    2. Classes used: Caregiver, CaregiverController, CaregiverView, CaregiverFrame, CaregiverPanel, AlphaCare, LoginController, DataCreation
+    3. Who implemented them: We all worked on each class at some point. But Ken contributed more to the Caregiver View classes, David contributed more to the DataCreation class and saving data, and Ryan contributed more to the login and credential handling for Caregiver. 
 
 Login credentials:
 
