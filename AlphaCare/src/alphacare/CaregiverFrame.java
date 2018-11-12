@@ -21,7 +21,7 @@ public class CaregiverFrame extends JFrame{
         super ("");
         panel = new CaregiverPanel(newCaregiver);
         
-        setSize(1400,900);
+        setSize(450,600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         //To set frame maximized by default:
