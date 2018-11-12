@@ -24,17 +24,11 @@ public class AlphaCare {
         //username: dfire
         //password: rwilliams1
         
-        DataCreation data = new DataCreation();
-        //Patient patient1 = data.getPatient1();
+        DataCreation data = new DataCreation();        
         PatientList list1 = data.getPatientList1();
         Physician physician1 = data.getPhysician1();
         Caregiver caregiver1 = data.getCaregiver();
         LoginController loginController = new LoginController(list1, physician1, caregiver1);
-        //testSerializable();
-       
-        
-        
-
     }
     
      

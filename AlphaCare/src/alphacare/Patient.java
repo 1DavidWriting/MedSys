@@ -48,7 +48,7 @@ public class Patient extends User implements java.io.Serializable{
                         out.writeObject(this);
                         out.close();
 			file.close(); 
-			System.out.println(this.getFullName() + " has been serialized"); 
+			//System.out.println(this.getFullName() + " has been serialized"); 
 
 		} 
 		
