@@ -53,7 +53,7 @@ public class LoginController {
                 accessGranted = true;
             }
             
-            if (userName.equals(caregiver.getCaregiverUsername()) && password.equals(caregiver.getCaregiverPassword())){
+            if (userName.equals(caregiver.getUserName()) && password.equals(caregiver.getPassword())){
                 caregiverController = new CaregiverController(caregiver);
                 accessGranted = true;
             }

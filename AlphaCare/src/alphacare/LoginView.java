@@ -19,6 +19,8 @@ public class LoginView extends JFrame {
     
     public LoginView(){
         frame = new JFrame("AlphaCare");
+
+        
             
         JLabel pageTitle = new JLabel("Login");
         pageTitle.setFont(pageTitle.getFont().deriveFont(24.0f));

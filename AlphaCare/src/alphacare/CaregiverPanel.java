@@ -32,7 +32,7 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
 
     private void setNameText(){        
         
-        this.getNameLabel().setText("Welcome, " + getCaregiver().getFname() + " " + getCaregiver().getLname());
+        this.getNameLabel().setText("Welcome, " + getCaregiver().getFullName());
     
     }    
     /**
@@ -54,9 +54,11 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         optionsMenu = new javax.swing.JComboBox<>();
         readonlyLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        patientInfoTextArea = new javax.swing.JTextArea();
         saveButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(0, 136, 122));
 
         editButton.setText("Edit");
         editButton.addActionListener(new java.awt.event.ActionListener() {
@@ -65,26 +67,32 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
             }
         });
 
+        physicianLabel.setForeground(new java.awt.Color(255, 255, 255));
         physicianLabel.setText("Physician:");
 
+        dateLabel.setForeground(new java.awt.Color(255, 255, 255));
         dateLabel.setText("Date:");
 
         nameLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("Caregiver's name");
 
+        pLabel.setForeground(new java.awt.Color(255, 255, 255));
         pLabel.setText("           ");
 
         logoutButton.setText("Logout");
 
+        dLabel.setForeground(new java.awt.Color(255, 255, 255));
         dLabel.setText("            ");
 
         optionsMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        readonlyLabel.setForeground(new java.awt.Color(255, 255, 255));
         readonlyLabel.setText("(Read Only)");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        patientInfoTextArea.setColumns(20);
+        patientInfoTextArea.setRows(5);
+        jScrollPane1.setViewportView(patientInfoTextArea);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         saveButton.setText("Save");
@@ -210,14 +218,6 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         this.jScrollPane1 = jScrollPane1;
     }
 
-    public JTextArea getjTextArea1() {
-        return jTextArea1;
-    }
-
-    public void setjTextArea1(JTextArea jTextArea1) {
-        this.jTextArea1 = jTextArea1;
-    }
-
     public JButton getLogoutButton() {
         return logoutButton;
     }
@@ -250,6 +250,14 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         this.pLabel = pLabel;
     }
 
+    public JTextArea getPatientInfoTextArea() {
+        return patientInfoTextArea;
+    }
+
+    public void setPatientInfoTextArea(JTextArea patientInfoTextArea) {
+        this.patientInfoTextArea = patientInfoTextArea;
+    }
+
     public JLabel getPhysicianLabel() {
         return physicianLabel;
     }
@@ -273,18 +281,18 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
     public void setSaveButton(JButton saveButton) {
         this.saveButton = saveButton;
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel dLabel;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JButton editButton;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JComboBox<String> optionsMenu;
     private javax.swing.JLabel pLabel;
+    private javax.swing.JTextArea patientInfoTextArea;
     private javax.swing.JLabel physicianLabel;
     private javax.swing.JLabel readonlyLabel;
     private javax.swing.JButton saveButton;

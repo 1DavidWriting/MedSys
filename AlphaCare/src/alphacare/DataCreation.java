@@ -67,7 +67,7 @@ public class DataCreation {
     }
     
     public void createCaregiver(){
-        this.setCaregiver1(new Caregiver(1,"Robin", "Williams", "dfire", "rwilliams1"));
+        this.setCaregiver1(new Caregiver(1,"Robin Williams", "dfire", "rwilliams1"));
     }
      
     public void createPatient(){
