@@ -1,26 +1,24 @@
 
 package alphacare;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
-public class Caregiver implements java.io.Serializable {
+
+public class Caregiver extends User implements java.io.Serializable {
 
     private int caregiverID;
     private PatientList patientList;
-    private String fname;
-    private String lname;
-    private String caregiverUsername;
-    private String caregiverPassword;
+    private EHR healthRecord;    
     
     
     /**
      * This is the default constructor for the Caregiver class.
      */
-    public Caregiver(int newID, String newFname, String newLname, String newUsername, String newPassword) {
-        this.caregiverID = newID;
-        this.fname = newFname;
-        this.lname = newLname;
-        this.caregiverUsername = newUsername;
-        this.caregiverPassword = newPassword;
+    public Caregiver(int ID, String fullName, String userName, String pass) {
+        
+        super(ID, fullName, userName, pass, "Caregiver");
         
     }
 
@@ -53,6 +51,27 @@ public class Caregiver implements java.io.Serializable {
         stubPatientList.addPatient(3); 
         return stubPatientList;
     }
+    
+    public void saveCaregiver(){
+        String filename = (this.getUserName() + ".ser");
+        // Serialization 
+		try
+		{ 
+			//Saving of object in a file 
+			FileOutputStream file = new FileOutputStream(filename);                        
+			ObjectOutputStream out = new ObjectOutputStream(file);
+                        out.writeObject(this);
+                        out.close();
+			file.close(); 
+			//System.out.println(this.getFullName() + " has been serialized"); 
+
+		} 
+		
+		catch(IOException ex) 
+		{ 
+			System.out.println("IOException is caught"); 
+		}
+    }
 
     /**
      * Sets the patient list for the care giver.
@@ -65,57 +84,15 @@ public class Caregiver implements java.io.Serializable {
     /**
      * @return the caregiverUsername
      */
-    public String getCaregiverUsername() {
-        return caregiverUsername;
+
+    
+    
+    public EHR getHealthRecord() {
+        return healthRecord;
     }
 
-    /**
-     * @param caregiverUsername the caregiverUsername to set
-     */
-    public void setCaregiverUsername(String caregiverUsername) {
-        this.caregiverUsername = caregiverUsername;
-    }
-
-    /**
-     * @return the caregiverPassword
-     */
-    public String getCaregiverPassword() {
-        return caregiverPassword;
-    }
-
-    /**
-     * @param caregiverPassword the caregiverPassword to set
-     */
-    public void setCaregiverPassword(String caregiverPassword) {
-        this.caregiverPassword = caregiverPassword;
-    }
-
-    /**
-     * @return the fname
-     */
-    public String getFname() {
-        return fname;
-    }
-
-    /**
-     * @param fname the fname to set
-     */
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
-
-    /**
-     * @return the lname
-     */
-    public String getLname() {
-        return lname;
-    }
-
-    /**
-     * @param lname the lname to set
-     */
-    public void setLname(String lname) {
-        this.lname = lname;
+    public void setHealthRecord(EHR healthRecord) {
+        this.healthRecord = healthRecord;
     }
     
 }
