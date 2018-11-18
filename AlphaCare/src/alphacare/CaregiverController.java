@@ -27,8 +27,7 @@ public class CaregiverController {
     
     private void addActionListenersforSelectionPanelButtons(){
         
-        caregiverView.getFrame().getPanel().getNameLabel().setText("Welcome, " + caregiver.getFullName());
-
+        caregiverView.getFrame().getPanel().getNameLabel().setText("Welcome, " + caregiver.getFullName());  
     
     }
     

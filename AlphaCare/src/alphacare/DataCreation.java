@@ -35,9 +35,9 @@ public class DataCreation {
             System.out.println("No patient file found.  Creating patient 2 now...");
             createPatient2();
         }        
-        createPhysician();
+        createPhysician();        
+        createPatientList();
         createCaregiver();
-        createPatientList();           
     }
     
     private void createPatient2(){
@@ -68,6 +68,7 @@ public class DataCreation {
     
     public void createCaregiver(){
         this.setCaregiver1(new Caregiver(1,"Robin Williams", "dfire", "rwilliams1"));
+        caregiver1.setPatientList(patientList1);
     }
      
     public void createPatient(){

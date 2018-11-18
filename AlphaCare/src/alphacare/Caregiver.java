@@ -44,12 +44,8 @@ public class Caregiver extends User implements java.io.Serializable {
      * @return the patientList
      */
     public PatientList getPatientList() {
-        //return patientList;
-        //stub: 
-        PatientList stubPatientList = new PatientList();
-        stubPatientList.addPatient(2);  
-        stubPatientList.addPatient(3); 
-        return stubPatientList;
+        return patientList;
+        
     }
     
     public void saveCaregiver(){
