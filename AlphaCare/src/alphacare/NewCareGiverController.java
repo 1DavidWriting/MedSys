@@ -31,9 +31,31 @@ public class NewCareGiverController implements ActionListener {
         caregiver = theCaregiver;        
         createCaregiverView();
         patient = caregiver.getPatientList().getPatientObjectList().get(0);
-        view.getFrame().getPanel().getSelectionPanel().setVisible(false);
+        disableSelectionPanel();
     }
-   
+    
+    public void disableSelectionPanel(){
+        view.getFrame().getPanel().getExerciseButton().setEnabled(false);
+        view.getFrame().getPanel().getSoapButton().setEnabled(false);
+        view.getFrame().getPanel().getBloodSugarButton().setEnabled(false);
+        view.getFrame().getPanel().getPrescriptionsButton().setEnabled(false);
+         view.getFrame().getPanel().getWeightButton().setEnabled(false);
+         view.getFrame().getPanel().getDiagnosesButton().setEnabled(false);
+         view.getFrame().getPanel().getBloodPressureButton().setEnabled(false);
+         view.getFrame().getPanel().getOptionsLabel().setText("");
+    }   
+    
+    public void enableSelectionPanel(){
+        view.getFrame().getPanel().getExerciseButton().setEnabled(true);
+        view.getFrame().getPanel().getSoapButton().setEnabled(true);
+        view.getFrame().getPanel().getBloodSugarButton().setEnabled(true);
+        view.getFrame().getPanel().getPrescriptionsButton().setEnabled(true);
+         view.getFrame().getPanel().getWeightButton().setEnabled(true);
+         view.getFrame().getPanel().getDiagnosesButton().setEnabled(true);
+         view.getFrame().getPanel().getBloodPressureButton().setEnabled(true);
+         //view.getFrame().getPanel().getOptionsLabel().setVisible(true);
+         view.getFrame().getPanel().getOptionsLabel().setText("Choose One:");
+    }
     
     public void createCaregiverView(){
         view = new CaregiverView(caregiver);
@@ -54,10 +76,10 @@ public class NewCareGiverController implements ActionListener {
                 if (itemNum > -1){
                     patient = caregiver.getPatientList().getPatientObjectList().get(itemNum);
                     view.getFrame().getPanel().getPatientLabel().setText(patient.getFullName());
-                    view.getFrame().getPanel().getSelectionPanel().setVisible(true);
+                    enableSelectionPanel();
                 }
                 else{
-                    view.getFrame().getPanel().getSelectionPanel().setVisible(false);
+                    disableSelectionPanel();
                     view.getFrame().getPanel().getPatientLabel().setText("Please select a Patient");
                 }                
                 view.getFrame().getPanel().getPatientInfoTextArea().setText("");

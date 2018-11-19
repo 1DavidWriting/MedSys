@@ -19,7 +19,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
      * @return the selectionMenu
      */
     public javax.swing.JComboBox<String> getSelectionMenu() {
-        return selectionMenu;
+        return jComboBox1;
     }
 
     /**
@@ -32,6 +32,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
         caregiver = theCaregiver;
         setNameText();
         setPatientsOnMenu();
+        
     }
     private void setNameText(){
         this.getNameLabel().setText("Welcome, " + this.caregiver.getFullName());
@@ -44,6 +45,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
             this.getSelectionMenu().addItem(this.caregiver.getPatientList().getPatientObjectList().get(i).getFullName());            
         }
     }
+    
     
 
     /**
@@ -63,7 +65,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
         nameLabel = new javax.swing.JLabel();
         categoryLabel = new javax.swing.JLabel();
         patientLabel = new javax.swing.JLabel();
-        selectionMenu = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         selectionPanel = new javax.swing.JPanel();
         optionsLabel = new javax.swing.JLabel();
         exerciseButton = new javax.swing.JButton();
@@ -91,7 +93,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
         patientLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         patientLabel.setText("Patient Label");
 
-        selectionMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
@@ -104,12 +106,12 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
                         .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(topPanelLayout.createSequentialGroup()
                         .addGap(72, 72, 72)
-                        .addComponent(selectionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(81, 81, 81)
                         .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(patientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(896, Short.MAX_VALUE))
+                            .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(patientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(1062, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,7 +124,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
                 .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, topPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(selectionMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83))
         );
 
@@ -135,7 +137,6 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
 
         soapButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         soapButton.setText("Medical Record");
-        soapButton.setBorderPainted(false);
         buttonGroup1.add(soapButton);
         soapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +204,8 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
                 .addContainerGap(152, Short.MAX_VALUE))
         );
 
+        displayPanel.setPreferredSize(new java.awt.Dimension(294, 589));
+
         patientInfoTextArea.setColumns(20);
         patientInfoTextArea.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
         patientInfoTextArea.setRows(5);
@@ -249,7 +252,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
                 .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(cancelButton))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         saveButton.setVisible(false);
@@ -266,7 +269,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
                 .addGap(59, 59, 59)
                 .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(displayPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1538, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,7 +292,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
     private void bloodPressureButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloodPressureButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_bloodPressureButtonActionPerformed
-
+    
 
     private void patientInfoTextAreaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientInfoTextAreaMouseMoved
         cancelButton.setEnabled(true);
@@ -313,6 +316,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
     private javax.swing.JButton diagnosesButton;
     private javax.swing.JPanel displayPanel;
     private javax.swing.JButton exerciseButton;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -322,7 +326,6 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
     private javax.swing.JLabel patientLabel;
     private javax.swing.JButton prescriptionsButton;
     private javax.swing.JButton saveButton;
-    private javax.swing.JComboBox<String> selectionMenu;
     private javax.swing.JPanel selectionPanel;
     private javax.swing.JButton soapButton;
     private javax.swing.JPanel topPanel;
