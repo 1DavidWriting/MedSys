@@ -16,6 +16,11 @@ import java.util.Date;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
+/* 
+
+Author David
+
+*/
 
 public class NewCareGiverController implements ActionListener {
     private int patientID;
@@ -25,13 +30,15 @@ public class NewCareGiverController implements ActionListener {
     private String resetText;
     String currentSelection;
     private Patient patient;
+    private LoginView loginView;
 
     
-    public NewCareGiverController(Caregiver theCaregiver){        
-        caregiver = theCaregiver;        
+    public NewCareGiverController(Caregiver theCaregiver, LoginView theLoginView){        
+        caregiver = theCaregiver;
+        loginView = theLoginView;
         createCaregiverView();
         patient = caregiver.getPatientList().getPatientObjectList().get(0);
-        disableSelectionPanel();
+        disableSelectionPanel();        
     }
     
     public void disableSelectionPanel(){
@@ -62,6 +69,21 @@ public class NewCareGiverController implements ActionListener {
         addActionListenersforSelectionPanelButtons();
         addActionListenersForSaveCancelButtons();
         addActionListenerForPatientSelectionMenu();
+        addActionListenerForLogOutButton();
+    }
+    
+    private void addActionListenerForLogOutButton(){
+        view.getFrame().getPanel().getLogOutButton().addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                Object obj = ae.getSource();
+                if (obj == view.getFrame().getPanel().getLogOutButton()){
+                    System.out.println("Logging out...");
+                    view.getFrame().setVisible(false);
+                    loginView.clearFields();
+                    loginView.getFrame().setVisible(true);
+                }
+            }
+        });
     }
     
     private void addActionListenerForPatientSelectionMenu(){

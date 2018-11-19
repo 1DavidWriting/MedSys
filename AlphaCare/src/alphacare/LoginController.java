@@ -22,6 +22,7 @@ public class LoginController {
     private PhysicianController physicianController;
     private NewCareGiverController caregiverController;
     private boolean accessGranted = false;
+    private LoginView login;
     
     public LoginController(PatientList theList, Physician thePhysician, Caregiver theCaregiver){  
         this.list = theList;
@@ -32,7 +33,7 @@ public class LoginController {
     
     
     public void createLoginView(){
-        LoginView login = new LoginView();
+        login = new LoginView();
         
         login.getLoginButton().addActionListener(new ActionListener() { 
         public void actionPerformed(ActionEvent e) { 
@@ -42,7 +43,7 @@ public class LoginController {
                     
             for (int i = 0; i < list.getPatientObjectList().size(); i++){
                 if(userName.equals(list.getPatientObjectList().get(i).getUserName()) && password.equals(list.getPatientObjectList().get(i).getPassword())){
-                patientController = new PatientController(list.getPatientObjectList().get(i));
+                patientController = new PatientController(list.getPatientObjectList().get(i), login);
                 accessGranted = true;
                 }
             }
@@ -54,7 +55,7 @@ public class LoginController {
             }
             
             if (userName.equals(caregiver.getUserName()) && password.equals(caregiver.getPassword())){
-                caregiverController = new NewCareGiverController(caregiver);
+                caregiverController = new NewCareGiverController(caregiver, login);
                 accessGranted = true;
             }
                     
@@ -63,10 +64,13 @@ public class LoginController {
             }
             else {
                 JOptionPane.showMessageDialog(login, "Incorrect username/password");
+                login.clearFields();
                 }
             }
         });
     }
+    
+    
     
     
 }

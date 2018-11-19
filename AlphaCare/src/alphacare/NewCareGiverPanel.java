@@ -66,6 +66,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
         categoryLabel = new javax.swing.JLabel();
         patientLabel = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        LogOutButton = new javax.swing.JButton();
         selectionPanel = new javax.swing.JPanel();
         optionsLabel = new javax.swing.JLabel();
         exerciseButton = new javax.swing.JButton();
@@ -95,6 +96,8 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        LogOutButton.setText("Log Out");
+
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
@@ -103,7 +106,9 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(topPanelLayout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(581, 581, 581)
+                        .addComponent(LogOutButton))
                     .addGroup(topPanelLayout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,13 +116,15 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
                         .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(patientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(1062, Short.MAX_VALUE))
+                .addContainerGap(594, Short.MAX_VALUE))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LogOutButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(patientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -307,6 +314,7 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LogOutButton;
     private javax.swing.JButton bloodPressureButton;
     private javax.swing.JButton bloodSugarButton;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -632,6 +640,13 @@ public class NewCareGiverPanel extends javax.swing.JPanel implements ActionListe
      */
     public void setPatientLabel(javax.swing.JLabel patientLabel) {
         this.patientLabel = patientLabel;
+    }
+
+    /**
+     * @return the LogOutButton
+     */
+    public javax.swing.JButton getLogOutButton() {
+        return LogOutButton;
     }
     
 }

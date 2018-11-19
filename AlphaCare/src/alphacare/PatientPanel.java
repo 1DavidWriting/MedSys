@@ -46,6 +46,7 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         nameLabel = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
         categoryLabel = new javax.swing.JLabel();
+        LogOutButton = new javax.swing.JButton();
         selectionPanel = new javax.swing.JPanel();
         optionsLabel = new javax.swing.JLabel();
         exerciseButton = new javax.swing.JButton();
@@ -77,27 +78,40 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
 
         categoryLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
 
+        LogOutButton.setText("Log Out");
+        LogOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LogOutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
         topPanel.setLayout(topPanelLayout);
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(topPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(382, 382, 382)
-                        .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(382, 382, 382)
+                .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(954, Short.MAX_VALUE))
+            .addGroup(topPanelLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LogOutButton)
+                .addGap(77, 77, 77))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(topPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(LogOutButton)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startButton)
@@ -303,9 +317,14 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
 
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LogOutButtonActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton LogOutButton;
     private javax.swing.JButton bloodPressureButton;
     private javax.swing.JButton bloodSugarButton;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -647,6 +666,13 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
 
     public void setCategoryLabel(JLabel categoryLabel) {
         this.categoryLabel = categoryLabel;
+    }
+
+    /**
+     * @return the LogOutButton
+     */
+    public javax.swing.JButton getLogOutButton() {
+        return LogOutButton;
     }
     
 }

@@ -55,6 +55,11 @@ public class LoginView extends JFrame {
         frame.setVisible(true);
             
         }
+    
+    public void clearFields(){
+        this.getUserIDField().setText("");
+        this.getPasswordField().setText("");
+    }
 
     /**
      * @return the loginButton

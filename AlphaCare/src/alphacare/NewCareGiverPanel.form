@@ -74,6 +74,8 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="nameLabel" min="-2" pref="608" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="581" max="-2" attributes="0"/>
+                          <Component id="LogOutButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
@@ -85,7 +87,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="1062" max="32767" attributes="0"/>
+                  <EmptySpace pref="594" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -93,7 +95,10 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="nameLabel" min="-2" pref="75" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="nameLabel" min="-2" pref="75" max="-2" attributes="0"/>
+                      <Component id="LogOutButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace pref="29" max="32767" attributes="0"/>
                   <Component id="patientLabel" min="-2" pref="65" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -145,6 +150,11 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="LogOutButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Log Out"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

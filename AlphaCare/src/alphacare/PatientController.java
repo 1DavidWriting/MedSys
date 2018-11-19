@@ -19,124 +19,140 @@ import javax.swing.JOptionPane;
 public class PatientController implements ActionListener {
     private int patientID;
     private Boolean access = false;
-    private PatientView view;
+    private PatientView patientView;
     Patient patient;
     private String resetText;
     String currentSelection;
+    private LoginView loginView;
 
     
-    public PatientController(Patient thePatient){        
+    public PatientController(Patient thePatient, LoginView theLogin){        
         patient = thePatient;        
-        createPatientView();        
+        createPatientView();
+        loginView = theLogin;
     }
    
     
     public void createPatientView(){
-        view = new PatientView(patient);
+        patientView = new PatientView(patient);
         addActionListenersforSelectionPanelButtons();
         addActionListenersForSaveCancelButtons();
+        addActionListenerForLogOutButton();
     }
         
-        private void addActionListenersforSelectionPanelButtons(){
+    private void addActionListenerForLogOutButton(){
+        patientView.getFrame().getPanel().getLogOutButton().addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent ae){
+                Object obj = ae.getSource();
+                if (obj == patientView.getFrame().getPanel().getLogOutButton()){
+                    System.out.println("Logging out...");
+                    patientView.getFrame().setVisible(false);
+                    loginView.clearFields();
+                    loginView.getFrame().setVisible(true);
+                }
+            }
+        });
+    }
+    
+    private void addActionListenersforSelectionPanelButtons(){
             //the start button is currently set to disabled and invisible.  We may not need it.
-            view.getFrame().getPanel().getStartButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getStartButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getStartButton()){
+                    if (obj == patientView.getFrame().getPanel().getStartButton()){
                          //System.out.println("Start button clicked");
-                         view.getFrame().getPanel().getNameLabel().setText("Welcome, " + patient.getFullName());
-                         view.getFrame().getPanel().getSelectionPanel().setVisible(true);
-                         view.getFrame().getPanel().getStartButton().setVisible(false);
-                         view.getFrame().getPanel().getPatientInfoTextArea().setVisible(true);
+                         patientView.getFrame().getPanel().getNameLabel().setText("Welcome, " + patient.getFullName());
+                         patientView.getFrame().getPanel().getSelectionPanel().setVisible(true);
+                         patientView.getFrame().getPanel().getStartButton().setVisible(false);
+                         patientView.getFrame().getPanel().getPatientInfoTextArea().setVisible(true);
                     }
                 };
-            });
-            
+            });           
            
             //exercise
-            view.getFrame().getPanel().getExerciseButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getExerciseButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getExerciseButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Exercise Info: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getExercise());
-                         resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                    if (obj == patientView.getFrame().getPanel().getExerciseButton()){
+                        patientView.getFrame().getPanel().getCategoryLabel().setText("Exercise Info: ");
+                         patientView.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getExercise());
+                         resetText = patientView.getFrame().getPanel().getPatientInfoTextArea().getText();
                          currentSelection = "exercise";
                          showEditSaveControlButtons();
                     }
                 };
             });
             //medical record SOAP
-            view.getFrame().getPanel().getSoapButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getSoapButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getSoapButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Medical Record: ");                          
-                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getSoaps().getSOAPtext());
+                    if (obj == patientView.getFrame().getPanel().getSoapButton()){
+                        patientView.getFrame().getPanel().getCategoryLabel().setText("Medical Record: ");                          
+                          patientView.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getSoaps().getSOAPtext());
                           //Patients can't edit medical records
                           hideEditSaveControlButtons();
                     }
                 };
             });
             //blood sugar
-            view.getFrame().getPanel().getBloodSugarButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getBloodSugarButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getBloodSugarButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Sugar: ");
-                        view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getBloodSugar()));
-                        resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                    if (obj == patientView.getFrame().getPanel().getBloodSugarButton()){
+                        patientView.getFrame().getPanel().getCategoryLabel().setText("Blood Sugar: ");
+                        patientView.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getBloodSugar()));
+                        resetText = patientView.getFrame().getPanel().getPatientInfoTextArea().getText();
                         currentSelection = "blood sugar";
                         showEditSaveControlButtons();
                     }
                 };
             });
             //prescriptions
-            view.getFrame().getPanel().getPrescriptionsButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getPrescriptionsButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getPrescriptionsButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Prescriptions: ");
+                    if (obj == patientView.getFrame().getPanel().getPrescriptionsButton()){
+                        patientView.getFrame().getPanel().getCategoryLabel().setText("Prescriptions: ");
                         String prescriptions = patient.getHealthRecord().getPrescriptions();
-                        view.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);
+                        patientView.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);
                         //Patients can't edit prescriptions
                         hideEditSaveControlButtons();
                     }
                 };
             });
             //weight
-            view.getFrame().getPanel().getWeightButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getWeightButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getWeightButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Weight: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getWeight()));
-                         resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                    if (obj == patientView.getFrame().getPanel().getWeightButton()){
+                        patientView.getFrame().getPanel().getCategoryLabel().setText("Weight: ");
+                         patientView.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getWeight()));
+                         resetText = patientView.getFrame().getPanel().getPatientInfoTextArea().getText();
                          currentSelection = "weight";
                          showEditSaveControlButtons();
                     }
                 };
             });
             //diagnoses
-            view.getFrame().getPanel().getDiagnosesButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getDiagnosesButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getDiagnosesButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Diagnoses: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getDiagnoses());
+                    if (obj == patientView.getFrame().getPanel().getDiagnosesButton()){
+                        patientView.getFrame().getPanel().getCategoryLabel().setText("Diagnoses: ");
+                         patientView.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getDiagnoses());
                          //Patients can't edit diagnoses
                          hideEditSaveControlButtons();
                     }
                 };
             });
             //blood pressure
-            view.getFrame().getPanel().getBloodPressureButton().addActionListener(new ActionListener(){
+            patientView.getFrame().getPanel().getBloodPressureButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getBloodPressureButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Pressure: ");
-                         view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getVitals().getBloodPressure());
-                         resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                    if (obj == patientView.getFrame().getPanel().getBloodPressureButton()){
+                        patientView.getFrame().getPanel().getCategoryLabel().setText("Blood Pressure: ");
+                         patientView.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getVitals().getBloodPressure());
+                         resetText = patientView.getFrame().getPanel().getPatientInfoTextArea().getText();
                          currentSelection = "blood pressure";
                          showEditSaveControlButtons();
                     }
@@ -148,14 +164,14 @@ public class PatientController implements ActionListener {
         }
      
      private void addActionListenerForPatientTextArea(){
-         view.getFrame().getPanel().getPatientInfoTextArea().addPropertyChangeListener(new PropertyChangeListener(){
+         patientView.getFrame().getPanel().getPatientInfoTextArea().addPropertyChangeListener(new PropertyChangeListener(){
              @Override
              public void propertyChange(PropertyChangeEvent pce) {
                  Object change = pce.getSource();
-                 if (change ==  view.getFrame().getPanel().getPatientInfoTextArea()){
+                 if (change ==  patientView.getFrame().getPanel().getPatientInfoTextArea()){
                      System.out.println("Editing PatientInfoTextArea");
-                     view.getFrame().getPanel().getCancelButton().setEnabled(true);
-                     view.getFrame().getPanel().getSaveButton().setEnabled(true);
+                     patientView.getFrame().getPanel().getCancelButton().setEnabled(true);
+                     patientView.getFrame().getPanel().getSaveButton().setEnabled(true);
                  }
              }
          });
@@ -163,20 +179,20 @@ public class PatientController implements ActionListener {
     
      private void addActionListenersForSaveCancelButtons(){        
         //cancel button 
-         view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
+         patientView.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getCancelButton()){                        
-                        view.getFrame().getPanel().getPatientInfoTextArea().setText(resetText);                        
+                    if (obj == patientView.getFrame().getPanel().getCancelButton()){                        
+                        patientView.getFrame().getPanel().getPatientInfoTextArea().setText(resetText);                        
                     }                    
                 }            
             });
          //save button
-         view.getFrame().getPanel().getSaveButton().addActionListener(new ActionListener() {
+         patientView.getFrame().getPanel().getSaveButton().addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getSaveButton()){
-                        String textToSave = view.getFrame().getPanel().getPatientInfoTextArea().getText();
+                    if (obj == patientView.getFrame().getPanel().getSaveButton()){
+                        String textToSave = patientView.getFrame().getPanel().getPatientInfoTextArea().getText();
                         System.out.println("Saving " + currentSelection + " as " + textToSave);
                         switch(currentSelection){
                             case "exercise": patient.getHealthRecord().setExercise(textToSave);
@@ -203,27 +219,27 @@ public class PatientController implements ActionListener {
      private void showEditSaveControlButtons(){
          patient.checkIsMinor();
          if (patient.getPermissions().canUpdateData){
-            view.getFrame().getPanel().getSaveButton().setVisible(true);
-            view.getFrame().getPanel().getCancelButton().setVisible(true);
-            view.getFrame().getPanel().getEditButton().setVisible(false);
-            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
-            view.getFrame().getPanel().getSaveButton().setEnabled(false);
-            view.getFrame().getPanel().getCancelButton().setEnabled(false);
-            view.getFrame().getPanel().getEditButton().setVisible(false);
-            view.getFrame().getPanel().getEditButton().setEnabled(false);
+            patientView.getFrame().getPanel().getSaveButton().setVisible(true);
+            patientView.getFrame().getPanel().getCancelButton().setVisible(true);
+            patientView.getFrame().getPanel().getEditButton().setVisible(false);
+            patientView.getFrame().getPanel().getPatientInfoTextArea().setEditable(true);
+            patientView.getFrame().getPanel().getSaveButton().setEnabled(false);
+            patientView.getFrame().getPanel().getCancelButton().setEnabled(false);
+            patientView.getFrame().getPanel().getEditButton().setVisible(false);
+            patientView.getFrame().getPanel().getEditButton().setEnabled(false);
          }
      }
      
      private void hideEditSaveControlButtons(){
          patient.checkIsMinor();
          if (patient.getPermissions().canUpdateData){
-            view.getFrame().getPanel().getSaveButton().setVisible(false);
-            view.getFrame().getPanel().getCancelButton().setVisible(false);
-            view.getFrame().getPanel().getEditButton().setVisible(false);
-            view.getFrame().getPanel().getEditButton().setEnabled(false);
-            view.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
-            view.getFrame().getPanel().getSaveButton().setEnabled(false);
-            view.getFrame().getPanel().getCancelButton().setEnabled(false);
+            patientView.getFrame().getPanel().getSaveButton().setVisible(false);
+            patientView.getFrame().getPanel().getCancelButton().setVisible(false);
+            patientView.getFrame().getPanel().getEditButton().setVisible(false);
+            patientView.getFrame().getPanel().getEditButton().setEnabled(false);
+            patientView.getFrame().getPanel().getPatientInfoTextArea().setEditable(false);
+            patientView.getFrame().getPanel().getSaveButton().setEnabled(false);
+            patientView.getFrame().getPanel().getCancelButton().setEnabled(false);
          }
      }
         
