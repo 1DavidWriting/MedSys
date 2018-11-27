@@ -1,23 +1,45 @@
 
 package alphacare;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
-public class Physician implements java.io.Serializable{
+
+public class Physician extends User implements java.io.Serializable{
     
     private int physicianID;
-    private String physicianUsername;
-    private String physicianPassword;
     private PatientList patientList;
     
     /**
      * This is the default constructor for the Physician class.
      */
-    public Physician(String newUsername, String newPassword) {
-        this.physicianUsername = newUsername;
-        this.physicianPassword = newPassword;
+    public Physician(int ID, String fullName, String userName, String pass) {
         
+        super(ID, fullName, userName, pass, "Physician");
         
     }
+    
+    public void savePhysician(){
+        String filename = (this.getUserName() + ".ser");
+        // Serialization 
+		try
+		{ 
+			//Saving of object in a file 
+			FileOutputStream file = new FileOutputStream(filename);                        
+			ObjectOutputStream out = new ObjectOutputStream(file);
+                        out.writeObject(this);
+                        out.close();
+			file.close(); 
+			//System.out.println(this.getFullName() + " has been serialized"); 
+
+		} 
+		
+		catch(IOException ex) 
+		{ 
+			System.out.println("IOException is caught"); 
+		}
+    }    
 
     /**
      * Returns the patient list for the physician.
@@ -49,32 +71,4 @@ public class Physician implements java.io.Serializable{
         this.physicianID = physicianID;
     }
 
-    /**
-     * @return the physicianUsername
-     */
-    public String getPhysicianUsername() {
-        return physicianUsername;
-    }
-
-    /**
-     * @param physicianUsername the physicianUsername to set
-     */
-    public void setPhysicianUsername(String physicianUsername) {
-        this.physicianUsername = physicianUsername;
-    }
-
-    /**
-     * @return the physicianPassword
-     */
-    public String getPhysicianPassword() {
-        return physicianPassword;
-    }
-
-    /**
-     * @param physicianPassword the physicianPassword to set
-     */
-    public void setPhysicianPassword(String physicianPassword) {
-        this.physicianPassword = physicianPassword;
-    }
-    
 }

@@ -118,7 +118,7 @@ public class NewCareGiverController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getExerciseButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Exercise Info: ");
+                        view.getFrame().getPanel().getCategoryLabel().setText("Exercise Info");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getExercise());
                          resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
                          currentSelection = "exercise";
@@ -131,7 +131,7 @@ public class NewCareGiverController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getSoapButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Medical Record: ");                          
+                        view.getFrame().getPanel().getCategoryLabel().setText("Medical Record");                          
                           view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getSoaps().getSOAPtext());
                           //Patients can't edit medical records
                           hideEditSaveControlButtons();
@@ -143,7 +143,7 @@ public class NewCareGiverController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getBloodSugarButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Sugar: ");
+                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Sugar");
                         view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getBloodSugar()));
                         resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
                         currentSelection = "blood sugar";
@@ -156,7 +156,7 @@ public class NewCareGiverController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getPrescriptionsButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Prescriptions: ");
+                        view.getFrame().getPanel().getCategoryLabel().setText("Prescriptions");
                         String prescriptions = patient.getHealthRecord().getPrescriptions();
                         view.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);
                         //Patients can't edit prescriptions
@@ -169,7 +169,7 @@ public class NewCareGiverController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getWeightButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Weight: ");
+                        view.getFrame().getPanel().getCategoryLabel().setText("Weight");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText(Integer.toString(patient.getHealthRecord().getVitals().getWeight()));
                          resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
                          currentSelection = "weight";
@@ -182,7 +182,7 @@ public class NewCareGiverController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getDiagnosesButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Diagnoses: ");
+                        view.getFrame().getPanel().getCategoryLabel().setText("Diagnoses");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getDiagnoses());
                          //Patients can't edit diagnoses
                          hideEditSaveControlButtons();
@@ -194,7 +194,7 @@ public class NewCareGiverController implements ActionListener {
                 public void actionPerformed(ActionEvent ae){
                     Object obj = ae.getSource();
                     if (obj == view.getFrame().getPanel().getBloodPressureButton()){
-                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Pressure: ");
+                        view.getFrame().getPanel().getCategoryLabel().setText("Blood Pressure");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getVitals().getBloodPressure());
                          resetText = view.getFrame().getPanel().getPatientInfoTextArea().getText();
                          currentSelection = "blood pressure";

@@ -49,8 +49,8 @@ public class LoginController {
             }
             
             
-            if (userName.equals(physician.getPhysicianUsername()) && password.equals(physician.getPhysicianPassword())){
-                physicianController = new PhysicianController(physician);
+            if (userName.equals(physician.getUserName()) && password.equals(physician.getPassword())){
+                physicianController = new PhysicianController(physician, login);
                 accessGranted = true;
             }
             

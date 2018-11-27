@@ -48,7 +48,7 @@ public class LoginView extends JFrame {
         frame.add(passwordField);
         frame.add(loginButton);
               
-        frame.setSize(320, 300);
+        frame.setSize(320, 200);
         frame.setLayout(null);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

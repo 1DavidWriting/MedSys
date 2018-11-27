@@ -14,18 +14,21 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
  */
 public class PhysicianFrame extends JFrame{
     
-    
     private PhysicianPanel panel;
     
-    PhysicianFrame() {
+    PhysicianFrame(Physician newPhysician) {
         
         super ("");
-        panel = new PhysicianPanel();
+        panel = new PhysicianPanel(newPhysician);
         
-        add(panel);
-        setSize(800,600);
+        setSize(650,610);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        //To set frame maximized by default:
+        //setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //To open the frame a bit further down and to the left of where it would normally open:  
+        this.setLocation(300, 100);
+        add(panel);
         
     }
 
