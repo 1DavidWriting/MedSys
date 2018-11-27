@@ -71,10 +71,8 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        physicianLabel = new javax.swing.JLabel();
         dateLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
-        pLabel = new javax.swing.JLabel();
         LogOutButton = new javax.swing.JButton();
         dLabel = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -96,10 +94,6 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
 
         jPanel1.setBackground(new java.awt.Color(0, 136, 122));
 
-        physicianLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        physicianLabel.setForeground(new java.awt.Color(255, 255, 255));
-        physicianLabel.setText("Physician:");
-
         dateLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         dateLabel.setForeground(new java.awt.Color(255, 255, 255));
         dateLabel.setText("Date:");
@@ -107,10 +101,6 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
         nameLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("Caregiver's name");
-
-        pLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        pLabel.setForeground(new java.awt.Color(255, 255, 255));
-        pLabel.setText("           ");
 
         LogOutButton.setText("Logout");
 
@@ -232,18 +222,11 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
                         .addComponent(LogOutButton))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(physicianLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(pLabel))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(dateLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dLabel)))
+                                .addComponent(dateLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(dLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -272,14 +255,9 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
                         .addComponent(saveButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cancelButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(physicianLabel)
-                            .addComponent(pLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dateLabel)
-                            .addComponent(dLabel))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(dateLabel)
+                        .addComponent(dLabel)))
                 .addContainerGap())
         );
 
@@ -331,10 +309,8 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel optionsLabel;
-    private javax.swing.JLabel pLabel;
     private javax.swing.JTextArea patientInfoTextArea;
     private javax.swing.JLabel patientLabel;
-    private javax.swing.JLabel physicianLabel;
     private javax.swing.JButton prescriptionsButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JPanel selectionPanel;
@@ -454,14 +430,6 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
         this.optionsLabel = optionsLabel;
     }
 
-    public JLabel getpLabel() {
-        return pLabel;
-    }
-
-    public void setpLabel(JLabel pLabel) {
-        this.pLabel = pLabel;
-    }
-
     public JTextArea getPatientInfoTextArea() {
         return patientInfoTextArea;
     }
@@ -476,14 +444,6 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
 
     public void setPatientLabel(JLabel patientLabel) {
         this.patientLabel = patientLabel;
-    }
-
-    public JLabel getPhysicianLabel() {
-        return physicianLabel;
-    }
-
-    public void setPhysicianLabel(JLabel physicianLabel) {
-        this.physicianLabel = physicianLabel;
     }
 
     public JButton getPrescriptionsButton() {
