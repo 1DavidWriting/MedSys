@@ -10,6 +10,7 @@ public class Physician extends User implements java.io.Serializable{
     
     private int physicianID;
     private PatientList patientList;
+    private EHR healthRecord;
     
     /**
      * This is the default constructor for the Physician class.
@@ -71,4 +72,12 @@ public class Physician extends User implements java.io.Serializable{
         this.physicianID = physicianID;
     }
 
+    public EHR getHealthRecord() {
+        return healthRecord;
+    }
+
+    public void setHealthRecord(EHR healthRecord) {
+        this.healthRecord = healthRecord;
+    }
+    
 }

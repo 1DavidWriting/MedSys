@@ -121,10 +121,20 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
 
         patientInfoTextArea.setColumns(20);
         patientInfoTextArea.setRows(5);
+        patientInfoTextArea.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                patientInfoTextAreaMouseMoved(evt);
+            }
+        });
         jScrollPane1.setViewportView(patientInfoTextArea);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
 
@@ -216,9 +226,7 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -283,6 +291,16 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
     private void exerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exerciseButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_exerciseButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void patientInfoTextAreaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientInfoTextAreaMouseMoved
+        cancelButton.setEnabled(true);
+        saveButton.setEnabled(true);
+        //System.out.println("Editing patienInfoTestArea now");        
+    }//GEN-LAST:event_patientInfoTextAreaMouseMoved
 
     public Caregiver getCaregiver() {
         return caregiver;

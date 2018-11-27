@@ -217,6 +217,11 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setText("Cancel");
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
@@ -320,6 +325,10 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
     private void LogOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogOutButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LogOutButtonActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveButtonActionPerformed
 
 
 

@@ -122,6 +122,11 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
 
         patientInfoTextArea.setColumns(20);
         patientInfoTextArea.setRows(5);
+        patientInfoTextArea.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                patientInfoTextAreaMouseMoved(evt);
+            }
+        });
         jScrollPane1.setViewportView(patientInfoTextArea);
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -303,6 +308,12 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
     private void exerciseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exerciseButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_exerciseButtonActionPerformed
+
+    private void patientInfoTextAreaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientInfoTextAreaMouseMoved
+        cancelButton.setEnabled(true);
+        saveButton.setEnabled(true);
+        //System.out.println("Editing patienInfoTestArea now");
+    }//GEN-LAST:event_patientInfoTextAreaMouseMoved
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
