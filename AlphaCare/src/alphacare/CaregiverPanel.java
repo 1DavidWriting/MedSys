@@ -7,6 +7,8 @@ package alphacare;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -37,14 +39,24 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         initComponents();
         caregiver = theCaregiver;
         setNameText();
+        showDate();
         setPatientsOnMenu();
-        
+
     }
 
     private void setNameText(){
         
         this.getNameLabel().setText("Welcome, " + this.caregiver.getFullName());
         this.getPatientLabel().setText("Select a Patient");
+        
+    }
+    
+    private void showDate(){
+        
+        
+        Date date = new Date();
+        SimpleDateFormat s = new SimpleDateFormat("yyyy-mm-dd");
+        dLabel.setText(s.format(date));
         
     }
     
