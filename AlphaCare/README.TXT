@@ -30,7 +30,7 @@ Login credentials:
         Password: easy2
 
     Physician login info:
-        username: benCarson
+        username: bcarson
         password: hud1
 
     Caregiver login info:
