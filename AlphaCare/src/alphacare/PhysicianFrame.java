@@ -21,7 +21,7 @@ public class PhysicianFrame extends JFrame{
         super ("");
         panel = new PhysicianPanel(newPhysician);
         
-        setSize(650,610);
+        setSize(650,620);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         //To set frame maximized by default:
