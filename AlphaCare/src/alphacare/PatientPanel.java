@@ -63,7 +63,12 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         saveButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 204, 153));
+
+        topPanel.setBackground(new java.awt.Color(255, 204, 153));
+
         nameLabel.setFont(new java.awt.Font("Ubuntu", 1, 36)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("Patient's Name");
 
         startButton.setBackground(new java.awt.Color(255, 204, 153));
@@ -77,8 +82,12 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         startButton.setEnabled(false);
 
         categoryLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        categoryLabel.setForeground(new java.awt.Color(255, 255, 255));
 
+        LogOutButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        LogOutButton.setForeground(new java.awt.Color(255, 255, 255));
         LogOutButton.setText("Log Out");
+        LogOutButton.setContentAreaFilled(false);
         LogOutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogOutButtonActionPerformed(evt);
@@ -94,13 +103,13 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
                 .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(382, 382, 382)
                 .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(954, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LogOutButton)
-                .addGap(77, 77, 77))
+                .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(157, 157, 157))
         );
         topPanelLayout.setVerticalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,26 +119,32 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
                         .addGap(33, 33, 33)
                         .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(topPanelLayout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(LogOutButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                        .addGap(89, 89, 89)
+                        .addComponent(LogOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(startButton)
                     .addComponent(categoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        optionsLabel.setFont(new java.awt.Font("Ubuntu", 1, 24)); // NOI18N
+        selectionPanel.setBackground(new java.awt.Color(255, 204, 153));
+
+        optionsLabel.setFont(new java.awt.Font("Ubuntu", 1, 26)); // NOI18N
+        optionsLabel.setForeground(new java.awt.Color(255, 255, 255));
         optionsLabel.setText("Choose one:");
 
         exerciseButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        exerciseButton.setForeground(new java.awt.Color(255, 255, 255));
         exerciseButton.setText("Exercise");
         buttonGroup1.add(exerciseButton);
+        exerciseButton.setContentAreaFilled(false);
 
         soapButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        soapButton.setForeground(new java.awt.Color(255, 255, 255));
         soapButton.setText("Medical Record");
-        soapButton.setBorderPainted(false);
         buttonGroup1.add(soapButton);
+        soapButton.setContentAreaFilled(false);
         soapButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 soapButtonActionPerformed(evt);
@@ -137,10 +152,14 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         });
 
         bloodSugarButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bloodSugarButton.setForeground(new java.awt.Color(255, 255, 255));
         bloodSugarButton.setText("Blood Sugar");
+        bloodSugarButton.setContentAreaFilled(false);
 
         bloodPressureButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        bloodPressureButton.setForeground(new java.awt.Color(255, 255, 255));
         bloodPressureButton.setText("Blood Pressure");
+        bloodPressureButton.setContentAreaFilled(false);
         bloodPressureButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bloodPressureButtonActionPerformed(evt);
@@ -148,13 +167,19 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         });
 
         diagnosesButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        diagnosesButton.setForeground(new java.awt.Color(255, 255, 255));
         diagnosesButton.setText("Diagnoses");
+        diagnosesButton.setContentAreaFilled(false);
 
         prescriptionsButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        prescriptionsButton.setForeground(new java.awt.Color(255, 255, 255));
         prescriptionsButton.setText("Prescriptions");
+        prescriptionsButton.setContentAreaFilled(false);
 
         weightButton.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        weightButton.setForeground(new java.awt.Color(255, 255, 255));
         weightButton.setText("Weight");
+        weightButton.setContentAreaFilled(false);
 
         javax.swing.GroupLayout selectionPanelLayout = new javax.swing.GroupLayout(selectionPanel);
         selectionPanel.setLayout(selectionPanelLayout);
@@ -196,6 +221,8 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
                 .addContainerGap(152, Short.MAX_VALUE))
         );
 
+        displayPanel.setBackground(new java.awt.Color(255, 204, 153));
+
         patientInfoTextArea.setColumns(20);
         patientInfoTextArea.setFont(new java.awt.Font("Bodoni MT", 0, 18)); // NOI18N
         patientInfoTextArea.setRows(5);
@@ -216,14 +243,19 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
         });
 
         saveButton.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        saveButton.setForeground(new java.awt.Color(255, 255, 255));
         saveButton.setText("Save");
+        saveButton.setContentAreaFilled(false);
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
             }
         });
 
+        cancelButton.setBackground(new java.awt.Color(255, 255, 255));
+        cancelButton.setForeground(new java.awt.Color(255, 255, 255));
         cancelButton.setText("Cancel");
+        cancelButton.setContentAreaFilled(false);
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
@@ -236,13 +268,13 @@ public class PatientPanel extends javax.swing.JPanel implements ActionListener {
             displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(displayPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 939, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 855, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(displayPanelLayout.createSequentialGroup()
-                        .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(displayPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(displayPanelLayout.createSequentialGroup()
                                 .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 687, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, displayPanelLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(cancelButton)
