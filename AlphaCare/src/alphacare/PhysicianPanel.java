@@ -94,7 +94,7 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 11), new java.awt.Dimension(0, 11), new java.awt.Dimension(32767, 11));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(29, 29), new java.awt.Dimension(29, 29), new java.awt.Dimension(29, 29));
 
-        jPanel1.setBackground(new java.awt.Color(0, 136, 122));
+        jPanel1.setBackground(new java.awt.Color(119, 166, 247));
 
         dateLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         dateLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -126,7 +126,7 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
 
         cancelButton.setText("Cancel");
 
-        selectionPanel.setBackground(new java.awt.Color(0, 136, 122));
+        selectionPanel.setBackground(new java.awt.Color(119, 166, 247));
 
         exerciseButton.setText("Exercise");
         exerciseButton.addActionListener(new java.awt.event.ActionListener() {

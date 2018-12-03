@@ -20,7 +20,7 @@ public class LoginController {
     private Caregiver caregiver;
     private PatientController patientController;
     private PhysicianController physicianController;
-    private NewCareGiverController caregiverController;
+    private CaregiverController caregiverController;
     private boolean accessGranted = false;
     private LoginView login;
     
@@ -55,7 +55,7 @@ public class LoginController {
             }
             
             if (userName.equals(caregiver.getUserName()) && password.equals(caregiver.getPassword())){
-                caregiverController = new NewCareGiverController(caregiver, login);
+                caregiverController = new CaregiverController(caregiver, login);
                 accessGranted = true;
             }
                     
