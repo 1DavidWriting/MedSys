@@ -21,6 +21,7 @@ public class DataCreation {
     private Physician physician1;
     private Caregiver caregiver1;
     private PatientList patientList1;
+    private Administrator admin1;
     
     public DataCreation(){
         patient1 = getPatientFromFile("js1");
@@ -36,18 +37,23 @@ public class DataCreation {
             createPatient2();
         }             
         createPatientList();
+        createAdmin();        
         createPhysician();           
         createCaregiver();
+        
     }
     
     private void createPatient2(){
+        
         LocalDate happyBirthday = LocalDate.of(1987, 10, 24);
         EHR ehr1 = createEHR();
         setPatient2(new Patient(2, "Andrew Gordan", "ag2", "easy2", happyBirthday, "Doctor DoMore", ehr1));
         getPatient2().setHealthRecord(ehr1);
+        
     } 
     
     private void createPatientList(){
+        
         setPatientList1(new PatientList());
         patient1.savePatient();
         patient2.savePatient();
@@ -59,7 +65,15 @@ public class DataCreation {
             System.out.println("User name: " + getPatientList1().getPatientObjectList().get(i).getUserName());
             System.out.println("Password: " + getPatientList1().getPatientObjectList().get(i).getPassword());
             System.out.println();
+        
         }
+    
+    }
+    
+    public void createAdmin() {
+        
+        this.setAdmin1(new Administrator(1, "Michael Jordan", "mjordan", "mj1"));
+            
     }
     
     public void createPhysician(){
@@ -70,17 +84,23 @@ public class DataCreation {
     }
     
     public void createCaregiver(){
+        
         this.setCaregiver1(new Caregiver(1,"Robin Williams", "dfire", "rwilliams1"));
         caregiver1.setPatientList(patientList1);
+        
     }
      
     public void createPatient(){
+        
         LocalDate happyBirthday = LocalDate.of(1995, 3, 12);
         EHR ehr1 = createEHR();
         setPatient1(new Patient(1, "Joe Snow", "js1", "easy1", happyBirthday, "Doctor DoMore", ehr1));
         getPatient1().setHealthRecord(ehr1);
-    }    
+        
+    }
+    
     public SOAP createSoap(){
+        
         SOAP soap1 = new SOAP();
         soap1.setDate(new Date());
         soap1.setPhysicianName("Dr. Fillmore");
@@ -89,8 +109,11 @@ public class DataCreation {
         soap1.setPlan("It's time to get a pair of spectacles.");
         soap1.setAssessment("Patient has myopia.");
         return soap1;
-    }    
+        
+    }
+    
     public Vitals createVitals(){
+        
         int vitID = 5;
         int PatientID = 55;
         String BP = "130 / 85";
@@ -98,9 +121,11 @@ public class DataCreation {
         int sugar = 95;
         Vitals vitals = new Vitals(vitID, PatientID, BP, weight, sugar);
         return vitals;
+        
     }
     
     public EHR createEHR(){
+        
         EHR ehr1 = new EHR();
         ehr1.setPrescriptions("Prescriptions: \n\n *Albuterol \n\n *Depakote \n\n *Synthroid \n\n *Crestor");
         ehr1.setDiagnoses("Diagnoses: \n \n Asthma \n \n Diabetes \n \n Restless Leg Syndrome \n \n Hypertension");
@@ -110,23 +135,29 @@ public class DataCreation {
         Vitals vitals1 = createVitals();
         ehr1.setVitals(vitals1);
         return ehr1;
+        
     }
 
     /**
      * @return the patient1
      */
     public Patient getPatient1() {
+        
         return patient1;
+        
     }
 
     /**
      * @param patient1 the patient1 to set
      */
     public void setPatient1(Patient patient1) {
+        
         this.patient1 = patient1;
+        
     }
     
     private Patient getPatientFromFile(String userName){ 
+        
                 String filename = (userName + ".ser");
 		Patient patientFromFile = null;
 		// Deserialization 
@@ -225,5 +256,14 @@ public class DataCreation {
     public void setPatientList1(PatientList patientList1) {
         this.patientList1 = patientList1;
     }
+
+    public Administrator getAdmin1() {
+        return admin1;
+    }
+
+    public void setAdmin1(Administrator admin1) {
+        this.admin1 = admin1;
+    }
+    
     
 }

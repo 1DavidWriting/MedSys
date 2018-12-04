@@ -28,7 +28,8 @@ public class AlphaCare {
         PatientList list1 = data.getPatientList1();
         Physician physician1 = data.getPhysician1();
         Caregiver caregiver1 = data.getCaregiver();
-        LoginController loginController = new LoginController(list1, physician1, caregiver1);
+        Administrator admin1 = data.getAdmin1();
+        LoginController loginController = new LoginController(list1, physician1, caregiver1, admin1);
     }
     
      

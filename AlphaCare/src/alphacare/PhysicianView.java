@@ -13,9 +13,9 @@ public class PhysicianView {
 
     private PhysicianFrame frame;
 
-    public PhysicianView(Physician newPhysician) {
+    public PhysicianView(Physician physician) {
         
-        frame = new PhysicianFrame(newPhysician);
+        frame = new PhysicianFrame(physician);
         
     }
 

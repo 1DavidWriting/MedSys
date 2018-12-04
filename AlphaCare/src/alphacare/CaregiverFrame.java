@@ -16,11 +16,11 @@ public class CaregiverFrame extends JFrame{
     
     private CaregiverPanel panel;
     
-    CaregiverFrame(Caregiver newCaregiver) {
+    CaregiverFrame(Caregiver caregiver) {
         
         super ("");
         //panel = new CaregiverPanel(newCaregiver);
-        panel = new CaregiverPanel(newCaregiver);
+        panel = new CaregiverPanel(caregiver);
         
         setSize(650,620);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

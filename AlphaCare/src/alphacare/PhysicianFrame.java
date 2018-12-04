@@ -16,10 +16,10 @@ public class PhysicianFrame extends JFrame{
     
     private PhysicianPanel panel;
     
-    PhysicianFrame(Physician newPhysician) {
+    PhysicianFrame(Physician physician) {
         
         super ("");
-        panel = new PhysicianPanel(newPhysician);
+        panel = new PhysicianPanel(physician);
         
         setSize(650,620);
         setDefaultCloseOperation(EXIT_ON_CLOSE);

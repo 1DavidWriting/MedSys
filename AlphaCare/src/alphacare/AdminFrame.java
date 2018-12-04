@@ -17,24 +17,29 @@ public class AdminFrame extends JFrame{
     
     private AdminPanel panel;
     
-    AdminFrame() {
+    AdminFrame(Administrator admin) {
         
         super ("");
-        panel = new AdminPanel();
+        panel = new AdminPanel(admin);
         
-        add(panel);
-        setSize(800,600);
+        setSize(550,250);
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        add(panel);        
         
     }
 
     public AdminPanel getPanel() {
+        
         return panel;
+    
     }
 
     public void setPanel(AdminPanel panel) {
+        
         this.panel = panel;
+    
     }
 
 }

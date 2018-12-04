@@ -13,9 +13,9 @@ public class CaregiverView {
     
     private CaregiverFrame frame;
 
-    public CaregiverView(Caregiver newCaregiver) {
+    public CaregiverView(Caregiver caregiver) {
         
-        frame = new CaregiverFrame(newCaregiver);
+        frame = new CaregiverFrame(caregiver);
         
     }
 
