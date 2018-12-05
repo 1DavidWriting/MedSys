@@ -92,7 +92,22 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
         categoryLabel = new javax.swing.JLabel();
         patientLabel = new javax.swing.JLabel();
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 11), new java.awt.Dimension(0, 11), new java.awt.Dimension(32767, 11));
+        newSOAPpanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        objectiveTextField = new javax.swing.JTextField();
+        subjectiveTextField = new javax.swing.JTextField();
+        physicianTextField = new javax.swing.JTextField();
+        examDateTextField = new javax.swing.JTextField();
+        SaveButtonSOAPPanel = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        assessmentTextField = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        planTextField = new javax.swing.JTextField();
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(29, 29), new java.awt.Dimension(29, 29), new java.awt.Dimension(29, 29));
+        SOAPlabel = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(119, 166, 247));
 
@@ -205,24 +220,150 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
         patientLabel.setForeground(new java.awt.Color(255, 255, 255));
         patientLabel.setText("Patient Label");
 
+        jLabel1.setText("Physician: ");
+
+        jLabel2.setText("Examination on: ");
+
+        jLabel3.setText("Subjective: ");
+
+        jLabel5.setText("Objective: ");
+
+        objectiveTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                objectiveTextFieldActionPerformed(evt);
+            }
+        });
+
+        subjectiveTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subjectiveTextFieldActionPerformed(evt);
+            }
+        });
+
+        physicianTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                physicianTextFieldActionPerformed(evt);
+            }
+        });
+
+        examDateTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                examDateTextFieldActionPerformed(evt);
+            }
+        });
+
+        SaveButtonSOAPPanel.setText("Save");
+
+        jLabel6.setText("Assessment: ");
+
+        assessmentTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assessmentTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Plan: ");
+
+        planTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                planTextFieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout newSOAPpanelLayout = new javax.swing.GroupLayout(newSOAPpanel);
+        newSOAPpanel.setLayout(newSOAPpanelLayout);
+        newSOAPpanelLayout.setHorizontalGroup(
+            newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newSOAPpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(newSOAPpanelLayout.createSequentialGroup()
+                        .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(newSOAPpanelLayout.createSequentialGroup()
+                                .addComponent(examDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newSOAPpanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(subjectiveTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(physicianTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newSOAPpanelLayout.createSequentialGroup()
+                        .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel5))
+                        .addGap(37, 37, 37)
+                        .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(assessmentTextField)
+                            .addComponent(planTextField)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newSOAPpanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(SaveButtonSOAPPanel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(objectiveTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        newSOAPpanelLayout.setVerticalGroup(
+            newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newSOAPpanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(physicianTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(12, 12, 12)
+                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(examDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(subjectiveTextField)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newSOAPpanelLayout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newSOAPpanelLayout.createSequentialGroup()
+                        .addComponent(objectiveTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newSOAPpanelLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newSOAPpanelLayout.createSequentialGroup()
+                        .addComponent(assessmentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(newSOAPpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(planTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SaveButtonSOAPPanel)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(patientLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(180, 180, 180)))
-                        .addGap(2, 2, 2)
-                        .addComponent(LogOutButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(134, 134, 134)
+                                .addComponent(patientLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LogOutButton)
+                        .addContainerGap())
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -237,8 +378,10 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addComponent(newSOAPpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,10 +395,12 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(patientLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(selectionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(selectionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1))
+                    .addComponent(newSOAPpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(filler1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -273,25 +418,35 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
                         .addComponent(filler2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
+        SOAPlabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        SOAPlabel.setForeground(new java.awt.Color(255, 255, 255));
+        SOAPlabel.setText("Add New SOAP");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 669, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(711, Short.MAX_VALUE)
+                .addComponent(SOAPlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(129, 129, 129))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(46, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(SOAPlabel)
+                .addContainerGap(538, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -305,9 +460,36 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
         //System.out.println("Editing patienInfoTestArea now");
     }//GEN-LAST:event_patientInfoTextAreaMouseMoved
 
+    private void objectiveTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_objectiveTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_objectiveTextFieldActionPerformed
+
+    private void subjectiveTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectiveTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subjectiveTextFieldActionPerformed
+
+    private void physicianTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_physicianTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_physicianTextFieldActionPerformed
+
+    private void examDateTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_examDateTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_examDateTextFieldActionPerformed
+
+    private void assessmentTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assessmentTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_assessmentTextFieldActionPerformed
+
+    private void planTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_planTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_planTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogOutButton;
+    private javax.swing.JLabel SOAPlabel;
+    private javax.swing.JButton SaveButtonSOAPPanel;
+    private javax.swing.JTextField assessmentTextField;
     private javax.swing.JButton bloodPressureButton;
     private javax.swing.JButton bloodSugarButton;
     private javax.swing.JButton cancelButton;
@@ -315,20 +497,32 @@ public class PhysicianPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JLabel dLabel;
     private javax.swing.JLabel dateLabel;
     private javax.swing.JButton diagnosesButton;
+    private javax.swing.JTextField examDateTextField;
     private javax.swing.JButton exerciseButton;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JPanel newSOAPpanel;
+    private javax.swing.JTextField objectiveTextField;
     private javax.swing.JLabel optionsLabel;
     private javax.swing.JTextArea patientInfoTextArea;
     private javax.swing.JLabel patientLabel;
+    private javax.swing.JTextField physicianTextField;
+    private javax.swing.JTextField planTextField;
     private javax.swing.JButton prescriptionsButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JPanel selectionPanel;
     private javax.swing.JButton soapButton;
+    private javax.swing.JTextField subjectiveTextField;
     private javax.swing.JButton weightButton;
     // End of variables declaration//GEN-END:variables
 

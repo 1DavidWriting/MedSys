@@ -48,11 +48,11 @@ public class PhysicianController implements ActionListener {
         view.getFrame().getPanel().getSoapButton().setEnabled(true);
         view.getFrame().getPanel().getBloodSugarButton().setEnabled(true);
         view.getFrame().getPanel().getPrescriptionsButton().setEnabled(true);
-         view.getFrame().getPanel().getWeightButton().setEnabled(true);
-         view.getFrame().getPanel().getDiagnosesButton().setEnabled(true);
-         view.getFrame().getPanel().getBloodPressureButton().setEnabled(true);
-         //view.getFrame().getPanel().getOptionsLabel().setVisible(true);
-         view.getFrame().getPanel().getOptionsLabel().setText("Choose One:");
+        view.getFrame().getPanel().getWeightButton().setEnabled(true);
+        view.getFrame().getPanel().getDiagnosesButton().setEnabled(true);
+        view.getFrame().getPanel().getBloodPressureButton().setEnabled(true);
+        //view.getFrame().getPanel().getOptionsLabel().setVisible(true);
+        view.getFrame().getPanel().getOptionsLabel().setText("Choose One:");
          
     }    
     
@@ -81,18 +81,17 @@ public class PhysicianController implements ActionListener {
                 itemNum--;
                 System.out.println("Selected list item number" + itemNum);
                 
-                if (itemNum > -1){
-                    
+                if (itemNum > -1)
+                {
                     patient = physician.getPatientList().getPatientObjectList().get(itemNum);
                     view.getFrame().getPanel().getPatientLabel().setText(patient.getFullName());
-                    enableSelectionPanel();
-                    
+                    enableSelectionPanel();              
                 }
-                else{
-                    
+                
+                else
+                {   
                     disableSelectionPanel();
-                    view.getFrame().getPanel().getPatientLabel().setText("Please select a Patient");
-                    
+                    view.getFrame().getPanel().getPatientLabel().setText("Please select a Patient");                    
                 }                
                 
                 view.getFrame().getPanel().getPatientInfoTextArea().setText("");
@@ -107,12 +106,9 @@ public class PhysicianController implements ActionListener {
     
     private void addActionListenerForLogOutButton(){
         
-        view.getFrame().getPanel().getLogOutButton().addActionListener(new ActionListener(){
-            
-            public void actionPerformed(ActionEvent ae){
-                
-                Object obj = ae.getSource();
-                
+        view.getFrame().getPanel().getLogOutButton().addActionListener(new ActionListener(){    
+            public void actionPerformed(ActionEvent ae){               
+                Object obj = ae.getSource();               
                 if (obj == view.getFrame().getPanel().getLogOutButton()){
                     
                     System.out.println("Logging out...");
@@ -120,12 +116,9 @@ public class PhysicianController implements ActionListener {
                     loginView.clearFields();
                     loginView.getFrame().setVisible(true);
                     
-                }
-                
-            }
-            
-        });
-        
+                }    
+            }           
+        });       
     }
     
         private void addActionListenersforSelectionPanelButtons(){
@@ -143,6 +136,7 @@ public class PhysicianController implements ActionListener {
                     }
                 };
             });
+            
             //medical record SOAP
             view.getFrame().getPanel().getSoapButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
@@ -152,9 +146,14 @@ public class PhysicianController implements ActionListener {
                           view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getSoaps().getSOAPtext());
                           //Patients can't edit medical records
                           hideEditSaveControlButtons();
+                          
+                          //Trying to add save button for SOAP
+                          //showEditSaveControlButtons();
+                          
                     }
                 };
             });
+            
             //blood sugar
             view.getFrame().getPanel().getBloodSugarButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
@@ -168,6 +167,7 @@ public class PhysicianController implements ActionListener {
                     }
                 };
             });
+            
             //prescriptions
             view.getFrame().getPanel().getPrescriptionsButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
@@ -181,6 +181,7 @@ public class PhysicianController implements ActionListener {
                     }
                 };
             });
+            
             //weight
             view.getFrame().getPanel().getWeightButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
@@ -194,6 +195,7 @@ public class PhysicianController implements ActionListener {
                     }
                 };
             });
+            
             //diagnoses
             view.getFrame().getPanel().getDiagnosesButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
@@ -206,6 +208,7 @@ public class PhysicianController implements ActionListener {
                     }
                 };
             });
+            
             //blood pressure
             view.getFrame().getPanel().getBloodPressureButton().addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent ae){
@@ -218,13 +221,12 @@ public class PhysicianController implements ActionListener {
                          showEditSaveControlButtons();
                     }
                 };
-            });
-            
-            
+            });                   
             
         }
      
      private void addActionListenerForPatientTextArea(){
+         
          view.getFrame().getPanel().getPatientInfoTextArea().addPropertyChangeListener(new PropertyChangeListener(){
              @Override
              public void propertyChange(PropertyChangeEvent pce) {
@@ -238,7 +240,8 @@ public class PhysicianController implements ActionListener {
          });
      }
     
-     private void addActionListenersForSaveCancelButtons(){        
+     private void addActionListenersForSaveCancelButtons(){       
+         
         //cancel button 
          view.getFrame().getPanel().getCancelButton().addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
@@ -248,13 +251,17 @@ public class PhysicianController implements ActionListener {
                     }                    
                 }            
             });
+         
          //save button
          view.getFrame().getPanel().getSaveButton().addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
                     Object obj = ae.getSource();
-                    if (obj == view.getFrame().getPanel().getSaveButton()){
+                    if (obj == view.getFrame().getPanel().getSaveButton())
+                    {
+                        
                         String textToSave = view.getFrame().getPanel().getPatientInfoTextArea().getText();
                         System.out.println("Saving " + currentSelection + " as " + textToSave);
+                        
                         switch(currentSelection){
                             case "exercise": patient.getHealthRecord().setExercise(textToSave);
                                 break;
@@ -269,12 +276,11 @@ public class PhysicianController implements ActionListener {
                             default: System.out.println("Error: text not be saved");
                                 break;
                         }
+                        
                         patient.savePatient();                        
                     }                    
                 }            
-            });
-         
-         
+            });               
      }   
         
      private void showEditSaveControlButtons(){

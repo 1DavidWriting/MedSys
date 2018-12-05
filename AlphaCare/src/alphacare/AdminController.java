@@ -94,6 +94,7 @@ public class AdminController implements ActionListener {
         ehrBlank.setVitals(vitalsBlank);
         Patient newPatient = new Patient(6, name, userName, passWord, happyBirthday, "Doctor Doctor", ehrBlank);
         return newPatient;
+        
     }
     
     private void addActionListenerForLogOutButton(){
@@ -118,7 +119,8 @@ public class AdminController implements ActionListener {
         });
         
     }
-    //action performed necessary for implementing action listener interface
+    
+    //Action performed Override necessary for implementing action listener interface
     @Override
     public void actionPerformed(ActionEvent event) 
     {       	
