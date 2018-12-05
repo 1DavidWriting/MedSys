@@ -53,7 +53,9 @@ public class DataCreation {
         setPatient2(new Patient(2, "Andrew Gordan", "ag2", "easy2", happyBirthday, "Doctor DoMore", ehr1));
         getPatient2().setHealthRecord(ehr1);
         
-    } 
+    }
+    
+    
     
     private void createPatientList(){
         

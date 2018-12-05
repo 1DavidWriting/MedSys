@@ -4,6 +4,7 @@ package alphacare;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.Date;
 
 
 public class AdminController implements ActionListener {
@@ -38,13 +39,37 @@ public class AdminController implements ActionListener {
                 if (obj == view.getFrame().getPanel().getAddNewUserButton()){
                     System.out.println("Adding a new patient");
                     LocalDate happyBirthday = LocalDate.of(1996, 4, 13);
-                    Patient newPatient = new Patient(2, "new", "new", "new", happyBirthday);
-                    admin.getPatientList().addPatient(newPatient);
+                    Patient addPatient = createPatientBlankRecord(happyBirthday, "Mr. New", "mn1", "mn1");
+                    admin.getPatientList().addPatient(addPatient);
                     admin.getPatientList().savePatientList();
                 }
             }
         
         });
+    }
+    
+    public Patient createPatientBlankRecord(LocalDate DOB, String name, String userName, String passWord){        
+        LocalDate happyBirthday = DOB;
+        EHR ehrBlank = new EHR();
+        ehrBlank.setPrescriptions("No Prescriptions Entered.");
+        ehrBlank.setDiagnoses("No Diagnoses Entered.");
+        SOAP soapBlank = new SOAP();
+        soapBlank.setDate(new Date());
+        soapBlank.setPhysicianName("Doctor Info Not Yet Entered");
+        soapBlank.setSubject("None");
+        soapBlank.setObjective("None");
+        soapBlank.setPlan("None");
+        soapBlank.setAssessment("None");
+        ehrBlank.setSoaps(soapBlank); 
+        int vitID = 5;
+        int PatientID = 55;
+        String BP = "No BP Entered";
+        int weight = 0;
+        int sugar = 0;
+        Vitals vitalsBlank = new Vitals(vitID, PatientID, BP, weight, sugar); 
+        ehrBlank.setVitals(vitalsBlank);
+        Patient newPatient = new Patient(6, name, userName, passWord, happyBirthday, "Doctor Doctor", ehrBlank);
+        return newPatient;
     }
     
     private void addActionListenerForLogOutButton(){
