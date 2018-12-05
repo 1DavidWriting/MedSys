@@ -22,7 +22,7 @@ public class AdminFrame extends JFrame{
         super ("");
         panel = new AdminPanel(admin);
         
-        setSize(550,250);
+        setSize(550,500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);

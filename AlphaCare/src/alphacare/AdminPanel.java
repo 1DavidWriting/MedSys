@@ -34,12 +34,12 @@ public class AdminPanel extends javax.swing.JPanel {
         initComponents();
         admin = theAdmin;
         setNameText();
-        
+        this.NewUserPanel.setVisible(false);
     }
     
     private void setNameText(){
         
-        this.getNameLabel().setText("Welcome, " + this.admin.getFullName());
+        this.getNameLabel().setText("Welcome, " + this.getAdmin().getFullName());
         
     }    
 
@@ -52,6 +52,7 @@ public class AdminPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
         optionsLabel = new javax.swing.JLabel();
@@ -60,6 +61,18 @@ public class AdminPanel extends javax.swing.JPanel {
         totalUsersButton = new javax.swing.JButton();
         addNewUserButton = new javax.swing.JButton();
         LogOutButton = new javax.swing.JButton();
+        NewUserPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        PasswordText = new javax.swing.JTextField();
+        UserNameText = new javax.swing.JTextField();
+        FirstNameText = new javax.swing.JTextField();
+        LastNameText = new javax.swing.JTextField();
+        SaveButton = new javax.swing.JButton();
+
+        jLabel4.setText("jLabel4");
 
         jPanel1.setBackground(new java.awt.Color(230, 39, 57));
         jPanel1.setPreferredSize(new java.awt.Dimension(525, 470));
@@ -107,6 +120,91 @@ public class AdminPanel extends javax.swing.JPanel {
 
         LogOutButton.setText("Logout");
 
+        jLabel1.setText("First Name:");
+
+        jLabel2.setText("Last Name:");
+
+        jLabel3.setText("User Name:");
+
+        jLabel5.setText("Password:");
+
+        PasswordText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordTextActionPerformed(evt);
+            }
+        });
+
+        UserNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserNameTextActionPerformed(evt);
+            }
+        });
+
+        FirstNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FirstNameTextActionPerformed(evt);
+            }
+        });
+
+        LastNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LastNameTextActionPerformed(evt);
+            }
+        });
+
+        SaveButton.setText("Save");
+
+        javax.swing.GroupLayout NewUserPanelLayout = new javax.swing.GroupLayout(NewUserPanel);
+        NewUserPanel.setLayout(NewUserPanelLayout);
+        NewUserPanelLayout.setHorizontalGroup(
+            NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NewUserPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel5))
+                .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NewUserPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(FirstNameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LastNameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(NewUserPanelLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(SaveButton)
+                            .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(PasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(UserNameText, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        NewUserPanelLayout.setVerticalGroup(
+            NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NewUserPanelLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(FirstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LastNameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(UserNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(NewUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PasswordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SaveButton)
+                .addGap(9, 9, 9))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -132,8 +230,13 @@ public class AdminPanel extends javax.swing.JPanel {
                                 .addComponent(LogOutButton)))
                         .addGap(95, 95, 95))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(207, 207, 207)
-                .addComponent(optionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(optionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(NewUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,7 +257,9 @@ public class AdminPanel extends javax.swing.JPanel {
                             .addComponent(totalUsersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(appPerformanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(systemStatusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addComponent(NewUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -165,7 +270,9 @@ public class AdminPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 484, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -236,11 +343,38 @@ public class AdminPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_systemStatusButtonActionPerformed
 
+    private void PasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordTextActionPerformed
+
+    private void UserNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserNameTextActionPerformed
+
+    private void FirstNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FirstNameTextActionPerformed
+
+    private void LastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LastNameTextActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField FirstNameText;
+    private javax.swing.JTextField LastNameText;
     private javax.swing.JButton LogOutButton;
+    private javax.swing.JPanel NewUserPanel;
+    private javax.swing.JTextField PasswordText;
+    private javax.swing.JButton SaveButton;
+    private javax.swing.JTextField UserNameText;
     private javax.swing.JButton addNewUserButton;
     private javax.swing.JButton appPerformanceButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel optionsLabel;
@@ -318,6 +452,216 @@ public class AdminPanel extends javax.swing.JPanel {
 
     public void setTotalUsersButton(JButton totalUsersButton) {
         this.totalUsersButton = totalUsersButton;
+    }
+
+    /**
+     * @return the NewUserPanel
+     */
+    public javax.swing.JPanel getNewUserPanel() {
+        return NewUserPanel;
+    }
+
+    /**
+     * @return the TextFirstName
+     */
+    public javax.swing.JTextField getTextFirstName() {
+        return getPasswordText();
+    }
+
+    /**
+     * @param TextFirstName the TextFirstName to set
+     */
+    public void setTextFirstName(javax.swing.JTextField TextFirstName) {
+        this.setPasswordText(TextFirstName);
+    }
+
+    /**
+     * @return the TextFirstName1
+     */
+    public javax.swing.JTextField getTextFirstName1() {
+        return getUserNameText();
+    }
+
+    /**
+     * @param TextFirstName1 the TextFirstName1 to set
+     */
+    public void setTextFirstName1(javax.swing.JTextField TextFirstName1) {
+        this.setUserNameText(TextFirstName1);
+    }
+
+    /**
+     * @return the TextFirstName2
+     */
+    public javax.swing.JTextField getTextFirstName2() {
+        return getFirstNameText();
+    }
+
+    /**
+     * @param TextFirstName2 the TextFirstName2 to set
+     */
+    public void setTextFirstName2(javax.swing.JTextField TextFirstName2) {
+        this.setFirstNameText(TextFirstName2);
+    }
+
+    /**
+     * @return the TextFirstName3
+     */
+    public javax.swing.JTextField getTextFirstName3() {
+        return getLastNameText();
+    }
+
+    /**
+     * @param TextFirstName3 the TextFirstName3 to set
+     */
+    public void setTextFirstName3(javax.swing.JTextField TextFirstName3) {
+        this.setLastNameText(TextFirstName3);
+    }
+
+    /**
+     * @return the FirstNameText
+     */
+    public javax.swing.JTextField getFirstNameText() {
+        return FirstNameText;
+    }
+
+    /**
+     * @param FirstNameText the FirstNameText to set
+     */
+    public void setFirstNameText(javax.swing.JTextField FirstNameText) {
+        this.FirstNameText = FirstNameText;
+    }
+
+    /**
+     * @return the LastNameText
+     */
+    public javax.swing.JTextField getLastNameText() {
+        return LastNameText;
+    }
+
+    /**
+     * @param LastNameText the LastNameText to set
+     */
+    public void setLastNameText(javax.swing.JTextField LastNameText) {
+        this.LastNameText = LastNameText;
+    }
+
+    /**
+     * @param NewUserPanel the NewUserPanel to set
+     */
+    public void setNewUserPanel(javax.swing.JPanel NewUserPanel) {
+        this.NewUserPanel = NewUserPanel;
+    }
+
+    /**
+     * @return the PasswordText
+     */
+    public javax.swing.JTextField getPasswordText() {
+        return PasswordText;
+    }
+
+    /**
+     * @param PasswordText the PasswordText to set
+     */
+    public void setPasswordText(javax.swing.JTextField PasswordText) {
+        this.PasswordText = PasswordText;
+    }
+
+    /**
+     * @return the SaveButton
+     */
+    public javax.swing.JButton getSaveButton() {
+        return SaveButton;
+    }
+
+    /**
+     * @param SaveButton the SaveButton to set
+     */
+    public void setSaveButton(javax.swing.JButton SaveButton) {
+        this.SaveButton = SaveButton;
+    }
+
+    /**
+     * @return the UserNameText
+     */
+    public javax.swing.JTextField getUserNameText() {
+        return UserNameText;
+    }
+
+    /**
+     * @param UserNameText the UserNameText to set
+     */
+    public void setUserNameText(javax.swing.JTextField UserNameText) {
+        this.UserNameText = UserNameText;
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @param jLabel4 the jLabel4 to set
+     */
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    /**
+     * @return the jLabel5
+     */
+    public javax.swing.JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    /**
+     * @param jLabel5 the jLabel5 to set
+     */
+    public void setjLabel5(javax.swing.JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
     }
 
     

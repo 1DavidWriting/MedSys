@@ -29,6 +29,7 @@ public class AdminController implements ActionListener {
         view = new AdminView(admin);
         addActionListenerForLogOutButton();
         AddActionListenerForAddUserButton();
+        AddActionListenerForSaveButton();
         
     }
     
@@ -37,11 +38,34 @@ public class AdminController implements ActionListener {
             public void actionPerformed (ActionEvent ae){
                 Object obj = ae.getSource();
                 if (obj == view.getFrame().getPanel().getAddNewUserButton()){
+                    //System.out.println("Adding a new patient");                    
+                    view.getFrame().getPanel().getNewUserPanel().setVisible(true);                    
+                }
+            }
+        
+        });
+    }
+    
+    private void AddActionListenerForSaveButton(){
+        view.getFrame().getPanel().getSaveButton().addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent ae){
+                Object obj = ae.getSource();
+                if (obj == view.getFrame().getPanel().getSaveButton()){
                     System.out.println("Adding a new patient");
+                    String firstName = view.getFrame().getPanel().getFirstNameText().getText();
+                    String lastName = view.getFrame().getPanel().getLastNameText().getText();
+                    String userName = view.getFrame().getPanel().getUserNameText().getText();
+                    String passWord = view.getFrame().getPanel().getPasswordText().getText();
+                    String fullName = "" + firstName + " " + lastName;
                     LocalDate happyBirthday = LocalDate.of(1996, 4, 13);
-                    Patient addPatient = createPatientBlankRecord(happyBirthday, "Mr. New", "mn1", "mn1");
+                    Patient addPatient = createPatientBlankRecord(happyBirthday, fullName, userName, passWord);
                     admin.getPatientList().addPatient(addPatient);
-                    admin.getPatientList().savePatientList();
+                    admin.getPatientList().savePatientList();                    
+                    view.getFrame().getPanel().getFirstNameText().setText("");
+                    view.getFrame().getPanel().getLastNameText().setText("");
+                    view.getFrame().getPanel().getUserNameText().setText("");
+                    view.getFrame().getPanel().getPasswordText().setText("");
+                    view.getFrame().getPanel().getNewUserPanel().setVisible(false);
                 }
             }
         
