@@ -36,7 +36,10 @@ public class DataCreation {
             System.out.println("No patient file found.  Creating patient 2 now...");
             createPatient2();
         }             
-        createPatientList();
+        patientList1 = getPatientListFromFile();
+        if (patientList1 == null){
+            createPatientList();
+        }        
         createAdmin();        
         createPhysician();           
         createCaregiver();
@@ -187,6 +190,37 @@ public class DataCreation {
 		}
                 return patientFromFile;
         }
+    
+    private PatientList getPatientListFromFile(){
+        
+        String filename = "patientList.ser";
+        PatientList patientListFromFile = null;
+        //Deserialization
+        try
+		{ 
+			// Reading the object from a file 
+			FileInputStream file = new FileInputStream(filename); 
+			ObjectInputStream in = new ObjectInputStream(file); 
+			
+			// Method for deserialization of object 
+			patientListFromFile = (PatientList)in.readObject(); 
+			
+			in.close(); 
+			file.close(); 
+			
+		} 
+		
+		catch(IOException ex) 
+		{ 
+			System.out.println("IOException is caught"); 
+		} 
+		
+		catch(ClassNotFoundException ex) 
+		{ 
+			System.out.println("ClassNotFoundException is caught"); 
+		}
+                return patientListFromFile;
+    }
 
     /**
      * @return the physician1
