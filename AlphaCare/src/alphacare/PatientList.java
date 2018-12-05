@@ -1,4 +1,7 @@
 package alphacare;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class PatientList implements java.io.Serializable{
@@ -13,6 +16,27 @@ public class PatientList implements java.io.Serializable{
     public PatientList() {
         
         
+    }
+    
+    public void savePatientList(){
+        String filename = ("patientList.ser");
+        // Serialization 
+		try
+		{ 
+			//Saving of object in a file 
+			FileOutputStream file = new FileOutputStream(filename);                        
+			ObjectOutputStream out = new ObjectOutputStream(file);
+                        out.writeObject(this);
+                        out.close();
+			file.close(); 
+			System.out.println("List has been serialized"); 
+
+		} 
+		
+		catch(IOException ex) 
+		{ 
+			System.out.println("IOException is caught"); 
+		}
     }
     
     /**
