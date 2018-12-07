@@ -1,9 +1,6 @@
 
 package alphacare;
 
-import java.util.Date;
-
-
 public class Permissions implements java.io.Serializable {
     
     int userID;
