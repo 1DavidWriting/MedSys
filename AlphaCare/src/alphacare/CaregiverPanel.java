@@ -22,12 +22,166 @@ import javax.swing.JTextArea;
  */
 public class CaregiverPanel extends javax.swing.JPanel implements ActionListener {
 
+    /**
+     * @return the addNewUserButton
+     */
+    public javax.swing.JButton getAddNewUserButton() {
+        return addNewUserButton;
+    }
+
+    /**
+     * @param addNewUserButton the addNewUserButton to set
+     */
+    public void setAddNewUserButton(javax.swing.JButton addNewUserButton) {
+        this.addNewUserButton = addNewUserButton;
+    }
+
+    /**
+     * @return the jButton2
+     */
+    public javax.swing.JButton getjButton2() {
+        return getSavePatientButton();
+    }
+
+    /**
+     * @param jButton2 the jButton2 to set
+     */
+    public void setjButton2(javax.swing.JButton jButton2) {
+        this.setSavePatientButton(jButton2);
+    }
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @param jLabel1 the jLabel1 to set
+     */
+    public void setjLabel1(javax.swing.JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @param jLabel2 the jLabel2 to set
+     */
+    public void setjLabel2(javax.swing.JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @param jLabel3 the jLabel3 to set
+     */
+    public void setjLabel3(javax.swing.JLabel jLabel3) {
+        this.jLabel3 = jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @param jLabel4 the jLabel4 to set
+     */
+    public void setjLabel4(javax.swing.JLabel jLabel4) {
+        this.jLabel4 = jLabel4;
+    }
+
+    /**
+     * @return the jTextField1
+     */
+    public javax.swing.JTextField getjTextField1() {
+        return getFirstNameText();
+    }
+
+    /**
+     * @param jTextField1 the jTextField1 to set
+     */
+    public void setjTextField1(javax.swing.JTextField jTextField1) {
+        this.setFirstNameText(jTextField1);
+    }
+
+    /**
+     * @return the jTextField2
+     */
+    public javax.swing.JTextField getjTextField2() {
+        return getLastNameText();
+    }
+
+    /**
+     * @param jTextField2 the jTextField2 to set
+     */
+    public void setjTextField2(javax.swing.JTextField jTextField2) {
+        this.setLastNameText(jTextField2);
+    }
+
+    /**
+     * @return the jTextField3
+     */
+    public javax.swing.JTextField getjTextField3() {
+        return getUserNameText();
+    }
+
+    /**
+     * @param jTextField3 the jTextField3 to set
+     */
+    public void setjTextField3(javax.swing.JTextField jTextField3) {
+        this.setUserNameText(jTextField3);
+    }
+
+    /**
+     * @return the jTextField4
+     */
+    public javax.swing.JTextField getjTextField4() {
+        return getPassWordText();
+    }
+
+    /**
+     * @param jTextField4 the jTextField4 to set
+     */
+    public void setjTextField4(javax.swing.JTextField jTextField4) {
+        this.setPassWordText(jTextField4);
+    }
+
+    /**
+     * @return the newUserPanel
+     */
+    public javax.swing.JPanel getNewUserPanel() {
+        return newUserPanel;
+    }
+
+    /**
+     * @param newUserPanel the newUserPanel to set
+     */
+    public void setNewUserPanel(javax.swing.JPanel newUserPanel) {
+        this.newUserPanel = newUserPanel;
+    }
+
     
     /**
      * @return the selectionMenu
      */
     public javax.swing.JComboBox<String> getSelectionMenu() {
-        return jComboBox1;
+        return getjComboBox1();
     }    
     
     private Caregiver caregiver;
@@ -46,7 +200,7 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
 
     private void setNameText(){
         
-        this.getNameLabel().setText("Welcome, " + this.caregiver.getFullName());
+        this.getNameLabel().setText("Welcome, " + this.getCaregiver().getFullName());
         this.getPatientLabel().setText("Select a Patient");
         
     }
@@ -56,7 +210,7 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         
         Date date = new Date();
         SimpleDateFormat s = new SimpleDateFormat("yyyy-mm-dd");
-        dLabel.setText(s.format(date));
+        getdLabel().setText(s.format(date));
         
     }
     
@@ -65,9 +219,9 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         this.getSelectionMenu().removeAllItems();
         this.getSelectionMenu().addItem("Select a Patient");
         
-        for (int i = 0; i < this.caregiver.getPatientList().getPatientObjectList().size(); i++){
+        for (int i = 0; i < this.getCaregiver().getPatientList().getPatientObjectList().size(); i++){
             
-            this.getSelectionMenu().addItem(this.caregiver.getPatientList().getPatientObjectList().get(i).getFullName()); 
+            this.getSelectionMenu().addItem(this.getCaregiver().getPatientList().getPatientObjectList().get(i).getFullName()); 
             
         }
         
@@ -104,6 +258,18 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         optionsLabel = new javax.swing.JLabel();
         categoryLabel = new javax.swing.JLabel();
         patientLabel = new javax.swing.JLabel();
+        newUserPanel = new javax.swing.JPanel();
+        savePatientButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        firstNameText = new javax.swing.JTextField();
+        lastNameText = new javax.swing.JTextField();
+        userNameText = new javax.swing.JTextField();
+        passWordText = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        addNewUserButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 136, 122));
 
@@ -229,6 +395,77 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         patientLabel.setForeground(new java.awt.Color(255, 255, 255));
         patientLabel.setText("Patient Label");
 
+        savePatientButton.setText("Save New Patient");
+
+        jLabel1.setText("First Name:");
+
+        jLabel2.setText("Last Name:");
+
+        jLabel3.setText("User Name:");
+
+        jLabel4.setText("Password:");
+
+        jTextField1.setText("Log out and log in to see new patient in dropdown.");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout newUserPanelLayout = new javax.swing.GroupLayout(newUserPanel);
+        newUserPanel.setLayout(newUserPanelLayout);
+        newUserPanelLayout.setHorizontalGroup(
+            newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(newUserPanelLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(firstNameText, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(lastNameText)
+                    .addComponent(userNameText)
+                    .addComponent(passWordText))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newUserPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(savePatientButton)
+                .addGap(31, 31, 31))
+            .addGroup(newUserPanelLayout.createSequentialGroup()
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        newUserPanelLayout.setVerticalGroup(
+            newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newUserPanelLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(firstNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(lastNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(userNameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(newUserPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(passWordText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
+                .addComponent(savePatientButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        addNewUserButton.setText("Add New Patient");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -237,15 +474,10 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(patientLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(180, 180, 180)))
-                        .addGap(2, 2, 2)
-                        .addComponent(LogOutButton))
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(patientLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(278, 278, 278))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, 0)
@@ -264,8 +496,17 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(newUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addNewUserButton))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(478, 478, 478)
+                        .addComponent(LogOutButton)
+                        .addGap(76, 76, 76))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,9 +520,13 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(patientLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(selectionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addNewUserButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(newUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(selectionPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -309,10 +554,14 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void patientInfoTextAreaMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientInfoTextAreaMouseMoved
-        cancelButton.setEnabled(true);
-        saveButton.setEnabled(true);
+        getCancelButton().setEnabled(true);
+        getSaveButton().setEnabled(true);
         //System.out.println("Editing patienInfoTestArea now");        
     }//GEN-LAST:event_patientInfoTextAreaMouseMoved
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     public Caregiver getCaregiver() {
         return caregiver;
@@ -500,6 +749,7 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LogOutButton;
+    private javax.swing.JButton addNewUserButton;
     private javax.swing.JButton bloodPressureButton;
     private javax.swing.JButton bloodSugarButton;
     private javax.swing.JButton cancelButton;
@@ -508,23 +758,104 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JLabel dateLabel;
     private javax.swing.JButton diagnosesButton;
     private javax.swing.JButton exerciseButton;
+    private javax.swing.JTextField firstNameText;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField lastNameText;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JPanel newUserPanel;
     private javax.swing.JLabel optionsLabel;
     private javax.swing.JLabel pLabel;
+    private javax.swing.JTextField passWordText;
     private javax.swing.JTextArea patientInfoTextArea;
     private javax.swing.JLabel patientLabel;
     private javax.swing.JLabel physicianLabel;
     private javax.swing.JButton prescriptionsButton;
     private javax.swing.JButton saveButton;
+    private javax.swing.JButton savePatientButton;
     private javax.swing.JPanel selectionPanel;
     private javax.swing.JButton soapButton;
+    private javax.swing.JTextField userNameText;
     private javax.swing.JButton weightButton;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @return the firstNameText
+     */
+    public javax.swing.JTextField getFirstNameText() {
+        return firstNameText;
+    }
+
+    /**
+     * @param firstNameText the firstNameText to set
+     */
+    public void setFirstNameText(javax.swing.JTextField firstNameText) {
+        this.firstNameText = firstNameText;
+    }
+
+    /**
+     * @return the lastNameText
+     */
+    public javax.swing.JTextField getLastNameText() {
+        return lastNameText;
+    }
+
+    /**
+     * @param lastNameText the lastNameText to set
+     */
+    public void setLastNameText(javax.swing.JTextField lastNameText) {
+        this.lastNameText = lastNameText;
+    }
+
+    /**
+     * @return the passWordText
+     */
+    public javax.swing.JTextField getPassWordText() {
+        return passWordText;
+    }
+
+    /**
+     * @param passWordText the passWordText to set
+     */
+    public void setPassWordText(javax.swing.JTextField passWordText) {
+        this.passWordText = passWordText;
+    }
+
+    /**
+     * @return the savePatientButton
+     */
+    public javax.swing.JButton getSavePatientButton() {
+        return savePatientButton;
+    }
+
+    /**
+     * @param savePatientButton the savePatientButton to set
+     */
+    public void setSavePatientButton(javax.swing.JButton savePatientButton) {
+        this.savePatientButton = savePatientButton;
+    }
+
+    /**
+     * @return the userNameText
+     */
+    public javax.swing.JTextField getUserNameText() {
+        return userNameText;
+    }
+
+    /**
+     * @param userNameText the userNameText to set
+     */
+    public void setUserNameText(javax.swing.JTextField userNameText) {
+        this.userNameText = userNameText;
     }
 }

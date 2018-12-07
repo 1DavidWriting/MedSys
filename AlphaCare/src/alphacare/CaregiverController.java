@@ -5,6 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.time.LocalDate;
+import java.util.Date;
 import javax.swing.JComboBox;
 
 public class CaregiverController implements ActionListener {
@@ -40,7 +42,72 @@ public class CaregiverController implements ActionListener {
         view.getFrame().getPanel().getBloodPressureButton().setEnabled(false);
         view.getFrame().getPanel().getOptionsLabel().setText("");
          
-    }   
+    }  
+    
+    private void AddActionListenerForAddUserButton(){
+        view.getFrame().getPanel().getNewUserPanel().setVisible(false); 
+        view.getFrame().getPanel().getAddNewUserButton().addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent ae){
+                Object obj = ae.getSource();
+                if (obj == view.getFrame().getPanel().getAddNewUserButton()){
+                    //System.out.println("Adding a new patient");                    
+                    view.getFrame().getPanel().getNewUserPanel().setVisible(true);                    
+                }
+            }
+        
+        });
+    }
+    
+    private void AddActionListenerForSaveButton(){
+        view.getFrame().getPanel().getSavePatientButton().addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent ae){
+                Object obj = ae.getSource();
+                if (obj == view.getFrame().getPanel().getSavePatientButton()){
+                    System.out.println("Adding a new patient");
+                    String firstName = view.getFrame().getPanel().getFirstNameText().getText();
+                    String lastName = view.getFrame().getPanel().getLastNameText().getText();
+                    String userName = view.getFrame().getPanel().getUserNameText().getText();
+                    String passWord = view.getFrame().getPanel().getPassWordText().getText();
+                    String fullName = "" + firstName + " " + lastName;
+                    LocalDate happyBirthday = LocalDate.of(1996, 4, 13);
+                    Patient addPatient = createPatientBlankRecord(happyBirthday, fullName, userName, passWord);
+                    caregiver.getPatientList().addPatient(addPatient);
+                    caregiver.getPatientList().savePatientList();                    
+                    view.getFrame().getPanel().getFirstNameText().setText("");
+                    view.getFrame().getPanel().getLastNameText().setText("");
+                    view.getFrame().getPanel().getUserNameText().setText("");
+                    view.getFrame().getPanel().getPassWordText().setText("");
+                    view.getFrame().getPanel().getNewUserPanel().setVisible(false);
+                }
+            }
+        
+        });
+    }
+    
+     public Patient createPatientBlankRecord(LocalDate DOB, String name, String userName, String passWord){        
+        LocalDate happyBirthday = DOB;
+        EHR ehrBlank = new EHR();
+        ehrBlank.setPrescriptions("No Prescriptions Entered.");
+        ehrBlank.setDiagnoses("No Diagnoses Entered.");
+        SOAP soapBlank = new SOAP();
+        soapBlank.setDate(new Date());
+        soapBlank.setPhysicianName("Doctor Info Not Yet Entered");
+        soapBlank.setSubject("None");
+        soapBlank.setObjective("None");
+        soapBlank.setPlan("None");
+        soapBlank.setAssessment("None");
+        ehrBlank.setSoaps(soapBlank); 
+        int vitID = 5;
+        int PatientID = 55;
+        String BP = "No BP Entered";
+        int weight = 0;
+        int sugar = 0;
+        Vitals vitalsBlank = new Vitals(vitID, PatientID, BP, weight, sugar); 
+        ehrBlank.setVitals(vitalsBlank);
+        Patient newPatient = new Patient(6, name, userName, passWord, happyBirthday, "Doctor Doctor", ehrBlank);
+        return newPatient;
+        
+    }
     
     public void enableSelectionPanel(){
         
@@ -62,8 +129,9 @@ public class CaregiverController implements ActionListener {
         addActionListenersforSelectionPanelButtons();
         addActionListenersForSaveCancelButtons();
         addActionListenerForPatientSelectionMenu();
-        addActionListenerForLogOutButton();       
-        
+        addActionListenerForLogOutButton();
+        AddActionListenerForAddUserButton();
+        AddActionListenerForSaveButton();
     }
     
     private void addActionListenerForPatientSelectionMenu(){
