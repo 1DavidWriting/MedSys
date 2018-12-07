@@ -176,8 +176,8 @@ public class PhysicianController implements ActionListener {
                         view.getFrame().getPanel().getCategoryLabel().setText("Prescriptions ");
                         String prescriptions = patient.getHealthRecord().getPrescriptions();
                         view.getFrame().getPanel().getPatientInfoTextArea().setText(prescriptions);
-                        //Patients can't edit prescriptions
-                        hideEditSaveControlButtons();
+                        currentSelection = "prescriptions";
+                        showEditSaveControlButtons();
                     }
                 };
             });
@@ -203,8 +203,8 @@ public class PhysicianController implements ActionListener {
                     if (obj == view.getFrame().getPanel().getDiagnosesButton()){
                         view.getFrame().getPanel().getCategoryLabel().setText("Diagnoses ");
                          view.getFrame().getPanel().getPatientInfoTextArea().setText(patient.getHealthRecord().getDiagnoses());
-                         //Patients can't edit diagnoses
-                         hideEditSaveControlButtons();
+                         currentSelection = "diagnoses";
+                         showEditSaveControlButtons();
                     }
                 };
             });
@@ -272,6 +272,10 @@ public class PhysicianController implements ActionListener {
                                 patient.getHealthRecord().getVitals().setWeight(weight);
                                 break;
                             case "blood pressure": patient.getHealthRecord().getVitals().setBloodPressure(textToSave);
+                                break;
+                            case "diagnoses": patient.getHealthRecord().setDiagnoses(textToSave);
+                                break;
+                            case "prescriptions": patient.getHealthRecord().setPrescriptions(textToSave);
                                 break;
                             default: System.out.println("Error: text not be saved");
                                 break;
