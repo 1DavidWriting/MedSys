@@ -193,7 +193,6 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         initComponents();
         caregiver = theCaregiver;
         setNameText();
-        showDate();
         setPatientsOnMenu();
 
     }
@@ -204,15 +203,7 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         this.getPatientLabel().setText("Select a Patient");
         
     }
-    
-    private void showDate(){
-        
-        
-        Date date = new Date();
-        SimpleDateFormat s = new SimpleDateFormat("yyyy-mm-dd");
-        getdLabel().setText(s.format(date));
-        
-    }
+
     
     private void setPatientsOnMenu(){
         
@@ -236,12 +227,8 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        physicianLabel = new javax.swing.JLabel();
-        dateLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
-        pLabel = new javax.swing.JLabel();
         LogOutButton = new javax.swing.JButton();
-        dLabel = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         patientInfoTextArea = new javax.swing.JTextArea();
@@ -273,27 +260,11 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
 
         setBackground(new java.awt.Color(0, 136, 122));
 
-        physicianLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        physicianLabel.setForeground(new java.awt.Color(255, 255, 255));
-        physicianLabel.setText("Physician:");
-
-        dateLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        dateLabel.setForeground(new java.awt.Color(255, 255, 255));
-        dateLabel.setText("Date:");
-
         nameLabel.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(255, 255, 255));
         nameLabel.setText("Caregiver's name");
 
-        pLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        pLabel.setForeground(new java.awt.Color(255, 255, 255));
-        pLabel.setText("           ");
-
         LogOutButton.setText("Logout");
-
-        dLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        dLabel.setForeground(new java.awt.Color(255, 255, 255));
-        dLabel.setText("            ");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -480,23 +451,15 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
                         .addGap(278, 278, 278))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(selectionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(physicianLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(pLabel))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(dateLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(dLabel)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(newUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -528,19 +491,9 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
                     .addComponent(selectionPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cancelButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(physicianLabel)
-                            .addComponent(pLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(dateLabel)
-                            .addComponent(dLabel))))
+                .addComponent(saveButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cancelButton)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -603,22 +556,6 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         this.cancelButton = cancelButton;
     }
 
-    public JLabel getdLabel() {
-        return dLabel;
-    }
-
-    public void setdLabel(JLabel dLabel) {
-        this.dLabel = dLabel;
-    }
-
-    public JLabel getDateLabel() {
-        return dateLabel;
-    }
-
-    public void setDateLabel(JLabel dateLabel) {
-        this.dateLabel = dateLabel;
-    }
-
     public JButton getDiagnosesButton() {
         return diagnosesButton;
     }
@@ -667,14 +604,6 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
         this.optionsLabel = optionsLabel;
     }
 
-    public JLabel getpLabel() {
-        return pLabel;
-    }
-
-    public void setpLabel(JLabel pLabel) {
-        this.pLabel = pLabel;
-    }
-
     public JTextArea getPatientInfoTextArea() {
         return patientInfoTextArea;
     }
@@ -689,14 +618,6 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
 
     public void setPatientLabel(JLabel patientLabel) {
         this.patientLabel = patientLabel;
-    }
-
-    public JLabel getPhysicianLabel() {
-        return physicianLabel;
-    }
-
-    public void setPhysicianLabel(JLabel physicianLabel) {
-        this.physicianLabel = physicianLabel;
     }
 
     public JButton getPrescriptionsButton() {
@@ -754,8 +675,6 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JButton bloodSugarButton;
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel categoryLabel;
-    private javax.swing.JLabel dLabel;
-    private javax.swing.JLabel dateLabel;
     private javax.swing.JButton diagnosesButton;
     private javax.swing.JButton exerciseButton;
     private javax.swing.JTextField firstNameText;
@@ -770,11 +689,9 @@ public class CaregiverPanel extends javax.swing.JPanel implements ActionListener
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel newUserPanel;
     private javax.swing.JLabel optionsLabel;
-    private javax.swing.JLabel pLabel;
     private javax.swing.JTextField passWordText;
     private javax.swing.JTextArea patientInfoTextArea;
     private javax.swing.JLabel patientLabel;
-    private javax.swing.JLabel physicianLabel;
     private javax.swing.JButton prescriptionsButton;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton savePatientButton;
