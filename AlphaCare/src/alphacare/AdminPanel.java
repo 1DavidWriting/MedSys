@@ -35,6 +35,7 @@ public class AdminPanel extends javax.swing.JPanel {
         admin = theAdmin;
         setNameText();
         this.NewUserPanel.setVisible(false);
+        
     }
     
     private void setNameText(){
