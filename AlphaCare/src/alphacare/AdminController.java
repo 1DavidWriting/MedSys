@@ -30,40 +30,47 @@ public class AdminController implements ActionListener {
         addActionListenerForLogOutButton();
         AddActionListenerForAddUserButton();
         AddActionListenerForSaveButton();
+        AddActionListenerForTotalUsersButton();
         
     }
     
     private void AddActionListenerForAddUserButton(){
-        
         view.getFrame().getPanel().getAddNewUserButton().addActionListener(new ActionListener(){
-            
             public void actionPerformed (ActionEvent ae){
-                
                 Object obj = ae.getSource();
-                
                 if (obj == view.getFrame().getPanel().getAddNewUserButton()){
-                    
                     //System.out.println("Adding a new patient");                    
-                    view.getFrame().getPanel().getNewUserPanel().setVisible(true);   
-                    
+                    view.getFrame().getPanel().getNewUserPanel().setVisible(true);                    
                 }
-                
             }
         
         });
+    }
+    
+    private void AddActionListenerForTotalUsersButton(){
+        view.getFrame().getPanel().getjPanelTotalUsers().setVisible(false);
+        view.getFrame().getPanel().getTotalUsersButton().addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent ae){
+                Object obj = ae.getSource();
+                if (obj == view.getFrame().getPanel().getTotalUsersButton()){
+                    //System.out.println("Adding a new patient");                    
+                    String totalUsersText = "Patients: " + admin.getPatientList().getPatientObjectList().size() + "\n";
+                    totalUsersText += "Administrators: 1 \n Physicians: 1 \n Caregivers: 1 \n";
+                    int total = admin.getPatientList().getPatientObjectList().size() + 3; 
+                    totalUsersText += "Total: " + total;
+                    view.getFrame().getPanel().getjTextAreaTotalUsers().setText(totalUsersText);
+                    view.getFrame().getPanel().getjPanelTotalUsers().setVisible(true);                    
+                }
+            }
         
+        });
     }
     
     private void AddActionListenerForSaveButton(){
-        
         view.getFrame().getPanel().getSaveButton().addActionListener(new ActionListener(){
-            
             public void actionPerformed (ActionEvent ae){
-                
                 Object obj = ae.getSource();
-                
                 if (obj == view.getFrame().getPanel().getSaveButton()){
-                    
                     System.out.println("Adding a new patient");
                     String firstName = view.getFrame().getPanel().getFirstNameText().getText();
                     String lastName = view.getFrame().getPanel().getLastNameText().getText();
@@ -73,23 +80,21 @@ public class AdminController implements ActionListener {
                     LocalDate happyBirthday = LocalDate.of(1996, 4, 13);
                     Patient addPatient = createPatientBlankRecord(happyBirthday, fullName, userName, passWord);
                     admin.getPatientList().addPatient(addPatient);
+                    addPatient.savePatient();
                     admin.getPatientList().savePatientList();                    
                     view.getFrame().getPanel().getFirstNameText().setText("");
                     view.getFrame().getPanel().getLastNameText().setText("");
                     view.getFrame().getPanel().getUserNameText().setText("");
                     view.getFrame().getPanel().getPasswordText().setText("");
                     view.getFrame().getPanel().getNewUserPanel().setVisible(false);
-                    
+                    view.getFrame().getPanel().getjPanelTotalUsers().setVisible(false);
                 }
-                
             }
         
         });
-        
     }
     
-    public Patient createPatientBlankRecord(LocalDate DOB, String name, String userName, String passWord){  
-        
+    public Patient createPatientBlankRecord(LocalDate DOB, String name, String userName, String passWord){        
         LocalDate happyBirthday = DOB;
         EHR ehrBlank = new EHR();
         ehrBlank.setPrescriptions("No Prescriptions Entered.");

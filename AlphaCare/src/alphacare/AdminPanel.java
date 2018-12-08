@@ -35,7 +35,6 @@ public class AdminPanel extends javax.swing.JPanel {
         admin = theAdmin;
         setNameText();
         this.NewUserPanel.setVisible(false);
-        
     }
     
     private void setNameText(){
@@ -72,6 +71,10 @@ public class AdminPanel extends javax.swing.JPanel {
         FirstNameText = new javax.swing.JTextField();
         LastNameText = new javax.swing.JTextField();
         SaveButton = new javax.swing.JButton();
+        jPanelTotalUsers = new javax.swing.JPanel();
+        LabelTotalUsers = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextAreaTotalUsers = new javax.swing.JTextArea();
 
         jLabel4.setText("jLabel4");
 
@@ -206,6 +209,34 @@ public class AdminPanel extends javax.swing.JPanel {
                 .addGap(9, 9, 9))
         );
 
+        LabelTotalUsers.setText("Total Users: ");
+
+        jTextAreaTotalUsers.setColumns(20);
+        jTextAreaTotalUsers.setRows(5);
+        jTextAreaTotalUsers.setText("Admin: 1\nPatients: 2\nPhysician: 1\nCaregiver: 1\nTotal: 5\n");
+        jScrollPane1.setViewportView(jTextAreaTotalUsers);
+
+        javax.swing.GroupLayout jPanelTotalUsersLayout = new javax.swing.GroupLayout(jPanelTotalUsers);
+        jPanelTotalUsers.setLayout(jPanelTotalUsersLayout);
+        jPanelTotalUsersLayout.setHorizontalGroup(
+            jPanelTotalUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTotalUsersLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelTotalUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LabelTotalUsers)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanelTotalUsersLayout.setVerticalGroup(
+            jPanelTotalUsersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTotalUsersLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(LabelTotalUsers)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -237,7 +268,9 @@ public class AdminPanel extends javax.swing.JPanel {
                         .addComponent(optionsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(NewUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(NewUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanelTotalUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -259,8 +292,10 @@ public class AdminPanel extends javax.swing.JPanel {
                             .addComponent(appPerformanceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(systemStatusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(26, 26, 26)
-                .addComponent(NewUserPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(NewUserPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelTotalUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -363,6 +398,7 @@ public class AdminPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField FirstNameText;
+    private javax.swing.JLabel LabelTotalUsers;
     private javax.swing.JTextField LastNameText;
     private javax.swing.JButton LogOutButton;
     private javax.swing.JPanel NewUserPanel;
@@ -377,6 +413,9 @@ public class AdminPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanelTotalUsers;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextAreaTotalUsers;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel optionsLabel;
     private javax.swing.JButton systemStatusButton;
@@ -663,6 +702,62 @@ public class AdminPanel extends javax.swing.JPanel {
      */
     public void setjLabel5(javax.swing.JLabel jLabel5) {
         this.jLabel5 = jLabel5;
+    }
+
+    /**
+     * @return the LabelTotalUsers
+     */
+    public javax.swing.JLabel getLabelTotalUsers() {
+        return LabelTotalUsers;
+    }
+
+    /**
+     * @param LabelTotalUsers the LabelTotalUsers to set
+     */
+    public void setLabelTotalUsers(javax.swing.JLabel LabelTotalUsers) {
+        this.LabelTotalUsers = LabelTotalUsers;
+    }
+
+    /**
+     * @return the jPanelTotalUsers
+     */
+    public javax.swing.JPanel getjPanelTotalUsers() {
+        return jPanelTotalUsers;
+    }
+
+    /**
+     * @param jPanelTotalUsers the jPanelTotalUsers to set
+     */
+    public void setjPanelTotalUsers(javax.swing.JPanel jPanelTotalUsers) {
+        this.jPanelTotalUsers = jPanelTotalUsers;
+    }
+
+    /**
+     * @return the jScrollPane1
+     */
+    public javax.swing.JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    /**
+     * @param jScrollPane1 the jScrollPane1 to set
+     */
+    public void setjScrollPane1(javax.swing.JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    /**
+     * @return the jTextAreaTotalUsers
+     */
+    public javax.swing.JTextArea getjTextAreaTotalUsers() {
+        return jTextAreaTotalUsers;
+    }
+
+    /**
+     * @param jTextAreaTotalUsers the jTextAreaTotalUsers to set
+     */
+    public void setjTextAreaTotalUsers(javax.swing.JTextArea jTextAreaTotalUsers) {
+        this.jTextAreaTotalUsers = jTextAreaTotalUsers;
     }
 
     
